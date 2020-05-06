@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.TextView
 
 /**
  * The configuration screen for the [ZekrActivity] AppWidget.
@@ -40,7 +41,7 @@ class ZekrActivityConfigureActivity : Activity() {
         setResult(RESULT_CANCELED)
 
         setContentView(R.layout.zekr_activity_configure)
-        appWidgetText = findViewById<View>(R.id.appwidget_text) as EditText
+        appWidgetText = findViewById<View>(R.id.appwidget_text_id) as EditText
         findViewById<View>(R.id.add_button).setOnClickListener(onClickListener)
 
         // Find the widget id from the intent.

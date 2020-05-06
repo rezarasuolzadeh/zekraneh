@@ -48,7 +48,26 @@ internal fun updateAppWidget(
     val widgetText = loadTitlePref(context, appWidgetId)
     // Construct the RemoteViews object
     val views = RemoteViews(context.packageName, R.layout.zekr_activity)
-    views.setTextViewText(R.id.appwidget_text, widgetText)
+
+    // Create intent pointing to ConfigurationActivity, in this example we are at ConfigurationActivity
+
+    // Create intent pointing to ConfigurationActivity, in this example we are at ConfigurationActivity
+    val configurationIntent =
+        Intent(context, ZekrActivityConfigureActivity::class.java)
+    // Create a extra giving the App Widget Id
+    // Create a extra giving the App Widget Id
+    configurationIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
+    // Create a pending intent giving configurationIntent as parameter
+    // Create a pending intent giving configurationIntent as parameter
+    val configurationPendingIntent = PendingIntent.getActivity(
+        context,
+        0,
+        configurationIntent,
+        PendingIntent.FLAG_UPDATE_CURRENT
+    )
+    // Setting onClick event that will lauch ConfigurationActivity
+    // Setting onClick event that will lauch ConfigurationActivity
+    views.setOnClickPendingIntent(R.id.appwidget_text, configurationPendingIntent)
 
     // Instruct the widget manager to update the widget
     appWidgetManager.updateAppWidget(appWidgetId, views)
