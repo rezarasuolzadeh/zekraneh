@@ -7,16 +7,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
-import android.widget.TextView
 
 /**
- * The configuration screen for the [ZekrActivity] AppWidget.
+ * The configuration screen for the [WidgetActivity] AppWidget.
  */
-class ZekrActivityConfigureActivity : Activity() {
+class WidgetHandlerActivity : Activity() {
     private var appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID
     private lateinit var appWidgetText: EditText
     private var onClickListener = View.OnClickListener {
-        val context = this@ZekrActivityConfigureActivity
+        val context = this@WidgetHandlerActivity
 
         // When the button is clicked, store the string locally
         val widgetText = appWidgetText.text.toString()
@@ -40,7 +39,7 @@ class ZekrActivityConfigureActivity : Activity() {
         // out of the widget placement if the user presses the back button.
         setResult(RESULT_CANCELED)
 
-        setContentView(R.layout.zekr_activity_configure)
+        setContentView(R.layout.widget_activity_handler)
         appWidgetText = findViewById<View>(R.id.appwidget_text_id) as EditText
         findViewById<View>(R.id.add_button).setOnClickListener(onClickListener)
 
@@ -59,7 +58,7 @@ class ZekrActivityConfigureActivity : Activity() {
             return
         }
 
-        appWidgetText.setText(loadTitlePref(this@ZekrActivityConfigureActivity, appWidgetId))
+        appWidgetText.setText(loadTitlePref(this@WidgetHandlerActivity, appWidgetId))
     }
 
 }

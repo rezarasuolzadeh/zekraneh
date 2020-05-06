@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <receiver android:name=".ZekrActivity">
+        <receiver android:name=".WidgetActivity">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -19,7 +19,8 @@
                 android:resource="@xml/zekr_activity_info" />
         </receiver>
 
-        <activity android:name=".ZekrActivityConfigureActivity"
+        <activity
+            android:name=".WidgetHandlerActivity"
             android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />

@@ -7,12 +7,10 @@ import android.content.Context
 import android.content.Intent
 import android.widget.RemoteViews
 
+class WidgetActivity : AppWidgetProvider() {
 
-/**
- * Implementation of App Widget functionality.
- * App Widget Configuration implemented in [ZekrActivityConfigureActivity]
- */
-class ZekrActivity : AppWidgetProvider() {
+    var counter = 0
+
     override fun onUpdate(
         context: Context,
         appWidgetManager: AppWidgetManager,
@@ -46,29 +44,16 @@ internal fun updateAppWidget(
     appWidgetId: Int
 ) {
     val widgetText = loadTitlePref(context, appWidgetId)
-    // Construct the RemoteViews object
-    val views = RemoteViews(context.packageName, R.layout.zekr_activity)
-
-    // Create intent pointing to ConfigurationActivity, in this example we are at ConfigurationActivity
-
-    // Create intent pointing to ConfigurationActivity, in this example we are at ConfigurationActivity
-    val configurationIntent =
-        Intent(context, ZekrActivityConfigureActivity::class.java)
-    // Create a extra giving the App Widget Id
-    // Create a extra giving the App Widget Id
+    val views = RemoteViews(context.packageName, R.layout.widget_activity)
+//    views.setTextViewText(R.id.appwidget_text, widgetText)
+    val configurationIntent = Intent(context, WidgetHandlerActivity::class.java)
     configurationIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
-    // Create a pending intent giving configurationIntent as parameter
-    // Create a pending intent giving configurationIntent as parameter
     val configurationPendingIntent = PendingIntent.getActivity(
         context,
         0,
         configurationIntent,
         PendingIntent.FLAG_UPDATE_CURRENT
     )
-    // Setting onClick event that will lauch ConfigurationActivity
-    // Setting onClick event that will lauch ConfigurationActivity
     views.setOnClickPendingIntent(R.id.appwidget_text, configurationPendingIntent)
-
-    // Instruct the widget manager to update the widget
     appWidgetManager.updateAppWidget(appWidgetId, views)
 }
