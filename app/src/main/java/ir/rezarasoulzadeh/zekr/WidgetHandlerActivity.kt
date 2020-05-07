@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.TextView
 
 /**
  * The configuration screen for the [WidgetActivity] AppWidget.
@@ -42,6 +43,7 @@ class WidgetHandlerActivity : Activity() {
         setContentView(R.layout.widget_activity_handler)
         appWidgetText = findViewById<View>(R.id.appwidget_text_id) as EditText
         findViewById<View>(R.id.add_button).setOnClickListener(onClickListener)
+        findViewById<TextView>(R.id.zekrTextView).isSelected = true
 
         // Find the widget id from the intent.
         val intent = intent
