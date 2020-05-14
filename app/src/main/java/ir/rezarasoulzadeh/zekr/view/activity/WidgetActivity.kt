@@ -6,6 +6,7 @@ import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.widget.RemoteViews
 import android.widget.Toast
 import ir.rezarasoulzadeh.zekr.R
@@ -16,7 +17,6 @@ import ir.rezarasoulzadeh.zekr.service.utils.Prays
 class WidgetActivity : AppWidgetProvider() {
 
     private val MyOnClick = "myOnClickTag"
-    private val prayClick = "prayClick"
 
     override fun onUpdate(
         context: Context,
@@ -71,10 +71,6 @@ class WidgetActivity : AppWidgetProvider() {
             Toast.makeText(context, "Click", Toast.LENGTH_SHORT).show()
         }
 
-        if (prayClick == intent.action) {
-
-        }
-
     }
 
 }
@@ -85,7 +81,6 @@ internal fun updateAppWidget(
     appWidgetId: Int
 ) {
     val MyOnClick = "myOnClickTag"
-    val prayClick = "prayClick"
 
     val days = Days()
     val prays = Prays()
@@ -105,9 +100,15 @@ internal fun updateAppWidget(
     views.setTextViewText(R.id.appwidget_text, dayText)
     views.setTextViewText(R.id.prayTextView, prayText)
 
+    // open configuration activity
+    val intent = Intent(context, WidgetHandlerActivity::class.java)
+    intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
+    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+    intent.data = Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME))
+    val pendIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+    views.setOnClickPendingIntent(R.id.prayLayout, pendIntent)
 
     views.setOnClickPendingIntent(R.id.counterTextView, getPendingSelfIntent(context, MyOnClick));
-    views.setOnClickPendingIntent(R.id.prayLayout, getPendingSelfIntent(context, prayClick));
 
     appWidgetManager.updateAppWidget(appWidgetId, views)
 }
