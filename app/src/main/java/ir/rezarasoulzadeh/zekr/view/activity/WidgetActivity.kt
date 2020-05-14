@@ -8,7 +8,6 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
-import android.widget.Toast
 import ir.rezarasoulzadeh.zekr.R
 import ir.rezarasoulzadeh.zekr.service.utils.Days
 import ir.rezarasoulzadeh.zekr.service.utils.Prays
@@ -32,6 +31,7 @@ class WidgetActivity : AppWidgetProvider() {
         // When the user deletes the widget, delete the preference associated with it.
         for (appWidgetId in appWidgetIds) {
             deleteDayPref(context, appWidgetId)
+            deleteCounterPref(context, appWidgetId)
         }
     }
 
@@ -68,7 +68,6 @@ class WidgetActivity : AppWidgetProvider() {
                 AppWidgetManager.getInstance(context),
                 AppWidgetManager.INVALID_APPWIDGET_ID
             )
-            Toast.makeText(context, "Click", Toast.LENGTH_SHORT).show()
         }
 
     }

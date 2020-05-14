@@ -15,7 +15,7 @@ import ir.rezarasoulzadeh.zekr.service.utils.Prays
 class WidgetHandlerActivity : Activity() {
 
     private var appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID
-    private lateinit var appWidgetText: EditText
+//    private lateinit var appWidgetText: EditText
     private val days = Days()
     private val prays = Prays()
 
@@ -23,12 +23,12 @@ class WidgetHandlerActivity : Activity() {
         val context = this@WidgetHandlerActivity
 
         // When the button is clicked, store the string locally
-        val widgetText = appWidgetText.text.toString()
-        saveDayPref(
-            context,
-            appWidgetId,
-            widgetText
-        )
+//        val widgetText = appWidgetText.text.toString()
+//        saveDayPref(
+//            context,
+//            appWidgetId,
+//            widgetText
+//        )
 
         // It is the responsibility of the configuration activity to update the app widget
         val appWidgetManager = AppWidgetManager.getInstance(context)
@@ -53,8 +53,8 @@ class WidgetHandlerActivity : Activity() {
         setResult(RESULT_CANCELED)
 
         setContentView(R.layout.widget_config_activity)
-        appWidgetText = findViewById<View>(R.id.appwidget_text_id) as EditText
-        findViewById<View>(R.id.add_button).setOnClickListener(onClickListener)
+//        appWidgetText = findViewById<View>(R.id.appwidget_text_id) as EditText
+        findViewById<View>(R.id.configurationLayout).setOnClickListener(onClickListener)
 
         val today = days.getToday()
         val todayName = days.getTodayName(today)
@@ -76,12 +76,12 @@ class WidgetHandlerActivity : Activity() {
             return
         }
 
-        appWidgetText.setText(
-            loadDayPref(
-                this@WidgetHandlerActivity,
-                appWidgetId
-            )
-        )
+//        appWidgetText.setText(
+//            loadDayPref(
+//                this@WidgetHandlerActivity,
+//                appWidgetId
+//            )
+//        )
     }
 
 
