@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <receiver android:name=".WidgetActivity">
+        <receiver android:name=".view.activity.WidgetActivity">
+
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.WIDGET_BUTTON" />
+                <action android:name="android.appwidget.action.ACTION_AUTO_UPDATE_WIDGET" />
             </intent-filter>
 
             <meta-data
@@ -20,7 +23,7 @@
         </receiver>
 
         <activity
-            android:name=".WidgetHandlerActivity"
+            android:name=".view.activity.WidgetHandlerActivity"
             android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />

@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Zekr</string>
-    <string name="appwidget_text">ذکر روز</string>
-    <string name="appwidget_text2">پنجشنبه</string>
-    <string name="appwidget_text3">لا اِلهَ الَّا اَللّهُ المَلِکُ الحَقُّ المُبین</string>
+    <string name="defaultTitle">ذکر روز</string>
+    <string name="defaultDay">پنجشنبه</string>
+    <string name="defaultPray">لا اِلهَ الَّا اَللّهُ المَلِکُ الحَقُّ المُبین</string>
     <string name="configure">Configure</string>
     <string name="add_widget">Add widget</string>
 </resources>

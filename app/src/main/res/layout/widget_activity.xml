@@ -13,6 +13,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/counterTextView"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
@@ -22,11 +23,12 @@
             android:focusable="true"
             android:fontFamily="@font/vazir"
             android:gravity="center"
-            android:text="12"
+            android:text="0"
             android:textSize="25sp"
             android:textStyle="bold" />
 
         <LinearLayout
+            android:id="@+id/prayLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -39,26 +41,26 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/appwidget_text"
+                    android:id="@+id/dayTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="#000099CC"
-                    android:contentDescription="@string/appwidget_text"
                     android:fontFamily="@font/vazir"
                     android:padding="3dp"
-                    android:text="@string/appwidget_text"
+                    android:text="@string/defaultTitle"
                     android:textColor="#ffffff"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/appwidget_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#000099CC"
-                    android:contentDescription="@string/appwidget_text"
+                    android:contentDescription="@string/defaultTitle"
                     android:fontFamily="@font/vazir"
                     android:padding="3dp"
-                    android:text="@string/appwidget_text2"
+                    android:text="@string/defaultDay"
                     android:textColor="#EF7979"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -66,12 +68,12 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/zekrTextView"
+                android:id="@+id/prayTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:background="#000099CC"
-                android:contentDescription="@string/appwidget_text"
+                android:contentDescription="@string/defaultTitle"
                 android:ellipsize="marquee"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
@@ -80,7 +82,7 @@
                 android:padding="3dp"
                 android:scrollHorizontally="true"
                 android:singleLine="true"
-                android:text="@string/appwidget_text3"
+                android:text="@string/defaultPray"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
                 android:textStyle="bold">
