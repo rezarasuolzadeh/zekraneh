@@ -8,10 +8,11 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
+import android.widget.Toast
 import ir.rezarasoulzadeh.zekr.R
 import ir.rezarasoulzadeh.zekr.service.utils.Days
 import ir.rezarasoulzadeh.zekr.service.utils.Prays
-
+import ir.rezarasoulzadeh.zekr.service.utils.SharedPrefs
 
 class WidgetActivity : AppWidgetProvider() {
 
@@ -29,70 +30,82 @@ class WidgetActivity : AppWidgetProvider() {
 
     override fun onDeleted(context: Context, appWidgetIds: IntArray) {
         // When the user deletes the widget, delete the preference associated with it.
+
+        val sharedPrefs = SharedPrefs(context)
+
+        super.onDeleted(context, appWidgetIds)
         for (appWidgetId in appWidgetIds) {
-            deleteDayPref(context, appWidgetId)
-            deleteCounterPref(context, appWidgetId)
+            sharedPrefs.setCounter("0")
+            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show()
         }
     }
 
     override fun onEnabled(context: Context) {
         // Enter relevant functionality for when the first widget is created
-        val appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID
-        saveCounterPref(context, appWidgetId, "0")
     }
 
     override fun onDisabled(context: Context) {
         // Enter relevant functionality for when the last widget is disabled
-        val appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID
-        deleteCounterPref(context, appWidgetId)
     }
 
     override fun onReceive(context: Context?, intent: Intent?) {
         super.onReceive(context, intent)
 
+        val sharedPrefs = SharedPrefs(context!!)
+
         if (MyOnClick == intent!!.action) {
             val views = RemoteViews(
-                context!!.packageName,
+                context.packageName,
                 R.layout.widget_activity
             )
-            val appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID
-            val previousCounter = loadCounterPref(context, appWidgetId)
-            saveCounterPref(context, appWidgetId, (previousCounter.toInt() + 1).toString())
+            val appWidgetId = intent.getIntExtra("id", 0)
+            val previousCounter = sharedPrefs.getCounter()
+            sharedPrefs.setCounter((previousCounter!!.toInt() + 1).toString())
             views.setTextViewText(R.id.counterTextView, (previousCounter.toInt() + 1).toString())
-            saveCounterPref(context, AppWidgetManager.INVALID_APPWIDGET_ID, (previousCounter.toInt() + 1).toString())
             AppWidgetManager.getInstance(context).updateAppWidget(
                 ComponentName(context, WidgetActivity::class.java), views
             )
             updateAppWidget(
                 context,
                 AppWidgetManager.getInstance(context),
-                AppWidgetManager.INVALID_APPWIDGET_ID
+                appWidgetId
             )
         }
-
     }
 
 }
 
-internal fun updateAppWidget(
+fun updateAppWidget(
     context: Context,
     appWidgetManager: AppWidgetManager,
     appWidgetId: Int
 ) {
     val MyOnClick = "myOnClickTag"
 
+//    Timer().handleCountDownTimer(context, appWidgetManager, appWidgetId)
+
+    Toast.makeText(context, "Update Widget", Toast.LENGTH_SHORT).show()
+
+    val sharedPrefs = SharedPrefs(context)
+
     val days = Days()
     val prays = Prays()
+
+    val currentDay = sharedPrefs.getDay()
 
     val today = days.getToday()
     val todayName = days.getTodayName(today)
     val pray = prays.getPrays(today)
 
-    saveDayPref(context, appWidgetId, todayName)
-    savePrayPref(context, appWidgetId, pray)
+    sharedPrefs.setDay(todayName)
+    sharedPrefs.setPray(pray)
 
-    val dayText = loadDayPref(context, appWidgetId)
-    val prayText = loadPrayPref(context, appWidgetId)
+    if(todayName != currentDay) {
+        sharedPrefs.setCounter("0")
+    }
+
+    val dayText = sharedPrefs.getDay()
+    val prayText = sharedPrefs.getPray()
 
     val views = RemoteViews(context.packageName, R.layout.widget_activity)
 
@@ -106,14 +119,16 @@ internal fun updateAppWidget(
     intent.data = Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME))
     val pendIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
     views.setOnClickPendingIntent(R.id.prayLayout, pendIntent)
+    //////////////////////////////
 
-    views.setOnClickPendingIntent(R.id.counterTextView, getPendingSelfIntent(context, MyOnClick));
+    views.setOnClickPendingIntent(R.id.counterTextView, getPendingSelfIntent(context, MyOnClick, appWidgetId));
 
     appWidgetManager.updateAppWidget(appWidgetId, views)
 }
 
-fun getPendingSelfIntent(context: Context?, action: String?): PendingIntent? {
+fun getPendingSelfIntent(context: Context?, action: String?, appWidgetId: Int): PendingIntent? {
     val intent = Intent(context, WidgetActivity::class.java)
     intent.action = action
+    intent.putExtra("id", appWidgetId)
     return PendingIntent.getBroadcast(context, 0, intent, 0)
 }

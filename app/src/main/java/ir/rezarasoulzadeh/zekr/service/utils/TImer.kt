@@ -16,7 +16,7 @@ class Timer {
     ) {
         val current = Calendar.getInstance(TimeZone.getDefault())
         val nextDate = getNextDay()
-        object : CountDownTimer(nextDate.timeInMillis - current.timeInMillis, 1000) {
+        object : CountDownTimer(10000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 var hours = TimeUnit.MILLISECONDS.toHours(millisUntilFinished)
                 //if 24:00:00 occurs?
