@@ -13,6 +13,7 @@ import ir.rezarasoulzadeh.zekr.R
 import ir.rezarasoulzadeh.zekr.service.utils.Days
 import ir.rezarasoulzadeh.zekr.service.utils.Prays
 import ir.rezarasoulzadeh.zekr.service.utils.SharedPrefs
+import ir.rezarasoulzadeh.zekr.service.utils.Timer
 
 class WidgetActivity : AppWidgetProvider() {
 
@@ -36,7 +37,6 @@ class WidgetActivity : AppWidgetProvider() {
         super.onDeleted(context, appWidgetIds)
         for (appWidgetId in appWidgetIds) {
             sharedPrefs.setCounter("0")
-            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -82,9 +82,7 @@ fun updateAppWidget(
 ) {
     val MyOnClick = "myOnClickTag"
 
-//    Timer().handleCountDownTimer(context, appWidgetManager, appWidgetId)
-
-    Toast.makeText(context, "Update Widget", Toast.LENGTH_SHORT).show()
+    Timer.handleCountDownTimer(context, appWidgetManager, appWidgetId)
 
     val sharedPrefs = SharedPrefs(context)
 
