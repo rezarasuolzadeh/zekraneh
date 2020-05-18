@@ -1,4 +1,4 @@
-package ir.rezarasoulzadeh.zekr.view.activity
+package ir.rezarasoulzadeh.zekraneh.view.activity
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
@@ -8,11 +8,11 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
-import ir.rezarasoulzadeh.zekr.R
-import ir.rezarasoulzadeh.zekr.service.utils.Days
-import ir.rezarasoulzadeh.zekr.service.utils.Prays
-import ir.rezarasoulzadeh.zekr.service.utils.SharedPrefs
-import ir.rezarasoulzadeh.zekr.service.utils.Timer
+import ir.rezarasoulzadeh.zekraneh.R
+import ir.rezarasoulzadeh.zekraneh.service.utils.Days
+import ir.rezarasoulzadeh.zekraneh.service.utils.Prays
+import ir.rezarasoulzadeh.zekraneh.service.utils.SharedPrefs
+import ir.rezarasoulzadeh.zekraneh.service.utils.Timer
 
 class WidgetActivity : AppWidgetProvider() {
 
@@ -24,14 +24,19 @@ class WidgetActivity : AppWidgetProvider() {
         appWidgetIds: IntArray
     ) {
         for (appWidgetId in appWidgetIds) {
-            updateAppWidget(context, appWidgetManager, appWidgetId)
+            updateAppWidget(
+                context,
+                appWidgetManager,
+                appWidgetId
+            )
         }
     }
 
     override fun onDeleted(context: Context, appWidgetIds: IntArray) {
         // When the user deletes the widget, delete the preference associated with it.
 
-        val sharedPrefs = SharedPrefs(context)
+        val sharedPrefs =
+            SharedPrefs(context)
 
         super.onDeleted(context, appWidgetIds)
         for (appWidgetId in appWidgetIds) {
@@ -50,7 +55,8 @@ class WidgetActivity : AppWidgetProvider() {
     override fun onReceive(context: Context?, intent: Intent?) {
         super.onReceive(context, intent)
 
-        val sharedPrefs = SharedPrefs(context!!)
+        val sharedPrefs =
+            SharedPrefs(context!!)
 
         if (MyOnClick == intent!!.action) {
             val views = RemoteViews(
@@ -85,7 +91,8 @@ fun updateAppWidget(
 
     Timer.handleCountDownTimer(context, appWidgetManager, appWidgetId)
 
-    val sharedPrefs = SharedPrefs(context)
+    val sharedPrefs =
+        SharedPrefs(context)
 
     val days = Days()
     val prays = Prays()
@@ -123,7 +130,13 @@ fun updateAppWidget(
     views.setOnClickPendingIntent(R.id.prayLayout, pendIntent)
     //////////////////////////////
 
-    views.setOnClickPendingIntent(R.id.counterTextView, getPendingSelfIntent(context, MyOnClick, appWidgetId));
+    views.setOnClickPendingIntent(R.id.counterTextView,
+        getPendingSelfIntent(
+            context,
+            MyOnClick,
+            appWidgetId
+        )
+    );
 
     appWidgetManager.updateAppWidget(appWidgetId, views)
 }

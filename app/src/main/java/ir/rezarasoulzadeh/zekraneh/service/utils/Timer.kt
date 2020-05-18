@@ -1,9 +1,9 @@
-package ir.rezarasoulzadeh.zekr.service.utils
+package ir.rezarasoulzadeh.zekraneh.service.utils
 
 import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.os.CountDownTimer
-import ir.rezarasoulzadeh.zekr.view.activity.updateAppWidget
+import ir.rezarasoulzadeh.zekraneh.view.activity.updateAppWidget
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -17,7 +17,8 @@ class Timer {
             appWidgetId: Int
         ) {
             val current = Calendar.getInstance(TimeZone.getDefault())
-            val nextDate = getNextDay()
+            val nextDate =
+                getNextDay()
             object : CountDownTimer(nextDate.timeInMillis - current.timeInMillis, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
                     var hours = TimeUnit.MILLISECONDS.toHours(millisUntilFinished)
@@ -28,7 +29,11 @@ class Timer {
                 }
 
                 override fun onFinish() {
-                    updateAppWidget(context, appWidgetManager, appWidgetId)
+                    updateAppWidget(
+                        context,
+                        appWidgetManager,
+                        appWidgetId
+                    )
                 }
             }.start()
         }

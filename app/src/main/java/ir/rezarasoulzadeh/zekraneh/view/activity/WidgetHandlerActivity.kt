@@ -1,13 +1,12 @@
-package ir.rezarasoulzadeh.zekr.view.activity
+package ir.rezarasoulzadeh.zekraneh.view.activity
 
 import android.app.Activity
 import android.appwidget.AppWidgetManager
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.RemoteViews
-import ir.rezarasoulzadeh.zekr.R
-import ir.rezarasoulzadeh.zekr.service.utils.SharedPrefs
+import ir.rezarasoulzadeh.zekraneh.R
+import ir.rezarasoulzadeh.zekraneh.service.utils.SharedPrefs
 
 class WidgetHandlerActivity : Activity() {
 

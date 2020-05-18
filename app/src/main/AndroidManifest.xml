@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ir.rezarasoulzadeh.zekr">
+    package="ir.rezarasoulzadeh.zekraneh">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:roundIcon="@drawable/zekr"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <receiver android:name=".view.activity.WidgetActivity">
+        <receiver android:name="ir.rezarasoulzadeh.zekraneh.view.activity.WidgetActivity">
 
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -28,7 +28,7 @@
         </receiver>
 
         <activity
-            android:name=".view.activity.WidgetHandlerActivity"
+            android:name="ir.rezarasoulzadeh.zekraneh.view.activity.WidgetHandlerActivity"
             android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />

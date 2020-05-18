@@ -1,4 +1,4 @@
-package ir.rezarasoulzadeh.zekr
+package ir.rezarasoulzadeh.zekraneh
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package ir.rezarasoulzadeh.zekr.service.utils
+package ir.rezarasoulzadeh.zekraneh.service.utils
 
 import android.content.Context
 import android.content.SharedPreferences
