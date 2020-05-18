@@ -7,9 +7,15 @@
     <color name="colorAccent">#03DAC5</color>
 
     <!-- ripple colours -->
-    <color name="rippleColour">#4A000000</color>
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+
+    <!-- ripple colours -->
+    <color name="rippleColour">#AD000000</color>
 
     <!-- blue colours -->
     <color name="blueLight">#6CA5FAF5</color>
+    <color name="blueMedium">#03dac5</color>
+    <color name="blueDark">#5a8bd5</color>
 
 </resources>

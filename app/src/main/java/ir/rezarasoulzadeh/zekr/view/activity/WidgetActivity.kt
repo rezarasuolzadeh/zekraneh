@@ -8,7 +8,6 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
-import android.widget.Toast
 import ir.rezarasoulzadeh.zekr.R
 import ir.rezarasoulzadeh.zekr.service.utils.Days
 import ir.rezarasoulzadeh.zekr.service.utils.Prays
@@ -82,6 +81,8 @@ fun updateAppWidget(
 ) {
     val MyOnClick = "myOnClickTag"
 
+    val views = RemoteViews(context.packageName, R.layout.widget_activity)
+
     Timer.handleCountDownTimer(context, appWidgetManager, appWidgetId)
 
     val sharedPrefs = SharedPrefs(context)
@@ -100,15 +101,18 @@ fun updateAppWidget(
 
     if(todayName != currentDay) {
         sharedPrefs.setCounter("0")
+        views.setTextViewText(R.id.counterTextView, "0")
+        views.setTextViewText(R.id.prayTextView, pray)
+        views.setTextViewText(R.id.appwidget_text, todayName)
     }
 
     val dayText = sharedPrefs.getDay()
     val prayText = sharedPrefs.getPray()
-
-    val views = RemoteViews(context.packageName, R.layout.widget_activity)
+    val counterText = sharedPrefs.getCounter()
 
     views.setTextViewText(R.id.appwidget_text, dayText)
     views.setTextViewText(R.id.prayTextView, prayText)
+    views.setTextViewText(R.id.counterTextView, counterText)
 
     // open configuration activity
     val intent = Intent(context, WidgetHandlerActivity::class.java)

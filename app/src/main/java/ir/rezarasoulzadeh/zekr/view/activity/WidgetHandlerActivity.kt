@@ -5,6 +5,7 @@ import android.appwidget.AppWidgetManager
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekr.R
 import ir.rezarasoulzadeh.zekr.service.utils.SharedPrefs
 
@@ -12,26 +13,6 @@ class WidgetHandlerActivity : Activity() {
 
     private lateinit var sharePrefs : SharedPrefs
     private var appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID
-
-    private var onClickListener = View.OnClickListener {
-        val context = this@WidgetHandlerActivity
-
-        sharePrefs = SharedPrefs(context)
-
-        // It is the responsibility of the configuration activity to update the app widget
-        val appWidgetManager = AppWidgetManager.getInstance(context)
-        updateAppWidget(
-            context,
-            appWidgetManager,
-            appWidgetId
-        )
-
-        // Make sure we pass back the original appWidgetId
-        val resultValue = Intent()
-        resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
-        setResult(RESULT_OK, resultValue)
-        finish()
-    }
 
     public override fun onCreate(icicle: Bundle?) {
         super.onCreate(icicle)
@@ -43,7 +24,21 @@ class WidgetHandlerActivity : Activity() {
         sharePrefs = SharedPrefs(this)
 
         setContentView(R.layout.widget_config_activity)
-        findViewById<View>(R.id.configurationLayout).setOnClickListener(onClickListener)
+
+        findViewById<View>(R.id.exitButton).setOnClickListener {
+            finish()
+        }
+
+        findViewById<View>(R.id.resetDayPrayButton).setOnClickListener {
+            sharePrefs.setCounter("0")
+
+            val appWidgetManager = AppWidgetManager.getInstance(this)
+            updateAppWidget(
+                this,
+                appWidgetManager,
+                appWidgetId
+            )
+        }
 
         // Find the widget id from the intent.
         val intent = intent
@@ -54,6 +49,21 @@ class WidgetHandlerActivity : Activity() {
                 AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID
             )
         }
+
+        sharePrefs = SharedPrefs(this)
+
+        // It is the responsibility of the configuration activity to update the app widget
+        val appWidgetManager = AppWidgetManager.getInstance(this)
+        updateAppWidget(
+            this,
+            appWidgetManager,
+            appWidgetId
+        )
+
+        // Make sure we pass back the original appWidgetId
+        val resultValue = Intent()
+        resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
+        setResult(RESULT_OK, resultValue)
 
         // If this activity was started with an intent without an app widget ID, finish with an error.
         if (appWidgetId == AppWidgetManager.INVALID_APPWIDGET_ID) {
