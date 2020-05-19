@@ -1,9 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/widgetLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/background_for_widget"
     android:orientation="vertical"
+    android:gravity="center_vertical"
     android:padding="5dp">
 
     <LinearLayout
@@ -30,7 +31,7 @@
         <LinearLayout
             android:id="@+id/prayLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:clickable="true"
             android:focusable="true"
             android:orientation="vertical">
