@@ -5,4 +5,11 @@
     <string name="defaultPray">لا اِلهَ الَّا اَللّهُ المَلِکُ الحَقُّ المُبین</string>
     <string name="configure">Configure</string>
     <string name="add_widget">Add widget</string>
+
+    <!-- Bazaar -->
+    <string name="bazaarStarLink">bazaar://details?id=ir.rezarasoulzadeh.pelakomak</string>
+    <string name="bazaarDeveloperLink">bazaar://collection?slug=by_author&amp;aid=027094212245</string>
+    <string name="bazaarShareLink">http://cafebazaar.ir/app/?id=ir.rezarasoulzadeh.pelakomak&amp;ref=shar</string>
+    <string name="bazaarPackage">com.farsitel.bazaar</string>
+
 </resources>

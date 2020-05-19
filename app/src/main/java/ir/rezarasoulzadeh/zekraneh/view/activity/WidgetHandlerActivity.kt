@@ -3,10 +3,13 @@ package ir.rezarasoulzadeh.zekraneh.view.activity
 import android.app.Activity
 import android.appwidget.AppWidgetManager
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import ir.rezarasoulzadeh.zekraneh.R
 import ir.rezarasoulzadeh.zekraneh.service.utils.SharedPrefs
+import java.lang.Exception
 
 class WidgetHandlerActivity : Activity() {
 
@@ -37,6 +40,20 @@ class WidgetHandlerActivity : Activity() {
                 appWidgetManager,
                 appWidgetId
             )
+
+            finish()
+        }
+
+        findViewById<View>(R.id.developerButton).setOnClickListener {
+            try {
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.data = Uri.parse(this.resources.getString(R.string.bazaarDeveloperLink))
+                intent.setPackage(this.resources.getString(R.string.bazaarPackage))
+                startActivity(intent)
+            } catch (e: Exception) {
+                Toast.makeText(this, "ابتدا برنامه بازار رو نصب کنید", Toast.LENGTH_SHORT).show()
+                finish()
+            }
         }
 
         // Find the widget id from the intent.
