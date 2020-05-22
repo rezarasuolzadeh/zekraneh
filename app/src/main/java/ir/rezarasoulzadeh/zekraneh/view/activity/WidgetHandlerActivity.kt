@@ -11,22 +11,20 @@ import androidx.appcompat.app.AppCompatActivity
 import ir.rezarasoulzadeh.zekraneh.R
 import ir.rezarasoulzadeh.zekraneh.service.utils.SharedPrefs
 
-
 class WidgetHandlerActivity : AppCompatActivity() {
 
-    private lateinit var sharePrefs : SharedPrefs
+    private lateinit var sharePrefs: SharedPrefs
     private var widgetId = -1
 
-    override fun onCreate(savedInstanceState : Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         sharePrefs = SharedPrefs(this)
 
         val bundle = intent.extras
 
-        if (bundle != null) {
-            this.widgetId = bundle.getInt("appWidgetId", -1)
-        }
+        this.widgetId = bundle!!.getInt("appWidgetId", -1)
+
         if (this.widgetId == -1) {
             finish()
         }
@@ -34,37 +32,13 @@ class WidgetHandlerActivity : AppCompatActivity() {
         setContentView(R.layout.widget_config_activity)
 
         findViewById<View>(R.id.exitButton).setOnClickListener {
-            ////////////////// first ////////////////////
-            val appWidgetManager = AppWidgetManager.getInstance(this)
-            val zekr = appWidgetManager.getAppWidgetIds(
-                ComponentName(
-                    this,
-                    WidgetActivity::class.java
-                )
-            )
-            WidgetActivity().onUpdate(this, appWidgetManager, zekr)
-
-            ////////////////// second ////////////////////
-            val salavat = appWidgetManager.getAppWidgetIds(
-                ComponentName(
-                    this,
-                    SalavatActivity::class.java
-                )
-            )
-            SalavatActivity().onUpdate(this, appWidgetManager, salavat)
+            updateAllWidgets()
             finish()
         }
 
         findViewById<View>(R.id.resetDayPrayButton).setOnClickListener {
             sharePrefs.setCounter("0")
-
-            val appWidgetManager = AppWidgetManager.getInstance(this)
-            updateAppWidget(
-                this,
-                appWidgetManager,
-                widgetId
-            )
-
+            updateAllWidgets()
             finish()
         }
 
@@ -82,6 +56,26 @@ class WidgetHandlerActivity : AppCompatActivity() {
 
         sharePrefs = SharedPrefs(this)
 
+    }
+
+    private fun updateAllWidgets() {
+        val appWidgetManager = AppWidgetManager.getInstance(this)
+
+        val zekr = appWidgetManager.getAppWidgetIds(
+            ComponentName(
+                this,
+                WidgetActivity::class.java
+            )
+        )
+        WidgetActivity().onUpdate(this, appWidgetManager, zekr)
+
+        val salavat = appWidgetManager.getAppWidgetIds(
+            ComponentName(
+                this,
+                SalavatActivity::class.java
+            )
+        )
+        SalavatActivity().onUpdate(this, appWidgetManager, salavat)
     }
 
 }
