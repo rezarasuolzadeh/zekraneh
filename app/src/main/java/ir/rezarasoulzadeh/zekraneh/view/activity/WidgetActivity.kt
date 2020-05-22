@@ -26,45 +26,23 @@ class WidgetActivity : AppWidgetProvider() {
         appWidgetIds: IntArray
     ) {
         for (appWidgetId in appWidgetIds) {
-            updateAppWidget(
-                context,
-                appWidgetManager,
-                appWidgetId
-            )
+            updateAppWidget(context, appWidgetManager, appWidgetId)
         }
     }
 
     override fun onDeleted(context: Context, appWidgetIds: IntArray) {
-        // When the user deletes the widget, delete the preference associated with it.
-
-        val sharedPrefs =
-            SharedPrefs(context)
-
+        val sharedPrefs = SharedPrefs(context)
         super.onDeleted(context, appWidgetIds)
         for (appWidgetId in appWidgetIds) {
             sharedPrefs.setCounter("0")
         }
     }
 
-    override fun onEnabled(context: Context) {
-        // Enter relevant functionality for when the first widget is created
-    }
-
-    override fun onDisabled(context: Context) {
-        // Enter relevant functionality for when the last widget is disabled
-    }
-
     override fun onReceive(context: Context?, intent: Intent?) {
         super.onReceive(context, intent)
-
-        val sharedPrefs =
-            SharedPrefs(context!!)
-
+        val sharedPrefs = SharedPrefs(context!!)
         if (MyOnClick == intent!!.action) {
-            val views = RemoteViews(
-                context.packageName,
-                R.layout.widget_activity
-            )
+            val views = RemoteViews(context.packageName, R.layout.widget_activity)
             val appWidgetId = intent.getIntExtra("id", 0)
             val previousCounter = sharedPrefs.getCounter()
             sharedPrefs.setCounter((previousCounter!!.toInt() + 1).toString())
@@ -72,11 +50,7 @@ class WidgetActivity : AppWidgetProvider() {
             AppWidgetManager.getInstance(context).updateAppWidget(
                 ComponentName(context, WidgetActivity::class.java), views
             )
-            updateAppWidget(
-                context,
-                AppWidgetManager.getInstance(context),
-                appWidgetId
-            )
+            updateAppWidget(context, AppWidgetManager.getInstance(context), appWidgetId)
         }
     }
 
@@ -93,8 +67,7 @@ fun updateAppWidget(
 
     Timer.handleCountDownTimer(context, appWidgetManager, appWidgetId, 1)
 
-    val sharedPrefs =
-        SharedPrefs(context)
+    val sharedPrefs = SharedPrefs(context)
 
     val days = Days()
     val prays = Prays()
@@ -108,7 +81,7 @@ fun updateAppWidget(
     sharedPrefs.setDay(todayName)
     sharedPrefs.setPray(pray)
 
-    if(todayName != currentDay) {
+    if (todayName != currentDay) {
         sharedPrefs.setCounter("0")
         views.setTextViewText(R.id.counterTextView, "0")
         views.setTextViewText(R.id.prayTextView, pray)
@@ -128,16 +101,14 @@ fun updateAppWidget(
     intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
     intent.data = Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME))
-    val pendIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+    val pendIntent =
+        PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
     views.setOnClickPendingIntent(R.id.prayLayout, pendIntent)
     //////////////////////////////
 
-    views.setOnClickPendingIntent(R.id.counterTextView,
-        getPendingSelfIntent(
-            context,
-            MyOnClick,
-            appWidgetId
-        )
+    views.setOnClickPendingIntent(
+        R.id.counterTextView,
+        getPendingSelfIntent(context, MyOnClick, appWidgetId)
     )
 
     val bundle = Bundle()

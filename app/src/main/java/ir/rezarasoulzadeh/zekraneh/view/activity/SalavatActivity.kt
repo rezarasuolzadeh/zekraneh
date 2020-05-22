@@ -23,56 +23,34 @@ class SalavatActivity : AppWidgetProvider() {
         appWidgetIds: IntArray
     ) {
         for (appWidgetId in appWidgetIds) {
-            updateSalavat(
-                context,
-                appWidgetManager,
-                appWidgetId
-            )
+            updateSalavat(context, appWidgetManager, appWidgetId)
         }
     }
 
     override fun onDeleted(context: Context, appWidgetIds: IntArray) {
-        // When the user deletes the widget, delete the preference associated with it.
-
         val sharedPrefs = SharedPrefs(context)
-
         super.onDeleted(context, appWidgetIds)
         for (appWidgetId in appWidgetIds) {
             sharedPrefs.setSalavat("0")
         }
     }
 
-    override fun onEnabled(context: Context) {
-        // Enter relevant functionality for when the first widget is created
-    }
-
-    override fun onDisabled(context: Context) {
-        // Enter relevant functionality for when the last widget is disabled
-    }
-
     override fun onReceive(context: Context?, intent: Intent?) {
         super.onReceive(context, intent)
-
-        val sharedPrefs =
-            SharedPrefs(context!!)
-
+        val sharedPrefs = SharedPrefs(context!!)
         if (MyOnClick == intent!!.action) {
-            val views = RemoteViews(
-                context.packageName,
-                R.layout.salavat_activity
-            )
+            val views = RemoteViews(context.packageName, R.layout.salavat_activity)
             val appWidgetId = intent.getIntExtra("id", 0)
             val previousCounter = sharedPrefs.getSalavat()
             sharedPrefs.setSalavat((previousCounter!!.toInt() + 1).toString())
-            views.setTextViewText(R.id.salavatCounterTextView, (previousCounter.toInt() + 1).toString())
+            views.setTextViewText(
+                R.id.salavatCounterTextView,
+                (previousCounter.toInt() + 1).toString()
+            )
             AppWidgetManager.getInstance(context).updateAppWidget(
                 ComponentName(context, SalavatActivity::class.java), views
             )
-            updateSalavat(
-                context,
-                AppWidgetManager.getInstance(context),
-                appWidgetId
-            )
+            updateSalavat(context, AppWidgetManager.getInstance(context), appWidgetId)
         }
     }
 
@@ -89,8 +67,7 @@ fun updateSalavat(
 
     Timer.handleCountDownTimer(context, appWidgetManager, appWidgetId, 2)
 
-    val sharedPrefs =
-        SharedPrefs(context)
+    val sharedPrefs = SharedPrefs(context)
 
     val days = Days()
 
@@ -101,7 +78,7 @@ fun updateSalavat(
 
     sharedPrefs.setDay(todayName)
 
-    if(todayName != currentDay) {
+    if (todayName != currentDay) {
         sharedPrefs.setSalavat("0")
         views.setTextViewText(R.id.salavatCounterTextView, "0")
         views.setTextViewText(R.id.salavatDay, todayName)
@@ -118,17 +95,15 @@ fun updateSalavat(
     intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
     intent.data = Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME))
-    val pendIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+    val pendIntent =
+        PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
     views.setOnClickPendingIntent(R.id.salavatLayout, pendIntent)
     //////////////////////////////
 
-    views.setOnClickPendingIntent(R.id.salavatCounterTextView,
-        getPendingSalavat(
-            context,
-            MyOnClick,
-            appWidgetId
-        )
-    );
+    views.setOnClickPendingIntent(
+        R.id.salavatCounterTextView,
+        getPendingSalavat(context, MyOnClick, appWidgetId)
+    )
 
     appWidgetManager.updateAppWidget(appWidgetId, views)
 }
