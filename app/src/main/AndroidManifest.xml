@@ -9,6 +9,7 @@
         android:roundIcon="@drawable/zekr"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <receiver android:name="ir.rezarasoulzadeh.zekraneh.view.activity.WidgetActivity">
 
             <intent-filter>
@@ -27,13 +28,25 @@
                 android:resource="@xml/zekr_activity_info" />
         </receiver>
 
-        <activity
-            android:name="ir.rezarasoulzadeh.zekraneh.view.activity.WidgetHandlerActivity"
-            android:launchMode="singleInstance">
+        <receiver android:name="ir.rezarasoulzadeh.zekraneh.view.activity.SalavatActivity">
+
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.WIDGET_BUTTON" />
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+                <action android:name="android.appwidget.action.APPWIDGET_DELETED" />
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
+                <action android:name="android.appwidget.action.ACTION_AUTO_UPDATE_WIDGET" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+                <action android:name="android.intent.action.TIME_SET" />
             </intent-filter>
-        </activity>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/salavat_activity_info" />
+        </receiver>
+
+        <activity android:name=".view.activity.WidgetHandlerActivity" />
 
     </application>
 

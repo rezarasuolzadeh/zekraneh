@@ -11,6 +11,7 @@ class SharedPrefs(context: Context) {
     private val prayKey: String = "prayKey"
     private val dayKey: String = "dayKey"
     private val counterKey: String = "counterKey"
+    private val salavatKey: String = "salavatKey"
 
     // pray functions
     fun setPray(pray: String) {
@@ -45,6 +46,17 @@ class SharedPrefs(context: Context) {
 
     fun getCounter(): String? {
         return sharedPreference.getString(counterKey, "0")
+    }
+
+    // counter functions
+    fun setSalavat(counter: String) {
+        val editor: SharedPreferences.Editor = sharedPreference.edit()
+        editor.putString(salavatKey, counter)
+        editor.apply()
+    }
+
+    fun getSalavat(): String? {
+        return sharedPreference.getString(salavatKey, "0")
     }
 
 }

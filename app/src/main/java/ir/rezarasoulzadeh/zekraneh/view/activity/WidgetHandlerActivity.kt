@@ -1,33 +1,57 @@
 package ir.rezarasoulzadeh.zekraneh.view.activity
 
-import android.app.Activity
 import android.appwidget.AppWidgetManager
+import android.content.ComponentName
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import ir.rezarasoulzadeh.zekraneh.R
 import ir.rezarasoulzadeh.zekraneh.service.utils.SharedPrefs
-import java.lang.Exception
 
-class WidgetHandlerActivity : Activity() {
+
+class WidgetHandlerActivity : AppCompatActivity() {
 
     private lateinit var sharePrefs : SharedPrefs
-    private var appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID
+    private var widgetId = -1
 
-    public override fun onCreate(icicle: Bundle?) {
-        super.onCreate(icicle)
-
-        // Set the result to CANCELED.  This will cause the widget host to cancel
-        // out of the widget placement if the user presses the back button.
-        setResult(RESULT_CANCELED)
+    override fun onCreate(savedInstanceState : Bundle?) {
+        super.onCreate(savedInstanceState)
 
         sharePrefs = SharedPrefs(this)
+
+        val bundle = intent.extras
+
+        if (bundle != null) {
+            this.widgetId = bundle.getInt("appWidgetId", -1)
+        }
+        if (this.widgetId == -1) {
+            finish()
+        }
 
         setContentView(R.layout.widget_config_activity)
 
         findViewById<View>(R.id.exitButton).setOnClickListener {
+            ////////////////// first ////////////////////
+            val appWidgetManager = AppWidgetManager.getInstance(this)
+            val zekr = appWidgetManager.getAppWidgetIds(
+                ComponentName(
+                    this,
+                    WidgetActivity::class.java
+                )
+            )
+            WidgetActivity().onUpdate(this, appWidgetManager, zekr)
+
+            ////////////////// second ////////////////////
+            val salavat = appWidgetManager.getAppWidgetIds(
+                ComponentName(
+                    this,
+                    SalavatActivity::class.java
+                )
+            )
+            SalavatActivity().onUpdate(this, appWidgetManager, salavat)
             finish()
         }
 
@@ -38,7 +62,7 @@ class WidgetHandlerActivity : Activity() {
             updateAppWidget(
                 this,
                 appWidgetManager,
-                appWidgetId
+                widgetId
             )
 
             finish()
@@ -56,36 +80,8 @@ class WidgetHandlerActivity : Activity() {
             }
         }
 
-        // Find the widget id from the intent.
-        val intent = intent
-        val extras = intent.extras
-
-        if (extras != null) {
-            appWidgetId = extras.getInt(
-                AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID
-            )
-        }
-
         sharePrefs = SharedPrefs(this)
 
-        // It is the responsibility of the configuration activity to update the app widget
-        val appWidgetManager = AppWidgetManager.getInstance(this)
-        updateAppWidget(
-            this,
-            appWidgetManager,
-            appWidgetId
-        )
-
-        // Make sure we pass back the original appWidgetId
-        val resultValue = Intent()
-        resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
-        setResult(RESULT_OK, resultValue)
-
-        // If this activity was started with an intent without an app widget ID, finish with an error.
-        if (appWidgetId == AppWidgetManager.INVALID_APPWIDGET_ID) {
-            finish()
-            return
-        }
     }
 
 }
