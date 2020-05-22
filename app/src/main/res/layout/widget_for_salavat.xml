@@ -4,7 +4,6 @@
     android:layout_height="wrap_content"
     android:background="@drawable/background_for_widget"
     android:orientation="vertical"
-    android:gravity="center_vertical"
     android:padding="5dp">
 
     <LinearLayout
@@ -14,12 +13,13 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/counterTextView"
+            android:id="@+id/salavatCounterTextView"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/background_for_widget_counter"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/background_for_counter"
             android:clickable="true"
             android:focusable="true"
             android:fontFamily="@font/vazir"
@@ -29,11 +29,12 @@
             android:textStyle="bold" />
 
         <LinearLayout
-            android:id="@+id/prayLayout"
+            android:id="@+id/salavatLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:clickable="true"
             android:focusable="true"
+            android:gravity="center"
             android:orientation="vertical">
 
             <LinearLayout
@@ -44,19 +45,19 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/dayTitle"
+                    android:id="@+id/salavetTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="#000099CC"
                     android:fontFamily="@font/vazir"
-                    android:padding="3dp"
-                    android:text="@string/defaultTitle"
+                    android:padding="1dp"
+                    android:text="صلوات های روز"
                     android:textColor="#ffffff"
-                    android:textSize="15sp"
+                    android:textSize="19sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/appwidget_text"
+                    android:id="@+id/salavatDay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#000099CC"
@@ -69,33 +70,6 @@
                     android:textStyle="bold" />
 
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/prayTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:background="#000099CC"
-                android:contentDescription="@string/defaultPray"
-                android:ellipsize="marquee"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:fontFamily="@font/vazir"
-                android:marqueeRepeatLimit="marquee_forever"
-                android:padding="3dp"
-                android:scrollHorizontally="true"
-                android:singleLine="true"
-                android:text="@string/defaultPray"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
-                android:textStyle="bold">
-
-                <requestFocus
-                    android:duplicateParentState="true"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true" />
-
-            </TextView>
 
         </LinearLayout>
 

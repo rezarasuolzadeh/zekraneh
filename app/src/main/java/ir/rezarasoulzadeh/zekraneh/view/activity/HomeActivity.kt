@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import ir.rezarasoulzadeh.zekraneh.R
 import ir.rezarasoulzadeh.zekraneh.service.utils.SharedPrefs
 
-class WidgetHandlerActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     private lateinit var sharePrefs: SharedPrefs
     private var widgetId = -1
@@ -29,7 +29,7 @@ class WidgetHandlerActivity : AppCompatActivity() {
             finish()
         }
 
-        setContentView(R.layout.widget_config_activity)
+        setContentView(R.layout.activity_for_zekraneh)
 
         findViewById<View>(R.id.exitButton).setOnClickListener {
             updateAllWidgets()

@@ -39,7 +39,7 @@ class SalavatActivity : AppWidgetProvider() {
         super.onReceive(context, intent)
         val sharedPrefs = SharedPrefs(context!!)
         if (MyOnClick == intent!!.action) {
-            val views = RemoteViews(context.packageName, R.layout.salavat_activity)
+            val views = RemoteViews(context.packageName, R.layout.widget_for_salavat)
             val appWidgetId = intent.getIntExtra("id", 0)
             val previousCounter = sharedPrefs.getSalavat()
             sharedPrefs.setSalavat((previousCounter!!.toInt() + 1).toString())
@@ -63,7 +63,7 @@ fun updateSalavat(
 ) {
     val MyOnClick = "myOnClickTag"
 
-    val views = RemoteViews(context.packageName, R.layout.salavat_activity)
+    val views = RemoteViews(context.packageName, R.layout.widget_for_salavat)
 
     Timer.handleCountDownTimer(context, appWidgetManager, appWidgetId, 2)
 
@@ -91,7 +91,7 @@ fun updateSalavat(
     views.setTextViewText(R.id.salavatCounterTextView, counterText)
 
     // open configuration activity
-    val intent = Intent(context, WidgetHandlerActivity::class.java)
+    val intent = Intent(context, HomeActivity::class.java)
     intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
     intent.data = Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME))

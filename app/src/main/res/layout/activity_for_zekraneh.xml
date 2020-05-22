@@ -51,7 +51,7 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:padding="3dp"
-            android:src="@drawable/shape_circle_light" />
+            android:src="@drawable/shape_for_circle_light" />
 
         <TextView
             android:layout_width="match_parent"
@@ -82,7 +82,7 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:padding="3dp"
-            android:src="@drawable/shape_circle_dark" />
+            android:src="@drawable/shape_for_circle_dark" />
 
         <TextView
             android:layout_width="match_parent"
@@ -113,7 +113,7 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:padding="3dp"
-            android:src="@drawable/shape_circle_dark" />
+            android:src="@drawable/shape_for_circle_dark" />
 
         <TextView
             android:layout_width="match_parent"

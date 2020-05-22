@@ -25,7 +25,7 @@
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/zekr_activity_info" />
+                android:resource="@xml/info_for_zekr" />
         </receiver>
 
         <receiver android:name="ir.rezarasoulzadeh.zekraneh.view.activity.SalavatActivity">
@@ -43,10 +43,10 @@
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/salavat_activity_info" />
+                android:resource="@xml/info_for_salavat" />
         </receiver>
 
-        <activity android:name=".view.activity.WidgetHandlerActivity" />
+        <activity android:name=".view.activity.HomeActivity" />
 
     </application>
 

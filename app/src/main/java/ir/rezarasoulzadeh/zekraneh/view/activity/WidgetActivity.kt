@@ -42,7 +42,7 @@ class WidgetActivity : AppWidgetProvider() {
         super.onReceive(context, intent)
         val sharedPrefs = SharedPrefs(context!!)
         if (MyOnClick == intent!!.action) {
-            val views = RemoteViews(context.packageName, R.layout.widget_activity)
+            val views = RemoteViews(context.packageName, R.layout.widget_for_zekr)
             val appWidgetId = intent.getIntExtra("id", 0)
             val previousCounter = sharedPrefs.getCounter()
             sharedPrefs.setCounter((previousCounter!!.toInt() + 1).toString())
@@ -63,7 +63,7 @@ fun updateAppWidget(
 ) {
     val MyOnClick = "myOnClickTag"
 
-    val views = RemoteViews(context.packageName, R.layout.widget_activity)
+    val views = RemoteViews(context.packageName, R.layout.widget_for_zekr)
 
     Timer.handleCountDownTimer(context, appWidgetManager, appWidgetId, 1)
 
@@ -97,7 +97,7 @@ fun updateAppWidget(
     views.setTextViewText(R.id.counterTextView, counterText)
 
     // open configuration activity
-    val intent = Intent(context, WidgetHandlerActivity::class.java)
+    val intent = Intent(context, HomeActivity::class.java)
     intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
     intent.data = Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME))
