@@ -5,11 +5,11 @@ import android.content.ComponentName
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import ir.rezarasoulzadeh.zekraneh.R
 import ir.rezarasoulzadeh.zekraneh.service.utils.SharedPrefs
+import kotlinx.android.synthetic.main.activity_for_home.*
 
 class HomeActivity : AppCompatActivity() {
 
@@ -29,20 +29,29 @@ class HomeActivity : AppCompatActivity() {
             finish()
         }
 
-        setContentView(R.layout.activity_for_zekraneh)
+        setContentView(R.layout.activity_for_home)
 
-        findViewById<View>(R.id.exitButton).setOnClickListener {
-            updateAllWidgets()
-            finish()
-        }
-
-        findViewById<View>(R.id.resetDayPrayButton).setOnClickListener {
+        resetZekrButton.setOnClickListener {
             sharePrefs.setCounter("0")
             updateAllWidgets()
             finish()
         }
 
-        findViewById<View>(R.id.developerButton).setOnClickListener {
+        resetSalavatButton.setOnClickListener {
+            sharePrefs.setSalavat("0")
+            updateAllWidgets()
+            finish()
+        }
+
+        starButton.setOnClickListener {
+
+        }
+
+        shareButton.setOnClickListener {
+
+        }
+
+        developerButton.setOnClickListener {
             try {
                 val intent = Intent(Intent.ACTION_VIEW)
                 intent.data = Uri.parse(this.resources.getString(R.string.bazaarDeveloperLink))
@@ -52,6 +61,11 @@ class HomeActivity : AppCompatActivity() {
                 Toast.makeText(this, "ابتدا برنامه بازار رو نصب کنید", Toast.LENGTH_SHORT).show()
                 finish()
             }
+        }
+
+        exitButton.setOnClickListener {
+            updateAllWidgets()
+            finish()
         }
 
         sharePrefs = SharedPrefs(this)

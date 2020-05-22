@@ -36,7 +36,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/resetDayPrayButton"
+        android:id="@+id/resetZekrButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -68,7 +68,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/developerButton"
+        android:id="@+id/resetSalavatButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="12dp"
@@ -82,7 +82,7 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:padding="3dp"
-            android:src="@drawable/shape_for_circle_dark" />
+            android:src="@drawable/shape_for_circle_light" />
 
         <TextView
             android:layout_width="match_parent"
@@ -91,8 +91,8 @@
             android:gravity="right"
             android:paddingRight="10dp"
             android:paddingLeft="10dp"
-            android:text="سایر برنامه ها"
-            android:textColor="@color/blueDark"
+            android:text="صفر کردن صلوات روز"
+            android:textColor="@color/colorAccent"
             android:textSize="18dp"
             android:textStyle="bold" />
 
