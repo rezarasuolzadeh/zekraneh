@@ -7,6 +7,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Bundle
 import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekraneh.R
 import ir.rezarasoulzadeh.zekraneh.service.utils.Days
@@ -104,6 +105,10 @@ fun updateSalavat(
         R.id.salavatCounterTextView,
         getPendingSalavat(context, MyOnClick, appWidgetId)
     )
+
+    val bundle = Bundle()
+    bundle.putInt("appWidgetId", appWidgetId)
+    intent.putExtras(bundle)
 
     appWidgetManager.updateAppWidget(appWidgetId, views)
 }

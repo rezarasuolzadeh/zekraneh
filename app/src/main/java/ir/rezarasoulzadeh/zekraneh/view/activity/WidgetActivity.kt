@@ -15,7 +15,6 @@ import ir.rezarasoulzadeh.zekraneh.service.utils.Prays
 import ir.rezarasoulzadeh.zekraneh.service.utils.SharedPrefs
 import ir.rezarasoulzadeh.zekraneh.service.utils.Timer
 
-
 class WidgetActivity : AppWidgetProvider() {
 
     private val MyOnClick = "myOnClickTag"
