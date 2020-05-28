@@ -80,10 +80,10 @@ class HomeActivity : AppCompatActivity() {
         val zekr = appWidgetManager.getAppWidgetIds(
             ComponentName(
                 this,
-                WidgetActivity::class.java
+                ZekrActivity::class.java
             )
         )
-        WidgetActivity().onUpdate(this, appWidgetManager, zekr)
+        ZekrActivity().onUpdate(this, appWidgetManager, zekr)
 
         val salavat = appWidgetManager.getAppWidgetIds(
             ComponentName(

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ir.rezarasoulzadeh.zekraneh">
 
@@ -10,7 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <receiver android:name="ir.rezarasoulzadeh.zekraneh.view.activity.WidgetActivity">
+        <receiver
+            android:name="ir.rezarasoulzadeh.zekraneh.view.activity.ZekrActivity"
+            android:label="@string/zekrLabel">
 
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -28,7 +31,9 @@
                 android:resource="@xml/info_for_zekr" />
         </receiver>
 
-        <receiver android:name="ir.rezarasoulzadeh.zekraneh.view.activity.SalavatActivity">
+        <receiver
+            android:name="ir.rezarasoulzadeh.zekraneh.view.activity.SalavatActivity"
+            android:label="@string/slavatLabel">
 
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

@@ -3,7 +3,7 @@ package ir.rezarasoulzadeh.zekraneh.service.utils
 import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.os.CountDownTimer
-import ir.rezarasoulzadeh.zekraneh.view.activity.updateAppWidget
+import ir.rezarasoulzadeh.zekraneh.view.activity.updateZekr
 import ir.rezarasoulzadeh.zekraneh.view.activity.updateSalavat
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -15,8 +15,7 @@ class Timer {
         fun handleCountDownTimer(
             context: Context,
             appWidgetManager: AppWidgetManager,
-            appWidgetId: Int,
-            type: Int
+            appWidgetId: Int
         ) {
             val current = Calendar.getInstance(TimeZone.getDefault())
             val nextDate =
@@ -31,20 +30,8 @@ class Timer {
                 }
 
                 override fun onFinish() {
-                    if(type == 1) {
-                        updateAppWidget(
-                            context,
-                            appWidgetManager,
-                            appWidgetId
-                        )
-                    }
-                    if(type == 2) {
-                        updateSalavat(
-                            context,
-                            appWidgetManager,
-                            appWidgetId
-                        )
-                    }
+                    updateZekr(context, appWidgetManager, appWidgetId)
+                    updateSalavat(context, appWidgetManager, appWidgetId)
                 }
             }.start()
         }
@@ -63,4 +50,5 @@ class Timer {
             }
         }
     }
+
 }

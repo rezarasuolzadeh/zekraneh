@@ -5,6 +5,8 @@
     <string name="defaultPray">لا اِلهَ الَّا اَللّهُ المَلِکُ الحَقُّ المُبین</string>
     <string name="configure">Configure</string>
     <string name="add_widget">Add widget</string>
+    <string name="slavatLabel">صلوات</string>
+    <string name="zekrLabel">ذکر روز</string>
 
     <!-- Bazaar -->
     <string name="bazaarStarLink">bazaar://details?id=ir.rezarasoulzadeh.zekraneh</string>

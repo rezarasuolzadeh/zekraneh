@@ -15,7 +15,7 @@ import ir.rezarasoulzadeh.zekraneh.service.utils.Prays
 import ir.rezarasoulzadeh.zekraneh.service.utils.SharedPrefs
 import ir.rezarasoulzadeh.zekraneh.service.utils.Timer
 
-class WidgetActivity : AppWidgetProvider() {
+class ZekrActivity : AppWidgetProvider() {
 
     private val MyOnClick = "myOnClickTag"
 
@@ -25,7 +25,7 @@ class WidgetActivity : AppWidgetProvider() {
         appWidgetIds: IntArray
     ) {
         for (appWidgetId in appWidgetIds) {
-            updateAppWidget(context, appWidgetManager, appWidgetId)
+            updateZekr(context, appWidgetManager, appWidgetId)
         }
     }
 
@@ -47,15 +47,15 @@ class WidgetActivity : AppWidgetProvider() {
             sharedPrefs.setCounter((previousCounter!!.toInt() + 1).toString())
             views.setTextViewText(R.id.counterTextView, (previousCounter.toInt() + 1).toString())
             AppWidgetManager.getInstance(context).updateAppWidget(
-                ComponentName(context, WidgetActivity::class.java), views
+                ComponentName(context, ZekrActivity::class.java), views
             )
-            updateAppWidget(context, AppWidgetManager.getInstance(context), appWidgetId)
+            updateZekr(context, AppWidgetManager.getInstance(context), appWidgetId)
         }
     }
 
 }
 
-fun updateAppWidget(
+fun updateZekr(
     context: Context,
     appWidgetManager: AppWidgetManager,
     appWidgetId: Int
@@ -64,7 +64,7 @@ fun updateAppWidget(
 
     val views = RemoteViews(context.packageName, R.layout.widget_for_zekr)
 
-    Timer.handleCountDownTimer(context, appWidgetManager, appWidgetId, 1)
+    Timer.handleCountDownTimer(context, appWidgetManager, appWidgetId)
 
     val sharedPrefs = SharedPrefs(context)
 
@@ -118,7 +118,7 @@ fun updateAppWidget(
 }
 
 fun getPendingSelfIntent(context: Context?, action: String?, appWidgetId: Int): PendingIntent? {
-    val intent = Intent(context, WidgetActivity::class.java)
+    val intent = Intent(context, ZekrActivity::class.java)
     intent.action = action
     intent.putExtra("id", appWidgetId)
     return PendingIntent.getBroadcast(context, 0, intent, 0)
