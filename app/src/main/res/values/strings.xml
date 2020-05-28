@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">ذکرانه</string>
     <string name="defaultTitle">ذکر روز</string>
     <string name="defaultDay">پنجشنبه</string>
@@ -7,6 +8,7 @@
     <string name="add_widget">Add widget</string>
     <string name="slavatLabel">صلوات</string>
     <string name="zekrLabel">ذکر روز</string>
+    <string name="tasbihatLabel">تسبیحات حضرت زهرا (س)</string>
 
     <!-- Bazaar -->
     <string name="bazaarStarLink">bazaar://details?id=ir.rezarasoulzadeh.zekraneh</string>

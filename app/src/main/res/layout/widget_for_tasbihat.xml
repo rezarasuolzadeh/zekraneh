@@ -1,0 +1,140 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widgetLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_for_widget"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/dayTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000099CC"
+        android:fontFamily="@font/vazir"
+        android:padding="3dp"
+        android:gravity="right"
+        android:text="تسبیحات حضرت زهرا (س)"
+        android:textColor="#EF7979"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layoutDirection="rtl">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#000099CC"
+                android:fontFamily="@font/vazir"
+                android:padding="3dp"
+                android:gravity="center"
+                android:text="اللّه اکبر"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/background_for_counter"
+                android:clickable="true"
+                android:focusable="true"
+                android:textColor="@color/grayMedium"
+                android:fontFamily="@font/vazir"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#000099CC"
+                android:fontFamily="@font/vazir"
+                android:padding="3dp"
+                android:gravity="center"
+                android:text="الحمدللّه"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/background_for_counter"
+                android:clickable="true"
+                android:focusable="true"
+                android:textColor="@color/grayMedium"
+                android:fontFamily="@font/vazir"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#000099CC"
+                android:fontFamily="@font/vazir"
+                android:padding="3dp"
+                android:gravity="center"
+                android:text="سبحان اللّه"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/counterTextView"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/background_for_counter"
+                android:clickable="true"
+                android:focusable="true"
+                android:textColor="@color/grayMedium"
+                android:fontFamily="@font/vazir"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

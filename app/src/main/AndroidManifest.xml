@@ -51,6 +51,26 @@
                 android:resource="@xml/info_for_salavat" />
         </receiver>
 
+        <receiver
+            android:name="ir.rezarasoulzadeh.zekraneh.view.activity.TasbihatActivity"
+            android:label="@string/tasbihatLabel">
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.WIDGET_BUTTON" />
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+                <action android:name="android.appwidget.action.APPWIDGET_DELETED" />
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
+                <action android:name="android.appwidget.action.ACTION_AUTO_UPDATE_WIDGET" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+                <action android:name="android.intent.action.TIME_SET" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/info_for_zekr" />
+        </receiver>
+
         <activity android:name=".view.activity.HomeActivity" />
 
     </application>
