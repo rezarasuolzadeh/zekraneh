@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-- cell size = (n*70) - 30 -->
+
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:initialKeyguardLayout="@layout/widget_for_tasbihat"
     android:initialLayout="@layout/widget_for_tasbihat"
     android:minWidth="250dp"
-    android:minHeight="80dp"
+    android:minHeight="110dp"
     android:resizeMode="horizontal"
     android:previewImage="@drawable/preview_for_salavat"
     android:updatePeriodMillis="86400000"

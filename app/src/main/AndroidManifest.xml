@@ -11,6 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <!-- Zekr widget -->
+
         <receiver
             android:name="ir.rezarasoulzadeh.zekraneh.view.activity.ZekrActivity"
             android:label="@string/zekrLabel">
@@ -30,6 +32,8 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/info_for_zekr" />
         </receiver>
+
+        <!-- Salavat widget -->
 
         <receiver
             android:name="ir.rezarasoulzadeh.zekraneh.view.activity.SalavatActivity"
@@ -51,6 +55,8 @@
                 android:resource="@xml/info_for_salavat" />
         </receiver>
 
+        <!-- Tasbihat widget -->
+
         <receiver
             android:name="ir.rezarasoulzadeh.zekraneh.view.activity.TasbihatActivity"
             android:label="@string/tasbihatLabel">
@@ -70,6 +76,8 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/info_for_zekr" />
         </receiver>
+
+        <!-- Home activity -->
 
         <activity android:name=".view.activity.HomeActivity" />
 
