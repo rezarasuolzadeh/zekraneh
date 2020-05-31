@@ -8,7 +8,10 @@
     <string name="add_widget">Add widget</string>
     <string name="slavatLabel">صلوات</string>
     <string name="zekrLabel">ذکر روز</string>
-    <string name="tasbihatLabel">تسبیحات حضرت زهرا (س)</string>
+    <string name="tasbihatLabel">تسبیحات</string>
+    <string name="AALabel">اَللّهُ اَکبَر</string>
+    <string name="HALabel">اَلحَمدُلِلّه</string>
+    <string name="SALabel">سُبحانَ اَللّه</string>
 
     <!-- Bazaar -->
     <string name="bazaarStarLink">bazaar://details?id=ir.rezarasoulzadeh.zekraneh</string>

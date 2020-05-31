@@ -1,13 +1,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/widgetLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@drawable/background_for_widget"
     android:orientation="vertical"
     android:padding="5dp">
 
     <TextView
-        android:id="@+id/dayTitle"
+        android:id="@+id/tasbihatTitleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#000099CC"
@@ -23,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:gravity="center"
         android:layoutDirection="rtl">
 
         <LinearLayout
@@ -33,13 +34,14 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tasbihatAAText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#000099CC"
                 android:fontFamily="@font/vazir"
                 android:padding="3dp"
                 android:gravity="center"
-                android:text="اللّه اکبر"
+                android:text="@string/AALabel"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -69,13 +71,14 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tasbihatHAText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#000099CC"
                 android:fontFamily="@font/vazir"
                 android:padding="3dp"
                 android:gravity="center"
-                android:text="الحمدللّه"
+                android:text="@string/HALabel"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -105,13 +108,14 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tasbihatSAText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#000099CC"
                 android:fontFamily="@font/vazir"
                 android:padding="3dp"
                 android:gravity="center"
-                android:text="سبحان اللّه"
+                android:text="@string/SALabel"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
                 android:textStyle="bold" />

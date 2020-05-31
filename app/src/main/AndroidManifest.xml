@@ -11,8 +11,9 @@
         android:theme="@style/AppTheme">
 
         <!-- Tasbihat widget -->
-        <receiver android:name=".view.activity.TasbihatWidget"
-            android:label="تسبیحات">
+        <receiver
+            android:name=".view.activity.TasbihatActivity"
+            android:label="@string/tasbihatLabel">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -40,7 +41,9 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/info_for_zekr" />
-        </receiver> <!-- Salavat widget -->
+        </receiver>
+
+        <!-- Salavat widget -->
         <receiver
             android:name=".view.activity.SalavatActivity"
             android:label="@string/slavatLabel">
@@ -59,8 +62,10 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/info_for_salavat" />
         </receiver>
+
         <!-- Home activity -->
         <activity android:name=".view.activity.HomeActivity" />
+
     </application>
 
 </manifest>

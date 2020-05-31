@@ -6,11 +6,7 @@ import android.content.Context
 import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekraneh.R
 
-/**
- * Implementation of App Widget functionality.
- * App Widget Configuration implemented in [NewAppWidgetConfigureActivity]
- */
-class TasbihatWidget : AppWidgetProvider() {
+class TasbihatActivity : AppWidgetProvider() {
     override fun onUpdate(
         context: Context,
         appWidgetManager: AppWidgetManager,
@@ -18,11 +14,7 @@ class TasbihatWidget : AppWidgetProvider() {
     ) {
         // There may be multiple widgets active, so update all of them
         for (appWidgetId in appWidgetIds) {
-            updateAppWidget(
-                context,
-                appWidgetManager,
-                appWidgetId
-            )
+            updateTasbihat(context, appWidgetManager, appWidgetId)
         }
     }
 
@@ -42,16 +34,14 @@ class TasbihatWidget : AppWidgetProvider() {
     }
 }
 
-internal fun updateAppWidget(
+internal fun updateTasbihat(
     context: Context,
     appWidgetManager: AppWidgetManager,
     appWidgetId: Int
 ) {
 //    val widgetText = loadTitlePref(context, appWidgetId)
     // Construct the RemoteViews object
-    val views = RemoteViews(context.packageName,
-        R.layout.widget_for_tasbihat
-    )
+    val views = RemoteViews(context.packageName, R.layout.widget_for_tasbihat)
 //    views.setTextViewText(R.id.appwidget_text, widgetText)
 
     // Instruct the widget manager to update the widget
