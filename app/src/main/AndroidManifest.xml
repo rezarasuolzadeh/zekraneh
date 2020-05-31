@@ -12,7 +12,7 @@
 
         <!-- Tasbihat widget -->
         <receiver android:name=".view.activity.TasbihatWidget"
-            android:label="جدیده">
+            android:label="تسبیحات">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
