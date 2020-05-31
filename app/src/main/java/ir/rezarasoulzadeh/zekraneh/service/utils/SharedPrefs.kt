@@ -12,6 +12,9 @@ class SharedPrefs(context: Context) {
     private val dayKey: String = "dayKey"
     private val counterKey: String = "counterKey"
     private val salavatKey: String = "salavatKey"
+    private val AAKey: String = "AAKey"
+    private val HAKey: String = "HAKey"
+    private val SAKey: String = "SAKey"
 
     // pray functions
     fun setPray(pray: String) {
@@ -48,7 +51,7 @@ class SharedPrefs(context: Context) {
         return sharedPreference.getString(counterKey, "0")
     }
 
-    // counter functions
+    // salavat functions
     fun setSalavat(counter: String) {
         val editor: SharedPreferences.Editor = sharedPreference.edit()
         editor.putString(salavatKey, counter)
@@ -57,6 +60,39 @@ class SharedPrefs(context: Context) {
 
     fun getSalavat(): String? {
         return sharedPreference.getString(salavatKey, "0")
+    }
+
+    // AA functions
+    fun setAA(counter: String) {
+        val editor: SharedPreferences.Editor = sharedPreference.edit()
+        editor.putString(AAKey, counter)
+        editor.apply()
+    }
+
+    fun getAA(): String? {
+        return sharedPreference.getString(AAKey, "0")
+    }
+
+    // HA functions
+    fun setHA(counter: String) {
+        val editor: SharedPreferences.Editor = sharedPreference.edit()
+        editor.putString(HAKey, counter)
+        editor.apply()
+    }
+
+    fun getHA(): String? {
+        return sharedPreference.getString(HAKey, "0")
+    }
+
+    // SA functions
+    fun setSA(counter: String) {
+        val editor: SharedPreferences.Editor = sharedPreference.edit()
+        editor.putString(SAKey, counter)
+        editor.apply()
+    }
+
+    fun getSA(): String? {
+        return sharedPreference.getString(SAKey, "0")
     }
 
 }
