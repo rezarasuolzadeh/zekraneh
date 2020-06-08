@@ -100,6 +100,14 @@ class HomeActivity : AppCompatActivity() {
             )
         )
         SalavatActivity().onUpdate(this, appWidgetManager, salavat)
+
+        val tasbihat = appWidgetManager.getAppWidgetIds(
+            ComponentName(
+                this,
+                TasbihatActivity::class.java
+            )
+        )
+        TasbihatActivity().onUpdate(this, appWidgetManager, tasbihat)
     }
 
 }

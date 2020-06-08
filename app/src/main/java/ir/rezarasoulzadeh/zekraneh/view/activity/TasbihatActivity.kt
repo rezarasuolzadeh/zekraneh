@@ -46,34 +46,49 @@ class TasbihatActivity : AppWidgetProvider() {
             val views = RemoteViews(context.packageName, R.layout.widget_for_tasbihat)
             val appWidgetId = intent.getIntExtra("id", 0)
             val previousCounter = sharedPrefs.getAA()
-            sharedPrefs.setAA((previousCounter!!.toInt() + 1).toString())
-            views.setTextViewText(R.id.AACounterTextView, (previousCounter.toInt() + 1).toString())
-            AppWidgetManager.getInstance(context).updateAppWidget(
-                ComponentName(context, TasbihatActivity::class.java), views
-            )
-            updateTasbihat(context, AppWidgetManager.getInstance(context), appWidgetId)
+            if(previousCounter != "34") {
+                sharedPrefs.setAA((previousCounter!!.toInt() + 1).toString())
+                views.setTextViewText(
+                    R.id.AACounterTextView,
+                    (previousCounter.toInt() + 1).toString()
+                )
+                AppWidgetManager.getInstance(context).updateAppWidget(
+                    ComponentName(context, TasbihatActivity::class.java), views
+                )
+                updateTasbihat(context, AppWidgetManager.getInstance(context), appWidgetId)
+            }
         }
         if (HAClick == intent.action) {
             val views = RemoteViews(context.packageName, R.layout.widget_for_tasbihat)
             val appWidgetId = intent.getIntExtra("id", 0)
             val previousCounter = sharedPrefs.getHA()
-            sharedPrefs.setHA((previousCounter!!.toInt() + 1).toString())
-            views.setTextViewText(R.id.HACounterTextView, (previousCounter.toInt() + 1).toString())
-            AppWidgetManager.getInstance(context).updateAppWidget(
-                ComponentName(context, TasbihatActivity::class.java), views
-            )
-            updateTasbihat(context, AppWidgetManager.getInstance(context), appWidgetId)
+            if(previousCounter != "33") {
+                sharedPrefs.setHA((previousCounter!!.toInt() + 1).toString())
+                views.setTextViewText(
+                    R.id.HACounterTextView,
+                    (previousCounter.toInt() + 1).toString()
+                )
+                AppWidgetManager.getInstance(context).updateAppWidget(
+                    ComponentName(context, TasbihatActivity::class.java), views
+                )
+                updateTasbihat(context, AppWidgetManager.getInstance(context), appWidgetId)
+            }
         }
         if (SAClick == intent.action) {
             val views = RemoteViews(context.packageName, R.layout.widget_for_tasbihat)
             val appWidgetId = intent.getIntExtra("id", 0)
             val previousCounter = sharedPrefs.getSA()
-            sharedPrefs.setSA((previousCounter!!.toInt() + 1).toString())
-            views.setTextViewText(R.id.SACounterTextView, (previousCounter.toInt() + 1).toString())
-            AppWidgetManager.getInstance(context).updateAppWidget(
-                ComponentName(context, TasbihatActivity::class.java), views
-            )
-            updateTasbihat(context, AppWidgetManager.getInstance(context), appWidgetId)
+            if(previousCounter != "33") {
+                sharedPrefs.setSA((previousCounter!!.toInt() + 1).toString())
+                views.setTextViewText(
+                    R.id.SACounterTextView,
+                    (previousCounter.toInt() + 1).toString()
+                )
+                AppWidgetManager.getInstance(context).updateAppWidget(
+                    ComponentName(context, TasbihatActivity::class.java), views
+                )
+                updateTasbihat(context, AppWidgetManager.getInstance(context), appWidgetId)
+            }
         }
     }
 }
