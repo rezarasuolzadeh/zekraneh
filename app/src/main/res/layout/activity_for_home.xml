@@ -99,6 +99,38 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/resetTasbihatButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?android:selectableItemBackground"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:padding="3dp"
+            android:src="@drawable/shape_for_circle_light" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/vazir"
+            android:gravity="right"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:text="صفر کردن تسبیحات"
+            android:textColor="@color/colorAccent"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
         android:id="@+id/starButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

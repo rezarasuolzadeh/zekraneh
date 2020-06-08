@@ -43,6 +43,14 @@ class HomeActivity : AppCompatActivity() {
             finish()
         }
 
+        resetTasbihatButton.setOnClickListener {
+            sharePrefs.setAA("0")
+            sharePrefs.setHA("0")
+            sharePrefs.setSA("0")
+            updateAllWidgets()
+            finish()
+        }
+
         starButton.setOnClickListener {
             try {
                 val intent = Intent(Intent.ACTION_EDIT)
