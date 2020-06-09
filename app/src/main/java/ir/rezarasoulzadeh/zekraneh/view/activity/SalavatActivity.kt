@@ -66,7 +66,7 @@ fun updateSalavat(
 
     val views = RemoteViews(context.packageName, R.layout.widget_for_salavat)
 
-    Timer.handleCountDownTimer(context, appWidgetManager, appWidgetId)
+    Timer.handleCountDownTimer(context, appWidgetManager, appWidgetId, "salavat")
 
     val sharedPrefs = SharedPrefs(context)
 

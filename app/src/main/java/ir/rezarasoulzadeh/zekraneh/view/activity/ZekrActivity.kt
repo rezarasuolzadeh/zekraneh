@@ -64,7 +64,7 @@ fun updateZekr(
 
     val views = RemoteViews(context.packageName, R.layout.widget_for_zekr)
 
-    Timer.handleCountDownTimer(context, appWidgetManager, appWidgetId)
+    Timer.handleCountDownTimer(context, appWidgetManager, appWidgetId, "zekr")
 
     val sharedPrefs = SharedPrefs(context)
 

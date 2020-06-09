@@ -16,12 +16,13 @@ class Timer {
         fun handleCountDownTimer(
             context: Context,
             appWidgetManager: AppWidgetManager,
-            appWidgetId: Int
+            appWidgetId: Int,
+            type: String
         ) {
             val current = Calendar.getInstance(TimeZone.getDefault())
             val nextDate =
                 getNextDay()
-            object : CountDownTimer((nextDate.timeInMillis - current.timeInMillis), 1000) {
+            object : CountDownTimer((nextDate.timeInMillis - current.timeInMillis) + 1000, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
                     var hours = TimeUnit.MILLISECONDS.toHours(millisUntilFinished)
                     //if 24:00:00 occurs?
@@ -32,8 +33,12 @@ class Timer {
 
                 override fun onFinish() {
                     Toast.makeText(context, "روز جدید", Toast.LENGTH_LONG).show()
-                    updateZekr(context, appWidgetManager, appWidgetId)
-                    updateSalavat(context, appWidgetManager, appWidgetId)
+                    if(type == "salavat") {
+                        updateSalavat(context, appWidgetManager, appWidgetId)
+                    }
+                    if(type == "zekr") {
+                        updateZekr(context, appWidgetManager, appWidgetId)
+                    }
                 }
             }.start()
         }
