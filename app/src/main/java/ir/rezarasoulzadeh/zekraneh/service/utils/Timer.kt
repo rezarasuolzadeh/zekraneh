@@ -4,8 +4,8 @@ import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.os.CountDownTimer
 import android.widget.Toast
-import ir.rezarasoulzadeh.zekraneh.view.activity.updateZekr
 import ir.rezarasoulzadeh.zekraneh.view.activity.updateSalavat
+import ir.rezarasoulzadeh.zekraneh.view.activity.updateZekr
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -20,9 +20,8 @@ class Timer {
             type: String
         ) {
             val current = Calendar.getInstance(TimeZone.getDefault())
-            val nextDate =
-                getNextDay()
-            object : CountDownTimer((nextDate.timeInMillis - current.timeInMillis) + 1000, 1000) {
+            val nextDate = getNextDay()
+            object : CountDownTimer(nextDate.timeInMillis - current.timeInMillis, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
                     var hours = TimeUnit.MILLISECONDS.toHours(millisUntilFinished)
                     //if 24:00:00 occurs?
@@ -52,7 +51,7 @@ class Timer {
                     get(Calendar.DATE),
                     0,
                     0,
-                    0
+                    1
                 )
             }
         }
