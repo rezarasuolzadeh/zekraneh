@@ -83,9 +83,6 @@ class HomeActivity : AppCompatActivity() {
     }
 
     fun updateAllWidgets() {
-
-        Toast.makeText(this, "widget update", Toast.LENGTH_LONG).show()
-
         val appWidgetManager = AppWidgetManager.getInstance(this)
 
         val zekr = appWidgetManager.getAppWidgetIds(
