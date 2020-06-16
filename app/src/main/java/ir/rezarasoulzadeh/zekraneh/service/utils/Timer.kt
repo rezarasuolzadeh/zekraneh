@@ -3,6 +3,7 @@ package ir.rezarasoulzadeh.zekraneh.service.utils
 import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.os.CountDownTimer
+import android.widget.Toast
 import ir.rezarasoulzadeh.zekraneh.view.activity.updateSalavat
 import ir.rezarasoulzadeh.zekraneh.view.activity.updateZekr
 import java.util.*
@@ -30,6 +31,7 @@ class Timer {
                 }
 
                 override fun onFinish() {
+                    Toast.makeText(context, "new day", Toast.LENGTH_LONG).show()
                     if(type == "salavat") {
                         updateSalavat(context, appWidgetManager, appWidgetId)
                     }

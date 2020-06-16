@@ -72,12 +72,12 @@ fun updateSalavat(
 
     val days = Days()
 
-    val currentDay = sharedPrefs.getDay()
+    val currentDay = sharedPrefs.getSalavtDay()
 
     val today = days.getToday()
     val todayName = days.getTodayName(today)
 
-    sharedPrefs.setDay(todayName)
+    sharedPrefs.setSalavtDay(todayName)
 
     if (todayName != currentDay) {
         sharedPrefs.setSalavat("0")
@@ -85,7 +85,7 @@ fun updateSalavat(
         views.setTextViewText(R.id.salavatDay, todayName)
     }
 
-    val dayText = sharedPrefs.getDay()
+    val dayText = sharedPrefs.getSalavtDay()
     val counterText = sharedPrefs.getSalavat()
 
     views.setTextViewText(R.id.salavatDay, dayText)
