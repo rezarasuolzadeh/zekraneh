@@ -64,7 +64,7 @@ class HomeActivity : AppCompatActivity() {
             finish()
         }
 
-        sharePrefs = SharedPrefs(this)
+//        sharePrefs = SharedPrefs(this)
 
     }
 

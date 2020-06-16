@@ -20,6 +20,7 @@
     <string name="bazaarPackage">com.farsitel.bazaar</string>
 
     <!-- Myket -->
-    <string name="myketAppLink">myket://download/ir.rezarasoulzadeh.zekraneh</string>
+    <string name="myketStarLink">myket://comment?id=ir.rezarasoulzadeh.zekraneh</string>
+    <string name="myketDeveloperLink">myket://developer/ir.rezarasoulzadeh.zekraneh</string>
 
 </resources>

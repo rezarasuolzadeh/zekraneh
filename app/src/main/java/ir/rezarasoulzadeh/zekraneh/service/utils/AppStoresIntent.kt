@@ -37,7 +37,7 @@ class AppStoresIntent(var context: Context) {
         try {
             val intent = Intent()
             intent.action = Intent.ACTION_VIEW
-            intent.data = Uri.parse(context.resources.getString(R.string.myketAppLink))
+            intent.data = Uri.parse(context.resources.getString(R.string.myketStarLink))
             context.startActivity(intent)
         } catch (e: Exception) {
             Toast.makeText(context, "ابتدا برنامه مایکت رو نصب کنید", Toast.LENGTH_SHORT).show()
@@ -48,7 +48,7 @@ class AppStoresIntent(var context: Context) {
         try {
             val intent = Intent()
             intent.action = Intent.ACTION_VIEW
-            intent.data = Uri.parse(context.resources.getString(R.string.myketAppLink))
+            intent.data = Uri.parse(context.resources.getString(R.string.myketDeveloperLink))
             context.startActivity(intent)
         } catch (e: Exception) {
             Toast.makeText(context, "ابتدا برنامه مایکت رو نصب کنید", Toast.LENGTH_SHORT).show()
