@@ -1,226 +1,239 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/configurationLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blueLight"
-    android:gravity="right"
     android:orientation="vertical">
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="15dp"
-        android:layoutDirection="ltr"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="left"
-            android:src="@drawable/zekr" />
-
-        <TextView
+        <LinearLayout
+            android:id="@+id/configurationLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fontFamily="@font/vazir"
-            android:gravity="center"
-            android:text=""
-            android:textColor="@color/colorAccent"
-            android:textSize="60dp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/resetZekrButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:padding="12dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:background="?android:selectableItemBackground"
-        android:layoutDirection="rtl"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:padding="3dp"
-            android:src="@drawable/shape_for_circle_light" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/vazir"
             android:gravity="right"
-            android:paddingRight="10dp"
-            android:paddingLeft="10dp"
-            android:text="صفر کردن ذکر روز هفته"
-            android:textColor="@color/colorAccent"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="15dp"
+                android:layoutDirection="ltr"
+                android:orientation="horizontal">
 
-    <LinearLayout
-        android:id="@+id/resetSalavatButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:background="?android:selectableItemBackground"
-        android:layoutDirection="rtl"
-        android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="left"
+                    android:src="@drawable/zekr" />
 
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:padding="3dp"
-            android:src="@drawable/shape_for_circle_light" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/vazir"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/colorAccent"
+                    android:textSize="60dp"
+                    android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/vazir"
-            android:gravity="right"
-            android:paddingRight="10dp"
-            android:paddingLeft="10dp"
-            android:text="صفر کردن صلوات روز"
-            android:textColor="@color/colorAccent"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+            </LinearLayout>
 
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/resetZekrButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:background="?android:selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:layoutDirection="rtl"
+                android:orientation="horizontal"
+                android:padding="12dp">
 
-    <LinearLayout
-        android:id="@+id/resetTasbihatButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:background="?android:selectableItemBackground"
-        android:layoutDirection="rtl"
-        android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:padding="3dp"
+                    android:src="@drawable/shape_for_circle_light" />
 
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:padding="3dp"
-            android:src="@drawable/shape_for_circle_light" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/vazir"
+                    android:gravity="right"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="صفر کردن ذکر روز هفته"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/vazir"
-            android:gravity="right"
-            android:paddingRight="10dp"
-            android:paddingLeft="10dp"
-            android:text="صفر کردن تسبیحات"
-            android:textColor="@color/colorAccent"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+            </LinearLayout>
 
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/resetSalavatButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:layoutDirection="rtl"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:padding="3dp"
+                    android:src="@drawable/shape_for_circle_light" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/vazir"
+                    android:gravity="right"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="صفر کردن صلوات روز"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/resetTasbihatButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:layoutDirection="rtl"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:padding="3dp"
+                    android:src="@drawable/shape_for_circle_light" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/vazir"
+                    android:gravity="right"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="صفر کردن تسبیحات"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
 
-    <LinearLayout
-        android:id="@+id/starButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:background="?android:selectableItemBackground"
-        android:layoutDirection="rtl"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/starButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:layoutDirection="rtl"
+                android:orientation="horizontal"
+                android:padding="12dp">
 
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:padding="3dp"
-            android:src="@drawable/shape_for_circle_dark" />
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:padding="3dp"
+                    android:src="@drawable/shape_for_circle_dark" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/vazir"
-            android:gravity="right"
-            android:paddingRight="10dp"
-            android:paddingLeft="10dp"
-            android:text="امتیازدهی"
-            android:textColor="@color/blueDark"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/vazir"
+                    android:gravity="right"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="امتیازدهی"
+                    android:textColor="@color/blueDark"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/developerButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:background="?android:selectableItemBackground"
-        android:layoutDirection="rtl"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/developerButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:layoutDirection="rtl"
+                android:orientation="horizontal"
+                android:padding="12dp">
 
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:padding="3dp"
-            android:src="@drawable/shape_for_circle_dark" />
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:padding="3dp"
+                    android:src="@drawable/shape_for_circle_dark" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/vazir"
-            android:gravity="right"
-            android:paddingRight="10dp"
-            android:paddingLeft="10dp"
-            android:text="سایر برنامه ها"
-            android:textColor="@color/blueDark"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/vazir"
+                    android:gravity="right"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="سایر برنامه ها"
+                    android:textColor="@color/blueDark"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/exitButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:background="?android:selectableItemBackground"
-        android:layoutDirection="rtl"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/exitButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:layoutDirection="rtl"
+                android:orientation="horizontal"
+                android:padding="12dp">
 
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:padding="3dp"
-            android:src="@drawable/shape_for_circle_dark" />
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:padding="3dp"
+                    android:src="@drawable/shape_for_circle_dark" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/vazir"
-            android:gravity="right"
-            android:paddingRight="10dp"
-            android:paddingLeft="10dp"
-            android:text="خروج"
-            android:textColor="@color/blueDark"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/vazir"
+                    android:gravity="right"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="خروج"
+                    android:textColor="@color/blueDark"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
 
-    </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>
