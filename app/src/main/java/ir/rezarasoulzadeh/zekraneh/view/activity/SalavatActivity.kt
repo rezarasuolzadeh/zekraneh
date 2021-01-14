@@ -98,7 +98,7 @@ fun updateSalavat(
     intent.data = Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME))
     val pendIntent =
         PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-    views.setOnClickPendingIntent(R.id.salavatLayout, pendIntent)
+    views.setOnClickPendingIntent(R.id.salavatDay, pendIntent)
     //////////////////////////////
 
     views.setOnClickPendingIntent(

@@ -3,11 +3,11 @@
 
     <!-- primary colours -->
     <color name="colorPrimary">#BC03DAC5</color>
-    <color name="colorPrimaryDark">#97F0FA</color>
+    <color name="colorPrimaryDark">#ffffff</color>
     <color name="colorAccent">#03DAC5</color>
 
     <!-- ripple colours -->
-    <color name="white">#fff</color>
+    <color name="white">#ffffff</color>
     <color name="black">#000</color>
 
     <!-- ripple colours -->

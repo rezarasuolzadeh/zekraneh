@@ -102,7 +102,7 @@ fun updateZekr(
     intent.data = Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME))
     val pendIntent =
         PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-    views.setOnClickPendingIntent(R.id.prayLayout, pendIntent)
+    views.setOnClickPendingIntent(R.id.appwidget_text, pendIntent)
     //////////////////////////////
 
     views.setOnClickPendingIntent(

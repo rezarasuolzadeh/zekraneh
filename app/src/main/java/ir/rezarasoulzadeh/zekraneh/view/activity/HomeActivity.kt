@@ -2,8 +2,12 @@ package ir.rezarasoulzadeh.zekraneh.view.activity
 
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName
+import android.os.Build
 import android.os.Bundle
+import android.view.View
+import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import ir.rezarasoulzadeh.zekraneh.R
 import ir.rezarasoulzadeh.zekraneh.service.utils.AppStoresIntent
 import ir.rezarasoulzadeh.zekraneh.service.utils.SharedPrefs
@@ -17,6 +21,8 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        whiteStatusBar(window)
 
         sharePrefs = SharedPrefs(this)
         appStoresIntent = AppStoresIntent(this)
@@ -94,6 +100,19 @@ class HomeActivity : AppCompatActivity() {
             )
         )
         TasbihatActivity().onUpdate(this, appWidgetManager, tasbihat)
+    }
+
+    private fun whiteStatusBar(window: Window) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        } else {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                window.statusBarColor = ContextCompat.getColor(window.context, R.color.black)
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                //  TO DO
+            }
+        }
     }
 
 }
