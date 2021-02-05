@@ -64,7 +64,9 @@
         </receiver>
 
         <!-- Home activity -->
-        <activity android:name=".view.activity.HomeActivity" />
+        <activity
+            android:name=".view.activity.HomeActivity"
+            android:fitsSystemWindows="true" />
 
     </application>
 
