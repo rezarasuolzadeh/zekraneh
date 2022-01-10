@@ -2,7 +2,7 @@
 This stylish and beautiful widget will help you to easily access the daily Islamic's prayers and enjoy using it
 
 <a href="https://cafebazaar.ir/app/ir.rezarasoulzadeh.zekraneh"> 
-    <img alt="Zekraneh" src="https://myket.ir/core/images/logo/get-en.png"  width=180" height="55"> 
+    <img alt="Zekraneh" src="/shots/bazaar.png"  width=180" height="55"> 
 </a>
 
 ### demo
