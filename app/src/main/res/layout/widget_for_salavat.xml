@@ -22,7 +22,7 @@
             android:background="@drawable/background_for_counter"
             android:clickable="true"
             android:focusable="true"
-            android:textColor="@color/grayMedium"
+            android:textColor="@color/widget_counter_color"
             android:fontFamily="@font/vazir"
             android:gravity="center"
             android:text="0"

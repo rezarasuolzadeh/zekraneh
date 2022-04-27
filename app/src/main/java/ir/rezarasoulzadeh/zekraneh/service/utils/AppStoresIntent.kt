@@ -32,27 +32,4 @@ class AppStoresIntent(var context: Context) {
         }
     }
 
-    // myket
-    fun myketStar() {
-        try {
-            val intent = Intent()
-            intent.action = Intent.ACTION_VIEW
-            intent.data = Uri.parse(context.resources.getString(R.string.myketStarLink))
-            context.startActivity(intent)
-        } catch (e: Exception) {
-            Toast.makeText(context, "ابتدا برنامه مایکت رو نصب کنید", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    fun myketDeveloper() {
-        try {
-            val intent = Intent()
-            intent.action = Intent.ACTION_VIEW
-            intent.data = Uri.parse(context.resources.getString(R.string.myketDeveloperLink))
-            context.startActivity(intent)
-        } catch (e: Exception) {
-            Toast.makeText(context, "ابتدا برنامه مایکت رو نصب کنید", Toast.LENGTH_SHORT).show()
-        }
-    }
-
 }
