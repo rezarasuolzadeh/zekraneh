@@ -10,14 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/islamic" />
-
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
+            android:background="@color/home_background_color"
             android:layout_height="match_parent"
             android:overScrollMode="ifContentScrolls">
 
@@ -25,6 +20,7 @@
                 android:id="@+id/configurationLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@android:color/transparent"
                 android:gravity="right"
                 android:orientation="vertical">
 
@@ -33,6 +29,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="50dp"
+                    android:gravity="center"
                     android:layout_marginRight="15dp"
                     android:layoutDirection="ltr"
                     android:orientation="horizontal">
@@ -40,18 +37,8 @@
                     <ImageView
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:layout_gravity="left"
+                        android:layout_gravity="center"
                         android:src="@drawable/zekr" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/vazir"
-                        android:gravity="center"
-                        android:text=""
-                        android:textColor="@color/colorAccent"
-                        android:textSize="60dp"
-                        android:textStyle="bold" />
 
                 </LinearLayout>
 
