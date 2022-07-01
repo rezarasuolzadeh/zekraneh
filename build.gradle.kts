@@ -5,7 +5,7 @@ buildscript {
     }
 
     dependencies {
-        val gradle = "7.1.3"
+        val gradle = "7.2.1"
         classpath("com.android.tools.build:gradle:$gradle")
 
         val kotlin = "1.6.10"
