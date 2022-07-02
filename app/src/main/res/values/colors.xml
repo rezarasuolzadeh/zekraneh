@@ -5,23 +5,15 @@
     <color name="widget_counter_color">#5A5A5A</color>
     <color name="status_bar_background_color">#6CA5FAF5</color>
     <color name="navigation_bar_background_color">#6CA5FAF5</color>
-    <!-- primary colours -->
     <color name="colorPrimary">#BC03DAC5</color>
     <color name="colorPrimaryDark">#ffffff</color>
     <color name="colorAccent">#03DAC5</color>
-
-    <!-- ripple colours -->
     <color name="white">#ffffff</color>
     <color name="black">#000</color>
-
-    <!-- ripple colours -->
     <color name="rippleColour">#AD000000</color>
-
-    <!-- blue colours -->
     <color name="blueLight">#6CA5FAF5</color>
     <color name="blueMedium">#03dac5</color>
     <color name="blueDark">#5a8bd5</color>
-
-    <!-- gray colours -->
     <color name="grayMedium">#5A5A5A</color>
+    <color name="lightRed">#EF7979</color>
 </resources>

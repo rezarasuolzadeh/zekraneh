@@ -43,7 +43,7 @@ class TasbihatActivity : AppWidgetProvider() {
         super.onReceive(context, intent)
         val sharedPrefs = SharedPrefs(context!!)
         if (AAClick == intent!!.action) {
-            val views = RemoteViews(context.packageName, R.layout.widget_for_tasbihat)
+            val views = RemoteViews(context.packageName, R.layout.widget_tasbihat)
             val appWidgetId = intent.getIntExtra("id", 0)
             val previousCounter = sharedPrefs.getAA()
             if(previousCounter != "34") {
@@ -59,7 +59,7 @@ class TasbihatActivity : AppWidgetProvider() {
             }
         }
         if (HAClick == intent.action) {
-            val views = RemoteViews(context.packageName, R.layout.widget_for_tasbihat)
+            val views = RemoteViews(context.packageName, R.layout.widget_tasbihat)
             val appWidgetId = intent.getIntExtra("id", 0)
             val previousCounter = sharedPrefs.getHA()
             if(previousCounter != "33") {
@@ -75,7 +75,7 @@ class TasbihatActivity : AppWidgetProvider() {
             }
         }
         if (SAClick == intent.action) {
-            val views = RemoteViews(context.packageName, R.layout.widget_for_tasbihat)
+            val views = RemoteViews(context.packageName, R.layout.widget_tasbihat)
             val appWidgetId = intent.getIntExtra("id", 0)
             val previousCounter = sharedPrefs.getSA()
             if(previousCounter != "33") {
@@ -102,7 +102,7 @@ internal fun updateTasbihat(
     val HAClick = "HAClickTag"
     val SAClick = "SAClickTag"
 
-    val views = RemoteViews(context.packageName, R.layout.widget_for_tasbihat)
+    val views = RemoteViews(context.packageName, R.layout.widget_tasbihat)
 
     val sharedPrefs = SharedPrefs(context)
 

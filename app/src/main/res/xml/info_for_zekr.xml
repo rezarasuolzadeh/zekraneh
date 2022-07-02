@@ -3,8 +3,8 @@
 <!-- cell size = (n*70) - 30 -->
 
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-    android:initialKeyguardLayout="@layout/widget_for_zekr"
-    android:initialLayout="@layout/widget_for_zekr"
+    android:initialKeyguardLayout="@layout/widget_zekr"
+    android:initialLayout="@layout/widget_zekr"
     android:minWidth="250dp"
     android:minHeight="40dp"
     android:resizeMode="horizontal"

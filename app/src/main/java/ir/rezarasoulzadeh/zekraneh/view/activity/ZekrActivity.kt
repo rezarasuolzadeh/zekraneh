@@ -41,7 +41,7 @@ class ZekrActivity : AppWidgetProvider() {
         super.onReceive(context, intent)
         val sharedPrefs = SharedPrefs(context!!)
         if (MyOnClick == intent!!.action) {
-            val views = RemoteViews(context.packageName, R.layout.widget_for_zekr)
+            val views = RemoteViews(context.packageName, R.layout.widget_zekr)
             val appWidgetId = intent.getIntExtra("id", 0)
             val previousCounter = sharedPrefs.getCounter()
             sharedPrefs.setCounter((previousCounter!!.toInt() + 1).toString())
@@ -62,7 +62,7 @@ fun updateZekr(
 ) {
     val MyOnClick = "myOnClickTag"
 
-    val views = RemoteViews(context.packageName, R.layout.widget_for_zekr)
+    val views = RemoteViews(context.packageName, R.layout.widget_zekr)
 
     Timer.handleCountDownTimer(context, appWidgetManager, appWidgetId, "zekr")
 

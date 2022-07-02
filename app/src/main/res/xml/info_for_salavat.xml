@@ -3,8 +3,8 @@
 <!-- cell size = (n*70) - 30 -->
 
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-    android:initialKeyguardLayout="@layout/widget_for_salavat"
-    android:initialLayout="@layout/widget_for_salavat"
+    android:initialKeyguardLayout="@layout/widget_salavat"
+    android:initialLayout="@layout/widget_salavat"
     android:minWidth="250dp"
     android:minHeight="40dp"
     android:resizeMode="horizontal"

@@ -1,10 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/widgetLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/background_for_widget"
-    android:orientation="vertical"
     android:gravity="center_vertical"
+    android:layoutDirection="rtl"
+    android:orientation="vertical"
     android:padding="5dp">
 
     <LinearLayout
@@ -20,13 +23,13 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/background_for_counter"
+            android:background="@drawable/background_counter"
             android:clickable="true"
             android:focusable="true"
-            android:textColor="@color/widget_counter_color"
             android:fontFamily="@font/vazir"
             android:gravity="center"
             android:text="0"
+            android:textColor="@color/widget_counter_color"
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -63,12 +66,15 @@
                     android:layout_height="wrap_content"
                     android:background="#000099CC"
                     android:contentDescription="@string/defaultDay"
+                    android:drawableEnd="@drawable/ic_shortcut"
+                    android:drawablePadding="5dp"
                     android:fontFamily="@font/vazir"
                     android:padding="3dp"
                     android:text="@string/defaultDay"
                     android:textColor="#EF7979"
                     android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="UseCompatTextViewDrawableXml" />
 
             </LinearLayout>
 

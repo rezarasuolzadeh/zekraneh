@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import ir.rezarasoulzadeh.zekraneh.R
 import ir.rezarasoulzadeh.zekraneh.service.utils.AppStoresIntent
 import ir.rezarasoulzadeh.zekraneh.service.utils.SharedPrefs
-import kotlinx.android.synthetic.main.activity_for_home.*
+import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
 
@@ -33,7 +33,7 @@ class HomeActivity : AppCompatActivity() {
             finish()
         }
 
-        setContentView(R.layout.activity_for_home)
+        setContentView(R.layout.activity_home)
 
         resetZekrButton.setOnClickListener {
             sharePrefs.setCounter("0")
