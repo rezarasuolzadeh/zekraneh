@@ -69,7 +69,13 @@
         <!-- Home activity -->
         <activity
             android:name=".view.activity.HomeActivity"
-            android:fitsSystemWindows="true" />
+            android:fitsSystemWindows="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
     </application>
 
