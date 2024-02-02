@@ -3,6 +3,7 @@
     package="ir.rezarasoulzadeh.zekraneh">
 
     <application
+        android:name=".HappyApp"
         android:allowBackup="true"
         android:icon="@drawable/zekr"
         android:label="@string/app_name"
@@ -13,8 +14,8 @@
         <!-- Tasbihat widget -->
         <receiver
             android:name=".view.activity.TasbihatActivity"
-            android:label="@string/tasbihatLabel"
-            android:exported="false">
+            android:exported="false"
+            android:label="@string/tasbihatLabel">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -27,8 +28,8 @@
         <!-- Zekr widget -->
         <receiver
             android:name=".view.activity.ZekrActivity"
-            android:label="@string/zekrLabel"
-            android:exported="false">
+            android:exported="false"
+            android:label="@string/zekrLabel">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="android.appwidget.action.WIDGET_BUTTON" />
@@ -48,8 +49,8 @@
         <!-- Salavat widget -->
         <receiver
             android:name=".view.activity.SalavatActivity"
-            android:label="@string/slavatLabel"
-            android:exported="false">
+            android:exported="false"
+            android:label="@string/slavatLabel">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="android.appwidget.action.WIDGET_BUTTON" />
@@ -69,8 +70,8 @@
         <!-- Home activity -->
         <activity
             android:name=".view.activity.HomeActivity"
-            android:fitsSystemWindows="true"
-            android:exported="true">
+            android:exported="true"
+            android:fitsSystemWindows="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
