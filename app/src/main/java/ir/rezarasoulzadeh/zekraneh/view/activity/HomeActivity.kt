@@ -6,6 +6,7 @@ import ir.rezarasoulzadeh.zekraneh.base.BaseActivity
 import ir.rezarasoulzadeh.zekraneh.databinding.ActivityHomeBinding
 import ir.rezarasoulzadeh.zekraneh.service.utils.extensions.rotate
 import ir.rezarasoulzadeh.zekraneh.utils.IntentManager
+import kotlinx.android.synthetic.main.activity_home.view.imgZekrRefresh
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>(
     ActivityHomeBinding::inflate
@@ -36,6 +37,15 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
                 elDetails.expand()
                 imgDetailsArrow.rotate(destinationRotate = 180f, duration = 150)
             }
+        }
+        imgZekrRefresh.setOnClickListener {
+            // nothing to do yet
+        }
+        imgSalavatRefresh.setOnClickListener {
+            // nothing to do yet
+        }
+        imgTasbihatRefresh.setOnClickListener {
+            // nothing to do yet
         }
         clLanguage.setOnClickListener {
             if(elLanguage.isExpanded) {

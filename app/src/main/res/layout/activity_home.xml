@@ -75,9 +75,172 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:paddingVertical="10dp"
                 android:background="@drawable/background_sub_menu">
+
+                <TextView
+                    android:id="@+id/tvZekrTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/dana"
+                    android:text="ذکر روز"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlHardcoded" />
+
+                <TextView
+                    android:id="@+id/tvZekr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/dana"
+                    android:text="یا قاضی الحاجات"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvZekrTitle"
+                    tools:ignore="RtlHardcoded" />
+
+                <ImageView
+                    android:id="@+id/imgZekrRefresh"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:src="@drawable/ic_refresh"
+                    app:layout_constraintBottom_toTopOf="@id/vDividerFirst"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+                <View
+                    android:id="@+id/vDividerFirst"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/lightWhite"
+                    android:layout_marginHorizontal="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/tvZekr"/>
+
+                <TextView
+                    android:id="@+id/tvSalavatTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/dana"
+                    android:text="صلوات روز"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vDividerFirst"
+                    tools:ignore="RtlHardcoded" />
+
+                <TextView
+                    android:id="@+id/tvSalavat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/dana"
+                    android:text="اللهم صل علی محمد و آل محمد"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvSalavatTitle"
+                    tools:ignore="RtlHardcoded" />
+
+                <ImageView
+                    android:id="@+id/imgSalavatRefresh"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:src="@drawable/ic_refresh"
+                    app:layout_constraintTop_toBottomOf="@id/vDividerFirst"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/vDividerSecond"
+                    tools:ignore="ContentDescription" />
+
+                <View
+                    android:id="@+id/vDividerSecond"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/lightWhite"
+                    android:layout_marginHorizontal="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/tvSalavat"/>
+
+                <TextView
+                    android:id="@+id/tvTasbihatTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/dana"
+                    android:text="تسبیحات حضرت زهرا"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vDividerSecond"
+                    tools:ignore="RtlHardcoded" />
+
+                <TextView
+                    android:id="@+id/tvAA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/dana"
+                    android:text="الله اکبر"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTasbihatTitle"
+                    tools:ignore="RtlHardcoded" />
+
+                <TextView
+                    android:id="@+id/tvSA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    android:fontFamily="@font/dana"
+                    android:text="سبحان الله"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintRight_toLeftOf="@id/tvAA"
+                    app:layout_constraintTop_toTopOf="@id/tvAA"
+                    app:layout_constraintBottom_toBottomOf="@id/tvAA"
+                    tools:ignore="RtlHardcoded" />
+
+                <TextView
+                    android:id="@+id/tvHA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    android:fontFamily="@font/dana"
+                    android:text="الحمد الله"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintRight_toLeftOf="@id/tvSA"
+                    app:layout_constraintTop_toTopOf="@id/tvSA"
+                    app:layout_constraintBottom_toBottomOf="@id/tvSA"
+                    tools:ignore="RtlHardcoded" />
+
+                <ImageView
+                    android:id="@+id/imgTasbihatRefresh"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:src="@drawable/ic_refresh"
+                    app:layout_constraintTop_toBottomOf="@id/vDividerSecond"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:ignore="ContentDescription" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
