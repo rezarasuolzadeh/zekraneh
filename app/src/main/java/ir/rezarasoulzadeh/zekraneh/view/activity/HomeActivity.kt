@@ -55,6 +55,18 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
                 imgColorArrow.rotate(destinationRotate = 180f, duration = 150)
             }
         }
+        rbWhite.setOnClickListener {
+            // nothing to do yet
+        }
+        rbBlack.setOnClickListener {
+            // nothing to do yet
+        }
+        rbGreen.setOnClickListener {
+            // nothing to do yet
+        }
+        rbRed.setOnClickListener {
+            // nothing to do yet
+        }
         clStar.setOnClickListener {
             IntentManager.rateIntent(context = this@HomeActivity)
         }

@@ -89,7 +89,8 @@
             android:layout_height="60dp"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/background_menu">
+            android:background="@drawable/background_menu"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/imgLanguage"
@@ -201,9 +202,54 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:background="@drawable/background_sub_menu">
+                android:background="@drawable/background_sub_menu"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="13dp">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layoutDirection="rtl"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <RadioButton
+                        android:id="@+id/rbWhite"
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="5dp"
+                        android:background="@android:color/transparent"
+                        android:buttonTint="@color/white"
+                        android:checked="true" />
+
+                    <RadioButton
+                        android:id="@+id/rbBlack"
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="5dp"
+                        android:background="@android:color/transparent"
+                        android:buttonTint="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/rbGreen"
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="5dp"
+                        android:background="@android:color/transparent"
+                        android:buttonTint="@color/green" />
+
+                    <RadioButton
+                        android:id="@+id/rbRed"
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="5dp"
+                        android:background="@android:color/transparent"
+                        android:buttonTint="@color/red" />
+
+                </RadioGroup>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
