@@ -1,4 +1,4 @@
-package ir.rezarasoulzadeh.zekraneh.view.activity
+package ir.rezarasoulzadeh.zekraneh.view.widget
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
@@ -14,6 +14,7 @@ import ir.rezarasoulzadeh.zekraneh.utils.Constants.ZEKR
 import ir.rezarasoulzadeh.zekraneh.utils.DateManager
 import ir.rezarasoulzadeh.zekraneh.utils.HawkManager
 import ir.rezarasoulzadeh.zekraneh.utils.ZekrManager
+import ir.rezarasoulzadeh.zekraneh.view.activity.HomeActivity
 
 class ZekrActivity : AppWidgetProvider() {
 

@@ -1,4 +1,4 @@
-package ir.rezarasoulzadeh.zekraneh.view.activity
+package ir.rezarasoulzadeh.zekraneh.view.widget
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
@@ -9,12 +9,12 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekraneh.R
-import ir.rezarasoulzadeh.zekraneh.utils.Constants
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.RESET_TASBIHAT
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.TASBIHAT_AA
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.TASBIHAT_HA
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.TASBIHAT_SA
 import ir.rezarasoulzadeh.zekraneh.utils.HawkManager
+import ir.rezarasoulzadeh.zekraneh.view.activity.HomeActivity
 
 class TasbihatActivity : AppWidgetProvider() {
 

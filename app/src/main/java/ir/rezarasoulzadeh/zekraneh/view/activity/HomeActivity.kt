@@ -4,8 +4,8 @@ import android.view.Window
 import android.view.WindowManager
 import ir.rezarasoulzadeh.zekraneh.base.BaseActivity
 import ir.rezarasoulzadeh.zekraneh.databinding.ActivityHomeBinding
-import ir.rezarasoulzadeh.zekraneh.service.utils.extensions.rotate
-import ir.rezarasoulzadeh.zekraneh.service.utils.extensions.vibratePhone
+import ir.rezarasoulzadeh.zekraneh.utils.extensions.rotate
+import ir.rezarasoulzadeh.zekraneh.utils.extensions.vibratePhone
 import ir.rezarasoulzadeh.zekraneh.utils.HawkManager
 import ir.rezarasoulzadeh.zekraneh.utils.IntentManager
 

@@ -1,4 +1,4 @@
-package ir.rezarasoulzadeh.zekraneh.view.activity
+package ir.rezarasoulzadeh.zekraneh.view.widget
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
@@ -14,7 +14,7 @@ import ir.rezarasoulzadeh.zekraneh.utils.Constants.RESET_SALAVAT
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.SALAVAT
 import ir.rezarasoulzadeh.zekraneh.utils.DateManager
 import ir.rezarasoulzadeh.zekraneh.utils.HawkManager
-
+import ir.rezarasoulzadeh.zekraneh.view.activity.HomeActivity
 
 class SalavatActivity : AppWidgetProvider() {
 
@@ -42,7 +42,7 @@ class SalavatActivity : AppWidgetProvider() {
         if (SALAVAT == intent.action) {
             val remoteViews = RemoteViews(context.packageName, R.layout.widget_salavat)
             remoteViews.setTextViewText(
-                R.id.salavatCounterTextView,
+                R.id.tvSalavatCounter,
                 HawkManager.increaseSalavat().toString()
             )
             AppWidgetManager.getInstance(context).updateAppWidget(
@@ -53,7 +53,7 @@ class SalavatActivity : AppWidgetProvider() {
         if (RESET_SALAVAT == intent.action) {
             val remoteViews = RemoteViews(context.packageName, R.layout.widget_salavat)
             remoteViews.setTextViewText(
-                R.id.salavatCounterTextView,
+                R.id.tvSalavatCounter,
                 HawkManager.getSalavat().toString()
             )
             AppWidgetManager.getInstance(context).updateAppWidget(
@@ -70,16 +70,16 @@ class SalavatActivity : AppWidgetProvider() {
     /**
      * initialize the widget content or change them.
      */
-    fun updateAppWidget(
+    private fun updateAppWidget(
         context: Context,
         appWidgetManager: AppWidgetManager,
         appWidgetId: Int
     ) {
         val views = RemoteViews(context.packageName, R.layout.widget_salavat)
-        views.setTextViewText(R.id.salavatDay, DateManager.getTodayName())
-        views.setTextViewText(R.id.salavatCounterTextView, HawkManager.getSalavat().toString())
+        views.setTextViewText(R.id.tvSalavatDay, DateManager.getTodayName())
+        views.setTextViewText(R.id.tvSalavatCounter, HawkManager.getSalavat().toString())
         views.setOnClickPendingIntent(
-            R.id.salavatCounterTextView,
+            R.id.tvSalavatCounter,
             updateSalavatIntent(
                 context = context,
                 action = SALAVAT,
@@ -87,7 +87,7 @@ class SalavatActivity : AppWidgetProvider() {
             )
         )
         views.setOnClickPendingIntent(
-            R.id.salavatDay,
+            R.id.tvSalavatDay,
             openHomeActivityIntent(
                 context = context,
                 appWidgetId = appWidgetId

@@ -5,9 +5,9 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
 import ir.rezarasoulzadeh.zekraneh.R
-import ir.rezarasoulzadeh.zekraneh.view.activity.SalavatActivity
-import ir.rezarasoulzadeh.zekraneh.view.activity.TasbihatActivity
-import ir.rezarasoulzadeh.zekraneh.view.activity.ZekrActivity
+import ir.rezarasoulzadeh.zekraneh.view.widget.SalavatActivity
+import ir.rezarasoulzadeh.zekraneh.view.widget.TasbihatActivity
+import ir.rezarasoulzadeh.zekraneh.view.widget.ZekrActivity
 
 object IntentManager {
 

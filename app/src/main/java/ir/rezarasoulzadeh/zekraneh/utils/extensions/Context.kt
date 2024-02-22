@@ -1,4 +1,4 @@
-package ir.rezarasoulzadeh.zekraneh.service.utils.extensions
+package ir.rezarasoulzadeh.zekraneh.utils.extensions
 
 import android.content.Context
 import android.os.Build

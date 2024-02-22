@@ -15,7 +15,7 @@
 
         <!-- Tasbihat widget -->
         <receiver
-            android:name=".view.activity.TasbihatActivity"
+            android:name=".view.widget.TasbihatActivity"
             android:exported="false"
             android:label="@string/tasbihatLabel">
             <intent-filter>
@@ -29,7 +29,7 @@
 
         <!-- Zekr widget -->
         <receiver
-            android:name=".view.activity.ZekrActivity"
+            android:name=".view.widget.ZekrActivity"
             android:exported="false"
             android:label="@string/zekrLabel">
             <intent-filter>
@@ -50,7 +50,7 @@
 
         <!-- Salavat widget -->
         <receiver
-            android:name=".view.activity.SalavatActivity"
+            android:name=".view.widget.SalavatActivity"
             android:exported="true"
             android:label="@string/slavatLabel">
             <intent-filter>
