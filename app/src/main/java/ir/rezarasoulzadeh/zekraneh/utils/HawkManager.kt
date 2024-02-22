@@ -2,6 +2,7 @@ package ir.rezarasoulzadeh.zekraneh.utils
 
 import com.orhanobut.hawk.Hawk
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.SALAVAT
+import ir.rezarasoulzadeh.zekraneh.utils.Constants.ZEKR
 
 object HawkManager {
 
@@ -26,6 +27,29 @@ object HawkManager {
         val currentSalavat = getSalavat()
         saveSalavat(salavat = currentSalavat + 1)
         return currentSalavat + 1
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                        zekr                                                //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * save zekr to hawk.
+     */
+    fun saveZekr(zekr: Int) = Hawk.put(ZEKR, zekr)
+
+    /**
+     * get zekr from hawk.
+     */
+    fun getZekr(): Int = Hawk.get(ZEKR, 0) ?: 0
+
+    /**
+     * save the increased zekr to hawk then return it.
+     */
+    fun increaseZekr(): Int {
+        val currentZekr = getZekr()
+        saveZekr(zekr = currentZekr + 1)
+        return currentZekr + 1
     }
 
 }

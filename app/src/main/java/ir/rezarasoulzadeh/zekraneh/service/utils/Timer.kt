@@ -3,7 +3,6 @@ package ir.rezarasoulzadeh.zekraneh.service.utils
 import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.os.CountDownTimer
-import ir.rezarasoulzadeh.zekraneh.view.activity.updateZekr
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -33,7 +32,7 @@ class Timer {
 //                        updateSalavat(context, appWidgetManager, appWidgetId)
                     }
                     if(type == "zekr") {
-                        updateZekr(context, appWidgetManager, appWidgetId)
+//                        updateZekr(context, appWidgetManager, appWidgetId)
                     }
                 }
             }.start()

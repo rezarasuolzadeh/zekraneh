@@ -26,12 +26,12 @@
             android:background="@drawable/ic_sun_2"
             android:clickable="true"
             android:focusable="true"
-            android:fontFamily="@font/dana"
+            android:fontFamily="@font/dana_num"
             android:gravity="center"
-            android:text="0"
             android:textColor="@color/blue"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="0" />
 
         <LinearLayout
             android:id="@+id/prayLayout"
@@ -61,20 +61,19 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/appwidget_text"
+                    android:id="@+id/zekrDay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#000099CC"
-                    android:contentDescription="@string/defaultDay"
                     android:drawableEnd="@drawable/ic_return"
                     android:drawablePadding="5dp"
                     android:fontFamily="@font/dana"
                     android:padding="3dp"
-                    android:text="@string/defaultDay"
                     android:textColor="@color/lightGreen"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    tools:ignore="UseCompatTextViewDrawableXml" />
+                    tools:ignore="UseCompatTextViewDrawableXml"
+                    tools:text="شنبه" />
 
             </LinearLayout>
 
@@ -93,10 +92,10 @@
                 android:padding="3dp"
                 android:scrollHorizontally="true"
                 android:singleLine="true"
-                android:text="@string/defaultPray"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
-                android:textStyle="bold">
+                android:textStyle="bold"
+                tools:text="لا اِلهَ الَّا اَللّهُ المَلِکُ الحَقُّ المُبین">
 
                 <requestFocus
                     android:duplicateParentState="true"

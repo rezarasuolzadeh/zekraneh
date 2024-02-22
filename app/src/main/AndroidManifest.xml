@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ir.rezarasoulzadeh.zekraneh">
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:name=".HappyApp"
         android:allowBackup="true"
