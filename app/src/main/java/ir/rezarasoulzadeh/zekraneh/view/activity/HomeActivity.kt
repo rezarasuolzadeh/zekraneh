@@ -1,16 +1,11 @@
 package ir.rezarasoulzadeh.zekraneh.view.activity
 
-import android.content.Context
-import android.content.Intent
 import android.view.Window
 import android.view.WindowManager
 import ir.rezarasoulzadeh.zekraneh.base.BaseActivity
 import ir.rezarasoulzadeh.zekraneh.databinding.ActivityHomeBinding
 import ir.rezarasoulzadeh.zekraneh.service.utils.extensions.rotate
 import ir.rezarasoulzadeh.zekraneh.service.utils.extensions.vibratePhone
-import ir.rezarasoulzadeh.zekraneh.utils.Constants.RESET_SALAVAT
-import ir.rezarasoulzadeh.zekraneh.utils.Constants.RESET_TASBIHAT
-import ir.rezarasoulzadeh.zekraneh.utils.Constants.RESET_ZEKR
 import ir.rezarasoulzadeh.zekraneh.utils.HawkManager
 import ir.rezarasoulzadeh.zekraneh.utils.IntentManager
 
@@ -46,16 +41,28 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
         }
         imgZekrRefresh.setOnClickListener {
             vibratePhone()
+            imgZekrRefresh.rotate(
+                destinationRotate = if(imgZekrRefresh.rotation == 0f) 360f else 0f,
+                duration = 150
+            )
             HawkManager.saveZekr(zekr = 0)
             IntentManager.resetZekrIntent(context = this@HomeActivity)
         }
         imgSalavatRefresh.setOnClickListener {
             vibratePhone()
+            imgSalavatRefresh.rotate(
+                destinationRotate = if(imgSalavatRefresh.rotation == 0f) 360f else 0f,
+                duration = 150
+            )
             HawkManager.saveSalavat(salavat = 0)
             IntentManager.resetSalavatIntent(context = this@HomeActivity)
         }
         imgTasbihatRefresh.setOnClickListener {
             vibratePhone()
+            imgTasbihatRefresh.rotate(
+                destinationRotate = if(imgTasbihatRefresh.rotation == 0f) 360f else 0f,
+                duration = 150
+            )
             HawkManager.apply {
                 saveTasbihatAA(tasbihatAA = 0)
                 saveTasbihatSA(tasbihatSA = 0)
