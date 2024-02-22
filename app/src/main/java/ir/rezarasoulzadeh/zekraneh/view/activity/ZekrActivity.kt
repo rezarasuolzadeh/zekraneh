@@ -9,7 +9,6 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekraneh.R
-import ir.rezarasoulzadeh.zekraneh.service.utils.extensions.vibratePhone
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.ZEKR
 import ir.rezarasoulzadeh.zekraneh.utils.DateManager
 import ir.rezarasoulzadeh.zekraneh.utils.HawkManager

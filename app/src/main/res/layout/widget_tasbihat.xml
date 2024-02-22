@@ -63,10 +63,10 @@
                 android:background="@drawable/ic_sun_2"
                 android:clickable="true"
                 android:focusable="true"
-                android:fontFamily="@font/dana"
+                android:fontFamily="@font/dana_num"
                 android:gravity="center"
                 android:text="0"
-                android:textColor="@color/widget_counter_color"
+                android:textColor="@color/blue"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
@@ -101,10 +101,10 @@
                 android:background="@drawable/ic_sun_2"
                 android:clickable="true"
                 android:focusable="true"
-                android:fontFamily="@font/dana"
+                android:fontFamily="@font/dana_num"
                 android:gravity="center"
                 android:text="0"
-                android:textColor="@color/widget_counter_color"
+                android:textColor="@color/blue"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
@@ -139,10 +139,10 @@
                 android:background="@drawable/ic_sun_2"
                 android:clickable="true"
                 android:focusable="true"
-                android:fontFamily="@font/dana"
+                android:fontFamily="@font/dana_num"
                 android:gravity="center"
                 android:text="0"
-                android:textColor="@color/widget_counter_color"
+                android:textColor="@color/blue"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 

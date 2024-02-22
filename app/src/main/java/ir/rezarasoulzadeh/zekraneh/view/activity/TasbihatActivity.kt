@@ -7,148 +7,147 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.os.Bundle
 import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekraneh.R
-import ir.rezarasoulzadeh.zekraneh.service.utils.SharedPrefs
+import ir.rezarasoulzadeh.zekraneh.utils.Constants
+import ir.rezarasoulzadeh.zekraneh.utils.Constants.TASBIHAT_AA
+import ir.rezarasoulzadeh.zekraneh.utils.Constants.TASBIHAT_HA
+import ir.rezarasoulzadeh.zekraneh.utils.Constants.TASBIHAT_SA
+import ir.rezarasoulzadeh.zekraneh.utils.HawkManager
 
 class TasbihatActivity : AppWidgetProvider() {
 
-    private val AAClick = "AAClickTag"
-    private val HAClick = "HAClickTag"
-    private val SAClick = "SAClickTag"
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                     overrides                                              //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
 
     override fun onUpdate(
         context: Context,
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
-        // There may be multiple widgets active, so update all of them
         for (appWidgetId in appWidgetIds) {
-            updateTasbihat(context, appWidgetManager, appWidgetId)
+            updateAppWidget(
+                context = context,
+                appWidgetManager = appWidgetManager,
+                appWidgetId = appWidgetId
+            )
         }
     }
 
-    override fun onDeleted(context: Context, appWidgetIds: IntArray) {
-        val sharedPrefs = SharedPrefs(context)
-        super.onDeleted(context, appWidgetIds)
-        for (appWidgetId in appWidgetIds) {
-            sharedPrefs.setAA("0")
-            sharedPrefs.setHA("0")
-            sharedPrefs.setSA("0")
-        }
-    }
-
-    override fun onReceive(context: Context?, intent: Intent?) {
+    override fun onReceive(context: Context, intent: Intent) {
         super.onReceive(context, intent)
-        val sharedPrefs = SharedPrefs(context!!)
-        if (AAClick == intent!!.action) {
-            val views = RemoteViews(context.packageName, R.layout.widget_tasbihat)
-            val appWidgetId = intent.getIntExtra("id", 0)
-            val previousCounter = sharedPrefs.getAA()
-            if(previousCounter != "34") {
-                sharedPrefs.setAA((previousCounter!!.toInt() + 1).toString())
-                views.setTextViewText(
-                    R.id.AACounterTextView,
-                    (previousCounter.toInt() + 1).toString()
-                )
-                AppWidgetManager.getInstance(context).updateAppWidget(
-                    ComponentName(context, TasbihatActivity::class.java), views
-                )
-                updateTasbihat(context, AppWidgetManager.getInstance(context), appWidgetId)
-            }
+        if (TASBIHAT_AA == intent.action) {
+            val remoteViews = RemoteViews(context.packageName, R.layout.widget_tasbihat)
+            remoteViews.setTextViewText(
+                R.id.AACounterTextView,
+                HawkManager.increaseTasbihatAA().toString()
+            )
+            AppWidgetManager.getInstance(context).updateAppWidget(
+                ComponentName(context, TasbihatActivity::class.java),
+                remoteViews
+            )
         }
-        if (HAClick == intent.action) {
-            val views = RemoteViews(context.packageName, R.layout.widget_tasbihat)
-            val appWidgetId = intent.getIntExtra("id", 0)
-            val previousCounter = sharedPrefs.getHA()
-            if(previousCounter != "33") {
-                sharedPrefs.setHA((previousCounter!!.toInt() + 1).toString())
-                views.setTextViewText(
-                    R.id.HACounterTextView,
-                    (previousCounter.toInt() + 1).toString()
-                )
-                AppWidgetManager.getInstance(context).updateAppWidget(
-                    ComponentName(context, TasbihatActivity::class.java), views
-                )
-                updateTasbihat(context, AppWidgetManager.getInstance(context), appWidgetId)
-            }
+        if (TASBIHAT_SA == intent.action) {
+            val remoteViews = RemoteViews(context.packageName, R.layout.widget_tasbihat)
+            remoteViews.setTextViewText(
+                R.id.SACounterTextView,
+                HawkManager.increaseTasbihatSA().toString()
+            )
+            AppWidgetManager.getInstance(context).updateAppWidget(
+                ComponentName(context, TasbihatActivity::class.java),
+                remoteViews
+            )
         }
-        if (SAClick == intent.action) {
-            val views = RemoteViews(context.packageName, R.layout.widget_tasbihat)
-            val appWidgetId = intent.getIntExtra("id", 0)
-            val previousCounter = sharedPrefs.getSA()
-            if(previousCounter != "33") {
-                sharedPrefs.setSA((previousCounter!!.toInt() + 1).toString())
-                views.setTextViewText(
-                    R.id.SACounterTextView,
-                    (previousCounter.toInt() + 1).toString()
-                )
-                AppWidgetManager.getInstance(context).updateAppWidget(
-                    ComponentName(context, TasbihatActivity::class.java), views
-                )
-                updateTasbihat(context, AppWidgetManager.getInstance(context), appWidgetId)
-            }
+        if (TASBIHAT_HA == intent.action) {
+            val remoteViews = RemoteViews(context.packageName, R.layout.widget_tasbihat)
+            remoteViews.setTextViewText(
+                R.id.HACounterTextView,
+                HawkManager.increaseTasbihatHA().toString()
+            )
+            AppWidgetManager.getInstance(context).updateAppWidget(
+                ComponentName(context, TasbihatActivity::class.java),
+                remoteViews
+            )
         }
     }
-}
 
-internal fun updateTasbihat(
-    context: Context,
-    appWidgetManager: AppWidgetManager,
-    appWidgetId: Int
-) {
-    val AAClick = "AAClickTag"
-    val HAClick = "HAClickTag"
-    val SAClick = "SAClickTag"
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                       configs                                              //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
 
-    val views = RemoteViews(context.packageName, R.layout.widget_tasbihat)
+    /**
+     * initialize the widget content or change them.
+     */
+    private fun updateAppWidget(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetId: Int
+    ) {
+        val views = RemoteViews(context.packageName, R.layout.widget_tasbihat)
+        views.setTextViewText(R.id.AACounterTextView, HawkManager.getTasbihatAA().toString())
+        views.setTextViewText(R.id.SACounterTextView, HawkManager.getTasbihatSA().toString())
+        views.setTextViewText(R.id.HACounterTextView, HawkManager.getTasbihatHA().toString())
+        views.setOnClickPendingIntent(
+            R.id.AACounterTextView,
+            updateTasbihatIntent(
+                context = context,
+                action = TASBIHAT_AA,
+                appWidgetId = appWidgetId
+            )
+        )
+        views.setOnClickPendingIntent(
+            R.id.SACounterTextView,
+            updateTasbihatIntent(
+                context = context,
+                action = TASBIHAT_SA,
+                appWidgetId = appWidgetId
+            )
+        )
+        views.setOnClickPendingIntent(
+            R.id.HACounterTextView,
+            updateTasbihatIntent(
+                context = context,
+                action = TASBIHAT_HA,
+                appWidgetId = appWidgetId
+            )
+        )
+        views.setOnClickPendingIntent(
+            R.id.tasbihatTitleText,
+            openHomeActivityIntent(
+                context = context,
+                appWidgetId = appWidgetId
+            )
+        )
+        appWidgetManager.updateAppWidget(appWidgetId, views)
+    }
 
-    val sharedPrefs = SharedPrefs(context)
+    /**
+     * generate the specific pending intent to open home activity then return it.
+     */
+    private fun openHomeActivityIntent(
+        context: Context,
+        appWidgetId: Int
+    ): PendingIntent? {
+        val intent = Intent(context, HomeActivity::class.java)
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        intent.data = Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME))
+        return PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+    }
 
-    val counterAA = sharedPrefs.getAA()
-    val counterHA = sharedPrefs.getHA()
-    val counterSA = sharedPrefs.getSA()
+    /**
+     * generate the specific pending intent to update tasbihat counter then return it.
+     */
+    private fun updateTasbihatIntent(
+        context: Context?,
+        action: String?,
+        appWidgetId: Int
+    ): PendingIntent? {
+        val intent = Intent(context, TasbihatActivity::class.java)
+        intent.action = action
+        intent.putExtra("id", appWidgetId)
+        return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
+    }
 
-    views.setTextViewText(R.id.AACounterTextView, counterAA)
-    views.setTextViewText(R.id.HACounterTextView, counterHA)
-    views.setTextViewText(R.id.SACounterTextView, counterSA)
-
-    // open configuration activity
-    val intent = Intent(context, HomeActivity::class.java)
-    intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
-    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-    intent.data = Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME))
-    val pendIntent =
-        PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-    views.setOnClickPendingIntent(R.id.tasbihatTitleText, pendIntent)
-    //////////////////////////////
-
-    views.setOnClickPendingIntent(
-        R.id.AACounterTextView,
-        getPendingTasbihat(context, AAClick, appWidgetId)
-    )
-
-    views.setOnClickPendingIntent(
-        R.id.HACounterTextView,
-        getPendingTasbihat(context, HAClick, appWidgetId)
-    )
-
-    views.setOnClickPendingIntent(
-        R.id.SACounterTextView,
-        getPendingTasbihat(context, SAClick, appWidgetId)
-    )
-
-    val bundle = Bundle()
-    bundle.putInt("appWidgetId", appWidgetId)
-    intent.putExtras(bundle)
-
-    appWidgetManager.updateAppWidget(appWidgetId, views)
-}
-
-fun getPendingTasbihat(context: Context?, action: String?, appWidgetId: Int): PendingIntent? {
-    val intent = Intent(context, TasbihatActivity::class.java)
-    intent.action = action
-    intent.putExtra("id", appWidgetId)
-    return PendingIntent.getBroadcast(context, 0, intent, 0)
 }
