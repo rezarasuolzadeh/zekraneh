@@ -5,9 +5,9 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
 import ir.rezarasoulzadeh.zekraneh.R
-import ir.rezarasoulzadeh.zekraneh.view.widget.SalavatActivity
+import ir.rezarasoulzadeh.zekraneh.view.widget.SalavatWidget
 import ir.rezarasoulzadeh.zekraneh.view.widget.TasbihatActivity
-import ir.rezarasoulzadeh.zekraneh.view.widget.ZekrActivity
+import ir.rezarasoulzadeh.zekraneh.view.widget.ZekrWidget
 
 object IntentManager {
 
@@ -43,7 +43,7 @@ object IntentManager {
      * send a broadcast intent to salavat widget to reset the salavat counter.
      */
     fun resetSalavatIntent(context: Context) {
-        val intent = Intent(context, SalavatActivity::class.java)
+        val intent = Intent(context, SalavatWidget::class.java)
         intent.action = Constants.RESET_SALAVAT
         context.sendBroadcast(intent)
     }
@@ -52,7 +52,7 @@ object IntentManager {
      * send a broadcast intent to zekr widget to reset the zekr counter.
      */
     fun resetZekrIntent(context: Context) {
-        val intent = Intent(context, ZekrActivity::class.java)
+        val intent = Intent(context, ZekrWidget::class.java)
         intent.action = Constants.RESET_ZEKR
         context.sendBroadcast(intent)
     }

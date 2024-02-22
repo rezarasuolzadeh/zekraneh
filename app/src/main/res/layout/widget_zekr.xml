@@ -13,11 +13,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center_vertical"
         android:layoutDirection="ltr"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        tools:ignore="UselessParent">
 
         <TextView
-            android:id="@+id/counterTextView"
+            android:id="@+id/tvZekrCounter"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginLeft="10dp"
@@ -31,15 +33,18 @@
             android:textColor="@color/blue"
             android:textSize="20sp"
             android:textStyle="bold"
+            tools:ignore="RtlHardcoded"
             tools:text="0" />
 
         <LinearLayout
-            android:id="@+id/prayLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:clickable="true"
             android:focusable="true"
-            android:orientation="vertical">
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            tools:ignore="RtlHardcoded">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -49,22 +54,19 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/dayTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:background="#000099CC"
                     android:fontFamily="@font/dana"
                     android:padding="3dp"
-                    android:text="@string/defaultTitle"
-                    android:textColor="#ffffff"
+                    android:text="@string/today_zekr"
+                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/zekrDay"
+                    android:id="@+id/tvZekrDay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#000099CC"
                     android:drawableEnd="@drawable/ic_return"
                     android:drawablePadding="5dp"
                     android:fontFamily="@font/dana"
@@ -78,12 +80,10 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/prayTextView"
+                android:id="@+id/tvTodayZekr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:background="#000099CC"
-                android:contentDescription="@string/defaultPray"
                 android:ellipsize="marquee"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
@@ -92,9 +92,10 @@
                 android:padding="3dp"
                 android:scrollHorizontally="true"
                 android:singleLine="true"
-                android:textColor="#ffffff"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                tools:ignore="RtlHardcoded"
                 tools:text="لا اِلهَ الَّا اَللّهُ المَلِکُ الحَقُّ المُبین">
 
                 <requestFocus

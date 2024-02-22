@@ -29,7 +29,7 @@
 
         <!-- Zekr widget -->
         <receiver
-            android:name=".view.widget.ZekrActivity"
+            android:name=".view.widget.ZekrWidget"
             android:exported="false"
             android:label="@string/zekrLabel">
             <intent-filter>
@@ -50,7 +50,7 @@
 
         <!-- Salavat widget -->
         <receiver
-            android:name=".view.widget.SalavatActivity"
+            android:name=".view.widget.SalavatWidget"
             android:exported="true"
             android:label="@string/slavatLabel">
             <intent-filter>

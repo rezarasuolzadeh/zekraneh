@@ -9,14 +9,13 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekraneh.R
-import ir.rezarasoulzadeh.zekraneh.utils.Constants.RESET_ZEKR
-import ir.rezarasoulzadeh.zekraneh.utils.Constants.ZEKR
+import ir.rezarasoulzadeh.zekraneh.utils.Constants.RESET_SALAVAT
+import ir.rezarasoulzadeh.zekraneh.utils.Constants.SALAVAT
 import ir.rezarasoulzadeh.zekraneh.utils.DateManager
 import ir.rezarasoulzadeh.zekraneh.utils.HawkManager
-import ir.rezarasoulzadeh.zekraneh.utils.ZekrManager
 import ir.rezarasoulzadeh.zekraneh.view.activity.HomeActivity
 
-class ZekrActivity : AppWidgetProvider() {
+class SalavatWidget : AppWidgetProvider() {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                     overrides                                              //
@@ -38,25 +37,25 @@ class ZekrActivity : AppWidgetProvider() {
 
     override fun onReceive(context: Context, intent: Intent) {
         super.onReceive(context, intent)
-        if (ZEKR == intent.action) {
-            val remoteViews = RemoteViews(context.packageName, R.layout.widget_zekr)
+        if (SALAVAT == intent.action) {
+            val remoteViews = RemoteViews(context.packageName, R.layout.widget_salavat)
             remoteViews.setTextViewText(
-                R.id.counterTextView,
-                HawkManager.increaseZekr().toString()
+                R.id.tvSalavatCounter,
+                HawkManager.increaseSalavat().toString()
             )
             AppWidgetManager.getInstance(context).updateAppWidget(
-                ComponentName(context, ZekrActivity::class.java),
+                ComponentName(context, SalavatWidget::class.java),
                 remoteViews
             )
         }
-        if (RESET_ZEKR == intent.action) {
-            val remoteViews = RemoteViews(context.packageName, R.layout.widget_zekr)
+        if (RESET_SALAVAT == intent.action) {
+            val remoteViews = RemoteViews(context.packageName, R.layout.widget_salavat)
             remoteViews.setTextViewText(
-                R.id.counterTextView,
-                HawkManager.getZekr().toString()
+                R.id.tvSalavatCounter,
+                HawkManager.getSalavat().toString()
             )
             AppWidgetManager.getInstance(context).updateAppWidget(
-                ComponentName(context, ZekrActivity::class.java),
+                ComponentName(context, SalavatWidget::class.java),
                 remoteViews
             )
         }
@@ -74,20 +73,19 @@ class ZekrActivity : AppWidgetProvider() {
         appWidgetManager: AppWidgetManager,
         appWidgetId: Int
     ) {
-        val views = RemoteViews(context.packageName, R.layout.widget_zekr)
-        views.setTextViewText(R.id.zekrDay, DateManager.getTodayName())
-        views.setTextViewText(R.id.counterTextView, HawkManager.getZekr().toString())
-        views.setTextViewText(R.id.prayTextView, ZekrManager.getTodayZekr())
+        val views = RemoteViews(context.packageName, R.layout.widget_salavat)
+        views.setTextViewText(R.id.tvSalavatDay, DateManager.getTodayName())
+        views.setTextViewText(R.id.tvSalavatCounter, HawkManager.getSalavat().toString())
         views.setOnClickPendingIntent(
-            R.id.counterTextView,
-            updateZekrIntent(
+            R.id.tvSalavatCounter,
+            updateSalavatIntent(
                 context = context,
-                action = ZEKR,
+                action = SALAVAT,
                 appWidgetId = appWidgetId
             )
         )
         views.setOnClickPendingIntent(
-            R.id.zekrDay,
+            R.id.tvSalavatDay,
             openHomeActivityIntent(
                 context = context,
                 appWidgetId = appWidgetId
@@ -116,22 +114,17 @@ class ZekrActivity : AppWidgetProvider() {
     }
 
     /**
-     * generate the specific pending intent to update zekr counter then return it.
+     * generate the specific pending intent to update salavat counter then return it.
      */
-    private fun updateZekrIntent(
+    private fun updateSalavatIntent(
         context: Context?,
         action: String?,
         appWidgetId: Int
     ): PendingIntent? {
-        val intent = Intent(context, ZekrActivity::class.java)
+        val intent = Intent(context, SalavatWidget::class.java)
         intent.action = action
         intent.putExtra("id", appWidgetId)
-        return PendingIntent.getBroadcast(
-            context,
-            0,
-            intent,
-            PendingIntent.FLAG_IMMUTABLE
-        )
+        return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
     }
 
 }
