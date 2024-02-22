@@ -33,17 +33,16 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
         clDetails.setOnClickListener {
             if(elDetails.isExpanded) {
                 elDetails.collapse()
-                imgDetailsArrow.rotate(destinationRotate = 0f, duration = 150)
+                imgDetailsArrow.rotate(destinationRotate = 0f)
             } else {
                 elDetails.expand()
-                imgDetailsArrow.rotate(destinationRotate = 180f, duration = 150)
+                imgDetailsArrow.rotate(destinationRotate = 180f)
             }
         }
         imgZekrRefresh.setOnClickListener {
             vibratePhone()
             imgZekrRefresh.rotate(
-                destinationRotate = if(imgZekrRefresh.rotation == 0f) 360f else 0f,
-                duration = 150
+                destinationRotate = if(imgZekrRefresh.rotation == 0f) 360f else 0f
             )
             HawkManager.saveZekr(zekr = 0)
             IntentManager.resetZekrIntent(context = this@HomeActivity)
@@ -51,8 +50,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
         imgSalavatRefresh.setOnClickListener {
             vibratePhone()
             imgSalavatRefresh.rotate(
-                destinationRotate = if(imgSalavatRefresh.rotation == 0f) 360f else 0f,
-                duration = 150
+                destinationRotate = if(imgSalavatRefresh.rotation == 0f) 360f else 0f
             )
             HawkManager.saveSalavat(salavat = 0)
             IntentManager.resetSalavatIntent(context = this@HomeActivity)
@@ -60,8 +58,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
         imgTasbihatRefresh.setOnClickListener {
             vibratePhone()
             imgTasbihatRefresh.rotate(
-                destinationRotate = if(imgTasbihatRefresh.rotation == 0f) 360f else 0f,
-                duration = 150
+                destinationRotate = if(imgTasbihatRefresh.rotation == 0f) 360f else 0f
             )
             HawkManager.apply {
                 saveTasbihatAA(tasbihatAA = 0)
