@@ -49,7 +49,7 @@
         <!-- Salavat widget -->
         <receiver
             android:name=".view.activity.SalavatActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/slavatLabel">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -71,6 +71,7 @@
         <activity
             android:name=".view.activity.HomeActivity"
             android:exported="true"
+            android:launchMode="singleTop"
             android:fitsSystemWindows="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

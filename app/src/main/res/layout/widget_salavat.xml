@@ -25,7 +25,7 @@
             android:background="@drawable/ic_sun_2"
             android:clickable="true"
             android:focusable="true"
-            android:fontFamily="@font/dana"
+            android:fontFamily="@font/dana_num"
             android:gravity="center"
             android:text="0"
             android:textColor="@color/blue"
@@ -52,8 +52,9 @@
                     android:id="@+id/salavetTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_marginRight="5dp"
                     android:background="#000099CC"
-                    android:fontFamily="@font/dana"
+                    android:fontFamily="@font/dana_num"
                     android:padding="1dp"
                     android:text="صلوات های روز"
                     android:textColor="#ffffff"
@@ -66,16 +67,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="1dp"
                     android:background="#000099CC"
-                    android:contentDescription="@string/defaultDay"
-                    android:drawableEnd="@drawable/ic_return"
+                    android:drawableLeft="@drawable/ic_return"
                     android:drawablePadding="5dp"
                     android:fontFamily="@font/dana"
                     android:padding="3dp"
-                    android:text="@string/defaultDay"
                     android:textColor="@color/lightGreen"
                     android:textSize="19sp"
                     android:textStyle="bold"
-                    tools:ignore="UseCompatTextViewDrawableXml" />
+                    tools:ignore="RtlHardcoded,UseCompatTextViewDrawableXml"
+                    tools:text="@string/defaultDay" />
 
             </LinearLayout>
 

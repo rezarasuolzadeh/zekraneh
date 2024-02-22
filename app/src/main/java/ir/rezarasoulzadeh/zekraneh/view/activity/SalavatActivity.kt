@@ -7,16 +7,18 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.os.Bundle
 import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekraneh.R
-import ir.rezarasoulzadeh.zekraneh.service.utils.Days
-import ir.rezarasoulzadeh.zekraneh.service.utils.SharedPrefs
-import ir.rezarasoulzadeh.zekraneh.service.utils.Timer
+import ir.rezarasoulzadeh.zekraneh.utils.Constants.SALAVAT
+import ir.rezarasoulzadeh.zekraneh.utils.DateManager
+import ir.rezarasoulzadeh.zekraneh.utils.HawkManager
+
 
 class SalavatActivity : AppWidgetProvider() {
 
-    private val MyOnClick = "myOnClickTag"
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                     overrides                                              //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
 
     override fun onUpdate(
         context: Context,
@@ -24,98 +26,88 @@ class SalavatActivity : AppWidgetProvider() {
         appWidgetIds: IntArray
     ) {
         for (appWidgetId in appWidgetIds) {
-            updateSalavat(context, appWidgetManager, appWidgetId)
+            updateAppWidget(
+                context = context,
+                appWidgetManager = appWidgetManager,
+                appWidgetId = appWidgetId
+            )
         }
     }
 
-    override fun onDeleted(context: Context, appWidgetIds: IntArray) {
-        val sharedPrefs = SharedPrefs(context)
-        super.onDeleted(context, appWidgetIds)
-        for (appWidgetId in appWidgetIds) {
-            sharedPrefs.setSalavat("0")
-        }
-    }
-
-    override fun onReceive(context: Context?, intent: Intent?) {
+    override fun onReceive(context: Context, intent: Intent) {
         super.onReceive(context, intent)
-        val sharedPrefs = SharedPrefs(context!!)
-        if (MyOnClick == intent!!.action) {
-            val views = RemoteViews(context.packageName, R.layout.widget_salavat)
-            val appWidgetId = intent.getIntExtra("id", 0)
-            val previousCounter = sharedPrefs.getSalavat()
-            sharedPrefs.setSalavat((previousCounter!!.toInt() + 1).toString())
-            views.setTextViewText(
+        if (SALAVAT == intent.action) {
+            val remoteViews = RemoteViews(context.packageName, R.layout.widget_salavat)
+            remoteViews.setTextViewText(
                 R.id.salavatCounterTextView,
-                (previousCounter.toInt() + 1).toString()
+                HawkManager.increaseSalavat().toString()
             )
             AppWidgetManager.getInstance(context).updateAppWidget(
-                ComponentName(context, SalavatActivity::class.java), views
+                ComponentName(context, SalavatActivity::class.java),
+                remoteViews
             )
-            updateSalavat(context, AppWidgetManager.getInstance(context), appWidgetId)
         }
     }
 
-}
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                       configs                                              //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
 
-fun updateSalavat(
-    context: Context,
-    appWidgetManager: AppWidgetManager,
-    appWidgetId: Int
-) {
-    val MyOnClick = "myOnClickTag"
-
-    val views = RemoteViews(context.packageName, R.layout.widget_salavat)
-
-    Timer.handleCountDownTimer(context, appWidgetManager, appWidgetId, "salavat")
-
-    val sharedPrefs = SharedPrefs(context)
-
-    val days = Days()
-
-    val currentDay = sharedPrefs.getSalavtDay()
-
-    val today = days.getToday()
-    val todayName = days.getTodayName(today)
-
-    sharedPrefs.setSalavtDay(todayName)
-
-    if (todayName != currentDay) {
-        sharedPrefs.setSalavat("0")
-        views.setTextViewText(R.id.salavatCounterTextView, "0")
-        views.setTextViewText(R.id.salavatDay, todayName)
+    /**
+     * initialize the widget content or change them.
+     */
+    private fun updateAppWidget(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetId: Int
+    ) {
+        val views = RemoteViews(context.packageName, R.layout.widget_salavat)
+        views.setTextViewText(R.id.salavatDay, DateManager.getTodayName())
+        views.setTextViewText(R.id.salavatCounterTextView, HawkManager.getSalavat().toString())
+        views.setOnClickPendingIntent(
+            R.id.salavatCounterTextView,
+            updateSalavatIntent(
+                context = context,
+                action = SALAVAT,
+                appWidgetId = appWidgetId
+            )
+        )
+        views.setOnClickPendingIntent(
+            R.id.salavatDay,
+            openHomeActivityIntent(
+                context = context,
+                appWidgetId = appWidgetId
+            )
+        )
+        appWidgetManager.updateAppWidget(appWidgetId, views)
     }
 
-    val dayText = sharedPrefs.getSalavtDay()
-    val counterText = sharedPrefs.getSalavat()
+    /**
+     * generate the specific pending intent to open home activity then return it.
+     */
+    private fun openHomeActivityIntent(
+        context: Context,
+        appWidgetId: Int
+    ): PendingIntent? {
+        val intent = Intent(context, HomeActivity::class.java)
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        intent.data = Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME))
+        return PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+    }
 
-    views.setTextViewText(R.id.salavatDay, dayText)
-    views.setTextViewText(R.id.salavatCounterTextView, counterText)
+    /**
+     * generate the specific pending intent to update salavat counter then return it.
+     */
+    private fun updateSalavatIntent(
+        context: Context?,
+        action: String?,
+        appWidgetId: Int
+    ): PendingIntent? {
+        val intent = Intent(context, SalavatActivity::class.java)
+        intent.action = action
+        intent.putExtra("id", appWidgetId)
+        return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
+    }
 
-    // open configuration activity
-    val intent = Intent(context, HomeActivity::class.java)
-    intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
-    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-    intent.data = Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME))
-    val pendIntent =
-        PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-    views.setOnClickPendingIntent(R.id.salavatDay, pendIntent)
-    //////////////////////////////
-
-    views.setOnClickPendingIntent(
-        R.id.salavatCounterTextView,
-        getPendingSalavat(context, MyOnClick, appWidgetId)
-    )
-
-    val bundle = Bundle()
-    bundle.putInt("appWidgetId", appWidgetId)
-    intent.putExtras(bundle)
-
-    appWidgetManager.updateAppWidget(appWidgetId, views)
-}
-
-fun getPendingSalavat(context: Context?, action: String?, appWidgetId: Int): PendingIntent? {
-    val intent = Intent(context, SalavatActivity::class.java)
-    intent.action = action
-    intent.putExtra("id", appWidgetId)
-    return PendingIntent.getBroadcast(context, 0, intent, 0)
 }
