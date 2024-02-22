@@ -1,10 +1,17 @@
 package ir.rezarasoulzadeh.zekraneh.view.activity
 
+import android.content.Context
+import android.content.Intent
 import android.view.Window
 import android.view.WindowManager
 import ir.rezarasoulzadeh.zekraneh.base.BaseActivity
 import ir.rezarasoulzadeh.zekraneh.databinding.ActivityHomeBinding
 import ir.rezarasoulzadeh.zekraneh.service.utils.extensions.rotate
+import ir.rezarasoulzadeh.zekraneh.service.utils.extensions.vibratePhone
+import ir.rezarasoulzadeh.zekraneh.utils.Constants.RESET_SALAVAT
+import ir.rezarasoulzadeh.zekraneh.utils.Constants.RESET_TASBIHAT
+import ir.rezarasoulzadeh.zekraneh.utils.Constants.RESET_ZEKR
+import ir.rezarasoulzadeh.zekraneh.utils.HawkManager
 import ir.rezarasoulzadeh.zekraneh.utils.IntentManager
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>(
@@ -38,13 +45,23 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
             }
         }
         imgZekrRefresh.setOnClickListener {
-            // nothing to do yet
+            vibratePhone()
+            HawkManager.saveZekr(zekr = 0)
+            IntentManager.resetZekrIntent(context = this@HomeActivity)
         }
         imgSalavatRefresh.setOnClickListener {
-            // nothing to do yet
+            vibratePhone()
+            HawkManager.saveSalavat(salavat = 0)
+            IntentManager.resetSalavatIntent(context = this@HomeActivity)
         }
         imgTasbihatRefresh.setOnClickListener {
-            // nothing to do yet
+            vibratePhone()
+            HawkManager.apply {
+                saveTasbihatAA(tasbihatAA = 0)
+                saveTasbihatSA(tasbihatSA = 0)
+                saveTasbihatHA(tasbihatHA = 0)
+            }
+            IntentManager.resetTasbihatIntent(context = this@HomeActivity)
         }
         clLanguage.setOnClickListener {
             if(elLanguage.isExpanded) {

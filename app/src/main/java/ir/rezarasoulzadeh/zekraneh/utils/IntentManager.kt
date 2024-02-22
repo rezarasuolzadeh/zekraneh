@@ -5,6 +5,9 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
 import ir.rezarasoulzadeh.zekraneh.R
+import ir.rezarasoulzadeh.zekraneh.view.activity.SalavatActivity
+import ir.rezarasoulzadeh.zekraneh.view.activity.TasbihatActivity
+import ir.rezarasoulzadeh.zekraneh.view.activity.ZekrActivity
 
 object IntentManager {
 
@@ -34,6 +37,33 @@ object IntentManager {
         } catch (e: Exception) {
             Toast.makeText(context, "خطایی در همرسانی پیش آمده است", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    /**
+     * send a broadcast intent to salavat widget to reset the salavat counter.
+     */
+    fun resetSalavatIntent(context: Context) {
+        val intent = Intent(context, SalavatActivity::class.java)
+        intent.action = Constants.RESET_SALAVAT
+        context.sendBroadcast(intent)
+    }
+
+    /**
+     * send a broadcast intent to zekr widget to reset the zekr counter.
+     */
+    fun resetZekrIntent(context: Context) {
+        val intent = Intent(context, ZekrActivity::class.java)
+        intent.action = Constants.RESET_ZEKR
+        context.sendBroadcast(intent)
+    }
+
+    /**
+     * send a broadcast intent to tasbihat widget to reset the tasbihat all counters.
+     */
+    fun resetTasbihatIntent(context: Context) {
+        val intent = Intent(context, TasbihatActivity::class.java)
+        intent.action = Constants.RESET_TASBIHAT
+        context.sendBroadcast(intent)
     }
 
 }

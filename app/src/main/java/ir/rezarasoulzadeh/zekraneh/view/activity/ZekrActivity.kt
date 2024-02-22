@@ -9,6 +9,7 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekraneh.R
+import ir.rezarasoulzadeh.zekraneh.utils.Constants.RESET_ZEKR
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.ZEKR
 import ir.rezarasoulzadeh.zekraneh.utils.DateManager
 import ir.rezarasoulzadeh.zekraneh.utils.HawkManager
@@ -41,6 +42,17 @@ class ZekrActivity : AppWidgetProvider() {
             remoteViews.setTextViewText(
                 R.id.counterTextView,
                 HawkManager.increaseZekr().toString()
+            )
+            AppWidgetManager.getInstance(context).updateAppWidget(
+                ComponentName(context, ZekrActivity::class.java),
+                remoteViews
+            )
+        }
+        if (RESET_ZEKR == intent.action) {
+            val remoteViews = RemoteViews(context.packageName, R.layout.widget_zekr)
+            remoteViews.setTextViewText(
+                R.id.counterTextView,
+                HawkManager.getZekr().toString()
             )
             AppWidgetManager.getInstance(context).updateAppWidget(
                 ComponentName(context, ZekrActivity::class.java),

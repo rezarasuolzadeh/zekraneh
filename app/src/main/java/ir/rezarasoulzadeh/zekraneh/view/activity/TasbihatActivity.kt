@@ -10,6 +10,7 @@ import android.net.Uri
 import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekraneh.R
 import ir.rezarasoulzadeh.zekraneh.utils.Constants
+import ir.rezarasoulzadeh.zekraneh.utils.Constants.RESET_TASBIHAT
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.TASBIHAT_AA
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.TASBIHAT_HA
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.TASBIHAT_SA
@@ -64,6 +65,25 @@ class TasbihatActivity : AppWidgetProvider() {
             remoteViews.setTextViewText(
                 R.id.HACounterTextView,
                 HawkManager.increaseTasbihatHA().toString()
+            )
+            AppWidgetManager.getInstance(context).updateAppWidget(
+                ComponentName(context, TasbihatActivity::class.java),
+                remoteViews
+            )
+        }
+        if (RESET_TASBIHAT == intent.action) {
+            val remoteViews = RemoteViews(context.packageName, R.layout.widget_tasbihat)
+            remoteViews.setTextViewText(
+                R.id.AACounterTextView,
+                HawkManager.getTasbihatAA().toString()
+            )
+            remoteViews.setTextViewText(
+                R.id.SACounterTextView,
+                HawkManager.getTasbihatSA().toString()
+            )
+            remoteViews.setTextViewText(
+                R.id.HACounterTextView,
+                HawkManager.getTasbihatHA().toString()
             )
             AppWidgetManager.getInstance(context).updateAppWidget(
                 ComponentName(context, TasbihatActivity::class.java),

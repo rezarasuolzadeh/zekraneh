@@ -7,8 +7,10 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekraneh.R
+import ir.rezarasoulzadeh.zekraneh.utils.Constants.RESET_SALAVAT
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.SALAVAT
 import ir.rezarasoulzadeh.zekraneh.utils.DateManager
 import ir.rezarasoulzadeh.zekraneh.utils.HawkManager
@@ -36,11 +38,23 @@ class SalavatActivity : AppWidgetProvider() {
 
     override fun onReceive(context: Context, intent: Intent) {
         super.onReceive(context, intent)
+        Log.e("REZAAAAAA", "action => ${intent.action}")
         if (SALAVAT == intent.action) {
             val remoteViews = RemoteViews(context.packageName, R.layout.widget_salavat)
             remoteViews.setTextViewText(
                 R.id.salavatCounterTextView,
                 HawkManager.increaseSalavat().toString()
+            )
+            AppWidgetManager.getInstance(context).updateAppWidget(
+                ComponentName(context, SalavatActivity::class.java),
+                remoteViews
+            )
+        }
+        if (RESET_SALAVAT == intent.action) {
+            val remoteViews = RemoteViews(context.packageName, R.layout.widget_salavat)
+            remoteViews.setTextViewText(
+                R.id.salavatCounterTextView,
+                HawkManager.getSalavat().toString()
             )
             AppWidgetManager.getInstance(context).updateAppWidget(
                 ComponentName(context, SalavatActivity::class.java),
@@ -56,7 +70,7 @@ class SalavatActivity : AppWidgetProvider() {
     /**
      * initialize the widget content or change them.
      */
-    private fun updateAppWidget(
+    fun updateAppWidget(
         context: Context,
         appWidgetManager: AppWidgetManager,
         appWidgetId: Int
