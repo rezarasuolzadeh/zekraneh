@@ -11,28 +11,27 @@
     android:padding="5dp">
 
     <TextView
-        android:id="@+id/tasbihatTitleText"
+        android:id="@+id/tvTodayTasbihat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#000099CC"
         android:drawableEnd="@drawable/ic_return"
         android:drawablePadding="5dp"
         android:fontFamily="@font/dana"
         android:gravity="center"
         android:padding="3dp"
-        android:text="تسبیحات حضرت زهرا (س)"
+        android:text="@string/today_tasbihat"
         android:textColor="@color/lightGreen"
         android:textSize="15sp"
         android:textStyle="bold"
         tools:ignore="UseCompatTextViewDrawableXml" />
 
     <LinearLayout
-        android:id="@+id/tasbihatLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:layoutDirection="rtl"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        tools:ignore="DisableBaselineAlignment">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -42,20 +41,19 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tasbihatAAText"
+                android:id="@+id/tvTasbihatAATitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#000099CC"
                 android:fontFamily="@font/dana"
                 android:gravity="center"
                 android:padding="3dp"
                 android:text="@string/AALabel"
-                android:textColor="#ffffff"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/AACounterTextView"
+                android:id="@+id/tvTasbihatAACounter"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="10dp"
@@ -65,10 +63,10 @@
                 android:focusable="true"
                 android:fontFamily="@font/dana_num"
                 android:gravity="center"
-                android:text="0"
                 android:textColor="@color/blue"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="0" />
 
         </LinearLayout>
 
@@ -80,20 +78,19 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tasbihatHAText"
+                android:id="@+id/tvTasbihatHATitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#000099CC"
                 android:fontFamily="@font/dana"
                 android:gravity="center"
                 android:padding="3dp"
                 android:text="@string/HALabel"
-                android:textColor="#ffffff"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/HACounterTextView"
+                android:id="@+id/tvTasbihatHACounter"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="10dp"
@@ -103,10 +100,10 @@
                 android:focusable="true"
                 android:fontFamily="@font/dana_num"
                 android:gravity="center"
-                android:text="0"
                 android:textColor="@color/blue"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="0" />
 
         </LinearLayout>
 
@@ -118,20 +115,19 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tasbihatSAText"
+                android:id="@+id/tvTasbihatSATitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#000099CC"
                 android:fontFamily="@font/dana"
                 android:gravity="center"
                 android:padding="3dp"
                 android:text="@string/SALabel"
-                android:textColor="#ffffff"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/SACounterTextView"
+                android:id="@+id/tvTasbihatSACounter"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="10dp"
@@ -141,10 +137,10 @@
                 android:focusable="true"
                 android:fontFamily="@font/dana_num"
                 android:gravity="center"
-                android:text="0"
                 android:textColor="@color/blue"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="0" />
 
         </LinearLayout>
 

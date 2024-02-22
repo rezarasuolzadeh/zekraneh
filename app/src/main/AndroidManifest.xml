@@ -15,7 +15,7 @@
 
         <!-- Tasbihat widget -->
         <receiver
-            android:name=".view.widget.TasbihatActivity"
+            android:name=".view.widget.TasbihatWidget"
             android:exported="false"
             android:label="@string/tasbihatLabel">
             <intent-filter>

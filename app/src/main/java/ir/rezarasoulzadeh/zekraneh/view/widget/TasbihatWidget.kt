@@ -16,7 +16,7 @@ import ir.rezarasoulzadeh.zekraneh.utils.Constants.TASBIHAT_SA
 import ir.rezarasoulzadeh.zekraneh.utils.HawkManager
 import ir.rezarasoulzadeh.zekraneh.view.activity.HomeActivity
 
-class TasbihatActivity : AppWidgetProvider() {
+class TasbihatWidget : AppWidgetProvider() {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                     overrides                                              //
@@ -41,52 +41,52 @@ class TasbihatActivity : AppWidgetProvider() {
         if (TASBIHAT_AA == intent.action) {
             val remoteViews = RemoteViews(context.packageName, R.layout.widget_tasbihat)
             remoteViews.setTextViewText(
-                R.id.AACounterTextView,
+                R.id.tvTasbihatAACounter,
                 HawkManager.increaseTasbihatAA().toString()
             )
             AppWidgetManager.getInstance(context).updateAppWidget(
-                ComponentName(context, TasbihatActivity::class.java),
+                ComponentName(context, TasbihatWidget::class.java),
                 remoteViews
             )
         }
         if (TASBIHAT_SA == intent.action) {
             val remoteViews = RemoteViews(context.packageName, R.layout.widget_tasbihat)
             remoteViews.setTextViewText(
-                R.id.SACounterTextView,
+                R.id.tvTasbihatSACounter,
                 HawkManager.increaseTasbihatSA().toString()
             )
             AppWidgetManager.getInstance(context).updateAppWidget(
-                ComponentName(context, TasbihatActivity::class.java),
+                ComponentName(context, TasbihatWidget::class.java),
                 remoteViews
             )
         }
         if (TASBIHAT_HA == intent.action) {
             val remoteViews = RemoteViews(context.packageName, R.layout.widget_tasbihat)
             remoteViews.setTextViewText(
-                R.id.HACounterTextView,
+                R.id.tvTasbihatHACounter,
                 HawkManager.increaseTasbihatHA().toString()
             )
             AppWidgetManager.getInstance(context).updateAppWidget(
-                ComponentName(context, TasbihatActivity::class.java),
+                ComponentName(context, TasbihatWidget::class.java),
                 remoteViews
             )
         }
         if (RESET_TASBIHAT == intent.action) {
             val remoteViews = RemoteViews(context.packageName, R.layout.widget_tasbihat)
             remoteViews.setTextViewText(
-                R.id.AACounterTextView,
+                R.id.tvTasbihatAACounter,
                 HawkManager.getTasbihatAA().toString()
             )
             remoteViews.setTextViewText(
-                R.id.SACounterTextView,
+                R.id.tvTasbihatSACounter,
                 HawkManager.getTasbihatSA().toString()
             )
             remoteViews.setTextViewText(
-                R.id.HACounterTextView,
+                R.id.tvTasbihatHACounter,
                 HawkManager.getTasbihatHA().toString()
             )
             AppWidgetManager.getInstance(context).updateAppWidget(
-                ComponentName(context, TasbihatActivity::class.java),
+                ComponentName(context, TasbihatWidget::class.java),
                 remoteViews
             )
         }
@@ -105,11 +105,11 @@ class TasbihatActivity : AppWidgetProvider() {
         appWidgetId: Int
     ) {
         val views = RemoteViews(context.packageName, R.layout.widget_tasbihat)
-        views.setTextViewText(R.id.AACounterTextView, HawkManager.getTasbihatAA().toString())
-        views.setTextViewText(R.id.SACounterTextView, HawkManager.getTasbihatSA().toString())
-        views.setTextViewText(R.id.HACounterTextView, HawkManager.getTasbihatHA().toString())
+        views.setTextViewText(R.id.tvTasbihatAACounter, HawkManager.getTasbihatAA().toString())
+        views.setTextViewText(R.id.tvTasbihatSACounter, HawkManager.getTasbihatSA().toString())
+        views.setTextViewText(R.id.tvTasbihatHACounter, HawkManager.getTasbihatHA().toString())
         views.setOnClickPendingIntent(
-            R.id.AACounterTextView,
+            R.id.tvTasbihatAACounter,
             updateTasbihatIntent(
                 context = context,
                 action = TASBIHAT_AA,
@@ -117,7 +117,7 @@ class TasbihatActivity : AppWidgetProvider() {
             )
         )
         views.setOnClickPendingIntent(
-            R.id.SACounterTextView,
+            R.id.tvTasbihatSACounter,
             updateTasbihatIntent(
                 context = context,
                 action = TASBIHAT_SA,
@@ -125,7 +125,7 @@ class TasbihatActivity : AppWidgetProvider() {
             )
         )
         views.setOnClickPendingIntent(
-            R.id.HACounterTextView,
+            R.id.tvTasbihatHACounter,
             updateTasbihatIntent(
                 context = context,
                 action = TASBIHAT_HA,
@@ -133,7 +133,7 @@ class TasbihatActivity : AppWidgetProvider() {
             )
         )
         views.setOnClickPendingIntent(
-            R.id.tasbihatTitleText,
+            R.id.tvTodayTasbihat,
             openHomeActivityIntent(
                 context = context,
                 appWidgetId = appWidgetId
@@ -164,7 +164,7 @@ class TasbihatActivity : AppWidgetProvider() {
         action: String?,
         appWidgetId: Int
     ): PendingIntent? {
-        val intent = Intent(context, TasbihatActivity::class.java)
+        val intent = Intent(context, TasbihatWidget::class.java)
         intent.action = action
         intent.putExtra("id", appWidgetId)
         return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)

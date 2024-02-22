@@ -6,7 +6,7 @@ import android.net.Uri
 import android.widget.Toast
 import ir.rezarasoulzadeh.zekraneh.R
 import ir.rezarasoulzadeh.zekraneh.view.widget.SalavatWidget
-import ir.rezarasoulzadeh.zekraneh.view.widget.TasbihatActivity
+import ir.rezarasoulzadeh.zekraneh.view.widget.TasbihatWidget
 import ir.rezarasoulzadeh.zekraneh.view.widget.ZekrWidget
 
 object IntentManager {
@@ -61,7 +61,7 @@ object IntentManager {
      * send a broadcast intent to tasbihat widget to reset the tasbihat all counters.
      */
     fun resetTasbihatIntent(context: Context) {
-        val intent = Intent(context, TasbihatActivity::class.java)
+        val intent = Intent(context, TasbihatWidget::class.java)
         intent.action = Constants.RESET_TASBIHAT
         context.sendBroadcast(intent)
     }
