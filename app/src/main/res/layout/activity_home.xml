@@ -336,7 +336,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginHorizontal="5dp"
                         android:background="@android:color/transparent"
-                        android:buttonTint="@color/green" />
+                        android:buttonTint="@color/lightGreen" />
 
                     <RadioButton
                         android:id="@+id/rbRed"
