@@ -66,4 +66,31 @@ object IntentManager {
         context.sendBroadcast(intent)
     }
 
+    /**
+     * send a broadcast intent to salavat widget to change the salavat text color.
+     */
+    fun changeSalavatTextColorIntent(context: Context) {
+        val intent = Intent(context, SalavatWidget::class.java)
+        intent.action = Constants.COLOR
+        context.sendBroadcast(intent)
+    }
+
+    /**
+     * send a broadcast intent to zekr widget to change the zekr text color.
+     */
+    fun changeZekrTextColorIntent(context: Context) {
+        val intent = Intent(context, ZekrWidget::class.java)
+        intent.action = Constants.COLOR
+        context.sendBroadcast(intent)
+    }
+
+    /**
+     * send a broadcast intent to tasbihat widget to change the tasbihat text color.
+     */
+    fun changeTasbihatTextColorIntent(context: Context) {
+        val intent = Intent(context, TasbihatWidget::class.java)
+        intent.action = Constants.COLOR
+        context.sendBroadcast(intent)
+    }
+
 }

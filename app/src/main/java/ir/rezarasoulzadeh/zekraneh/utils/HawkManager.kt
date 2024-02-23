@@ -1,11 +1,13 @@
 package ir.rezarasoulzadeh.zekraneh.utils
 
 import com.orhanobut.hawk.Hawk
+import ir.rezarasoulzadeh.zekraneh.utils.Constants.COLOR
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.SALAVAT
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.TASBIHAT_AA
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.TASBIHAT_HA
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.TASBIHAT_SA
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.ZEKR
+import ir.rezarasoulzadeh.zekraneh.utils.enums.ColorType
 
 object HawkManager {
 
@@ -127,5 +129,19 @@ object HawkManager {
             currentTasbihatHA
         }
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                       color                                                //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * save widget text color to hawk.
+     */
+    fun saveTextColor(color: ColorType) = Hawk.put(COLOR, color)
+
+    /**
+     * get widget text color from hawk.
+     */
+    fun getTextColor(): ColorType = Hawk.get<ColorType>(COLOR, ColorType.WHITE) ?: ColorType.WHITE
 
 }

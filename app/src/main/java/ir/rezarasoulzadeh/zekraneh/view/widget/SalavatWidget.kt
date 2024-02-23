@@ -9,6 +9,7 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekraneh.R
+import ir.rezarasoulzadeh.zekraneh.utils.Constants.COLOR
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.RESET_SALAVAT
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.SALAVAT
 import ir.rezarasoulzadeh.zekraneh.utils.DateManager
@@ -59,6 +60,17 @@ class SalavatWidget : AppWidgetProvider() {
                 remoteViews
             )
         }
+        if (COLOR == intent.action) {
+            val remoteViews = RemoteViews(context.packageName, R.layout.widget_salavat)
+            remoteViews.setTextColor(
+                R.id.tvSalavatTitle,
+                context.resources.getColor(HawkManager.getTextColor().color)
+            )
+            AppWidgetManager.getInstance(context).updateAppWidget(
+                ComponentName(context, SalavatWidget::class.java),
+                remoteViews
+            )
+        }
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -76,6 +88,10 @@ class SalavatWidget : AppWidgetProvider() {
         val views = RemoteViews(context.packageName, R.layout.widget_salavat)
         views.setTextViewText(R.id.tvSalavatDay, DateManager.getTodayName())
         views.setTextViewText(R.id.tvSalavatCounter, HawkManager.getSalavat().toString())
+        views.setTextColor(
+            R.id.tvSalavatTitle,
+            context.resources.getColor(HawkManager.getTextColor().color)
+        )
         views.setOnClickPendingIntent(
             R.id.tvSalavatCounter,
             updateSalavatIntent(

@@ -9,6 +9,7 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekraneh.R
+import ir.rezarasoulzadeh.zekraneh.utils.Constants.COLOR
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.RESET_TASBIHAT
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.TASBIHAT_AA
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.TASBIHAT_HA
@@ -90,6 +91,25 @@ class TasbihatWidget : AppWidgetProvider() {
                 remoteViews
             )
         }
+        if (COLOR == intent.action) {
+            val remoteViews = RemoteViews(context.packageName, R.layout.widget_tasbihat)
+            remoteViews.setTextColor(
+                R.id.tvTasbihatAATitle,
+                context.resources.getColor(HawkManager.getTextColor().color)
+            )
+            remoteViews.setTextColor(
+                R.id.tvTasbihatSATitle,
+                context.resources.getColor(HawkManager.getTextColor().color)
+            )
+            remoteViews.setTextColor(
+                R.id.tvTasbihatHATitle,
+                context.resources.getColor(HawkManager.getTextColor().color)
+            )
+            AppWidgetManager.getInstance(context).updateAppWidget(
+                ComponentName(context, TasbihatWidget::class.java),
+                remoteViews
+            )
+        }
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -108,6 +128,18 @@ class TasbihatWidget : AppWidgetProvider() {
         views.setTextViewText(R.id.tvTasbihatAACounter, HawkManager.getTasbihatAA().toString())
         views.setTextViewText(R.id.tvTasbihatSACounter, HawkManager.getTasbihatSA().toString())
         views.setTextViewText(R.id.tvTasbihatHACounter, HawkManager.getTasbihatHA().toString())
+        views.setTextColor(
+            R.id.tvTasbihatAATitle,
+            context.resources.getColor(HawkManager.getTextColor().color)
+        )
+        views.setTextColor(
+            R.id.tvTasbihatSATitle,
+            context.resources.getColor(HawkManager.getTextColor().color)
+        )
+        views.setTextColor(
+            R.id.tvTasbihatHATitle,
+            context.resources.getColor(HawkManager.getTextColor().color)
+        )
         views.setOnClickPendingIntent(
             R.id.tvTasbihatAACounter,
             updateTasbihatIntent(
