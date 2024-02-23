@@ -1,4 +1,4 @@
-package ir.rezarasoulzadeh.zekraneh.utils
+package ir.rezarasoulzadeh.zekraneh.utils.constant
 
 object Constants {
     const val SALAVAT = "salavat"

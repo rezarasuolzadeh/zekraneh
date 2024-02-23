@@ -2,13 +2,15 @@ package ir.rezarasoulzadeh.zekraneh.view.activity
 
 import android.view.Window
 import android.view.WindowManager
+import ir.rezarasoulzadeh.zekraneh.R
 import ir.rezarasoulzadeh.zekraneh.base.BaseActivity
 import ir.rezarasoulzadeh.zekraneh.databinding.ActivityHomeBinding
 import ir.rezarasoulzadeh.zekraneh.utils.extensions.rotate
 import ir.rezarasoulzadeh.zekraneh.utils.extensions.vibratePhone
-import ir.rezarasoulzadeh.zekraneh.utils.HawkManager
-import ir.rezarasoulzadeh.zekraneh.utils.IntentManager
+import ir.rezarasoulzadeh.zekraneh.utils.managers.HawkManager
+import ir.rezarasoulzadeh.zekraneh.utils.managers.IntentManager
 import ir.rezarasoulzadeh.zekraneh.utils.enums.ColorType
+import ir.rezarasoulzadeh.zekraneh.utils.managers.SnackbarManager
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>(
     ActivityHomeBinding::inflate
@@ -48,6 +50,11 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
             )
             HawkManager.saveZekr(zekr = 0)
             IntentManager.resetZekrIntent(context = this@HomeActivity)
+            SnackbarManager.showSnackbar(
+                context = this@HomeActivity,
+                view = binding.root,
+                message = getString(R.string.zekr_has_been_reset)
+            )
         }
         imgSalavatRefresh.setOnClickListener {
             vibratePhone()
@@ -56,6 +63,11 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
             )
             HawkManager.saveSalavat(salavat = 0)
             IntentManager.resetSalavatIntent(context = this@HomeActivity)
+            SnackbarManager.showSnackbar(
+                context = this@HomeActivity,
+                view = binding.root,
+                message = getString(R.string.salavat_has_been_reset)
+            )
         }
         imgTasbihatRefresh.setOnClickListener {
             vibratePhone()
@@ -68,6 +80,11 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
                 saveTasbihatHA(tasbihatHA = 0)
             }
             IntentManager.resetTasbihatIntent(context = this@HomeActivity)
+            SnackbarManager.showSnackbar(
+                context = this@HomeActivity,
+                view = binding.root,
+                message = getString(R.string.tasbihat_has_been_reset)
+            )
         }
         clLanguage.setOnClickListener {
             if(elLanguage.isExpanded) {

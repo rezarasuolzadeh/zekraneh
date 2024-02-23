@@ -4,6 +4,9 @@
     <string name="today_salavat">صلوات های روز</string>
     <string name="today_zekr">ذکر روز</string>
     <string name="today_tasbihat">تسبیحات حضرت زهرا (س)</string>
+    <string name="salavat_has_been_reset">صلوات های روز بازنشانی شد</string>
+    <string name="zekr_has_been_reset">ذکر روز بازنشانی شد</string>
+    <string name="tasbihat_has_been_reset">تسبیحات حضرت زهرا (س) بازنشانی شد</string>
 
 
     <string name="defaultTitle">ذکر روز</string>

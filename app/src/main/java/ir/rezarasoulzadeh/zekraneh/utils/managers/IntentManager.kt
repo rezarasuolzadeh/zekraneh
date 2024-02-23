@@ -1,10 +1,11 @@
-package ir.rezarasoulzadeh.zekraneh.utils
+package ir.rezarasoulzadeh.zekraneh.utils.managers
 
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
 import ir.rezarasoulzadeh.zekraneh.R
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants
 import ir.rezarasoulzadeh.zekraneh.view.widget.SalavatWidget
 import ir.rezarasoulzadeh.zekraneh.view.widget.TasbihatWidget
 import ir.rezarasoulzadeh.zekraneh.view.widget.ZekrWidget
