@@ -9,6 +9,7 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekraneh.R
+import ir.rezarasoulzadeh.zekraneh.utils.Constants.COLOR
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.RESET_ZEKR
 import ir.rezarasoulzadeh.zekraneh.utils.Constants.ZEKR
 import ir.rezarasoulzadeh.zekraneh.utils.DateManager
@@ -60,6 +61,21 @@ class ZekrWidget : AppWidgetProvider() {
                 remoteViews
             )
         }
+        if (COLOR == intent.action) {
+            val remoteViews = RemoteViews(context.packageName, R.layout.widget_zekr)
+            remoteViews.setTextColor(
+                R.id.tvTodayZekrTitle,
+                context.resources.getColor(HawkManager.getTextColor().color)
+            )
+            remoteViews.setTextColor(
+                R.id.tvTodayZekr,
+                context.resources.getColor(HawkManager.getTextColor().color)
+            )
+            AppWidgetManager.getInstance(context).updateAppWidget(
+                ComponentName(context, ZekrWidget::class.java),
+                remoteViews
+            )
+        }
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -78,6 +94,14 @@ class ZekrWidget : AppWidgetProvider() {
         views.setTextViewText(R.id.tvZekrDay, DateManager.getTodayName())
         views.setTextViewText(R.id.tvZekrCounter, HawkManager.getZekr().toString())
         views.setTextViewText(R.id.tvTodayZekr, ZekrManager.getTodayZekr())
+        views.setTextColor(
+            R.id.tvTodayZekrTitle,
+            context.resources.getColor(HawkManager.getTextColor().color)
+        )
+        views.setTextColor(
+            R.id.tvTodayZekr,
+            context.resources.getColor(HawkManager.getTextColor().color)
+        )
         views.setOnClickPendingIntent(
             R.id.tvZekrCounter,
             updateZekrIntent(

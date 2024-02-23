@@ -9,4 +9,5 @@ object Constants {
     const val TASBIHAT_SA = "tasbihat sobhan allah"
     const val TASBIHAT_HA = "tasbihat alhamd lellah"
     const val RESET_TASBIHAT = "reset tasbihat"
+    const val COLOR = "color"
 }
