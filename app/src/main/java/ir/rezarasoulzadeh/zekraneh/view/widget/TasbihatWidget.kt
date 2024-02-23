@@ -9,12 +9,12 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekraneh.R
-import ir.rezarasoulzadeh.zekraneh.utils.Constants.COLOR
-import ir.rezarasoulzadeh.zekraneh.utils.Constants.RESET_TASBIHAT
-import ir.rezarasoulzadeh.zekraneh.utils.Constants.TASBIHAT_AA
-import ir.rezarasoulzadeh.zekraneh.utils.Constants.TASBIHAT_HA
-import ir.rezarasoulzadeh.zekraneh.utils.Constants.TASBIHAT_SA
-import ir.rezarasoulzadeh.zekraneh.utils.HawkManager
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.COLOR
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.RESET_TASBIHAT
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.TASBIHAT_AA
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.TASBIHAT_HA
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.TASBIHAT_SA
+import ir.rezarasoulzadeh.zekraneh.utils.managers.HawkManager
 import ir.rezarasoulzadeh.zekraneh.view.activity.HomeActivity
 
 class TasbihatWidget : AppWidgetProvider() {

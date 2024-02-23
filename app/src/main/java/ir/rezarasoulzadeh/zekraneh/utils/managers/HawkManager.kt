@@ -1,12 +1,12 @@
-package ir.rezarasoulzadeh.zekraneh.utils
+package ir.rezarasoulzadeh.zekraneh.utils.managers
 
 import com.orhanobut.hawk.Hawk
-import ir.rezarasoulzadeh.zekraneh.utils.Constants.COLOR
-import ir.rezarasoulzadeh.zekraneh.utils.Constants.SALAVAT
-import ir.rezarasoulzadeh.zekraneh.utils.Constants.TASBIHAT_AA
-import ir.rezarasoulzadeh.zekraneh.utils.Constants.TASBIHAT_HA
-import ir.rezarasoulzadeh.zekraneh.utils.Constants.TASBIHAT_SA
-import ir.rezarasoulzadeh.zekraneh.utils.Constants.ZEKR
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.COLOR
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.SALAVAT
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.TASBIHAT_AA
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.TASBIHAT_HA
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.TASBIHAT_SA
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.ZEKR
 import ir.rezarasoulzadeh.zekraneh.utils.enums.ColorType
 
 object HawkManager {

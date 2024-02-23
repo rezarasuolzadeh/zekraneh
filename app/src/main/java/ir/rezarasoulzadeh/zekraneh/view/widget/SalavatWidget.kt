@@ -9,11 +9,11 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekraneh.R
-import ir.rezarasoulzadeh.zekraneh.utils.Constants.COLOR
-import ir.rezarasoulzadeh.zekraneh.utils.Constants.RESET_SALAVAT
-import ir.rezarasoulzadeh.zekraneh.utils.Constants.SALAVAT
-import ir.rezarasoulzadeh.zekraneh.utils.DateManager
-import ir.rezarasoulzadeh.zekraneh.utils.HawkManager
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.COLOR
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.RESET_SALAVAT
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.SALAVAT
+import ir.rezarasoulzadeh.zekraneh.utils.managers.DateManager
+import ir.rezarasoulzadeh.zekraneh.utils.managers.HawkManager
 import ir.rezarasoulzadeh.zekraneh.view.activity.HomeActivity
 
 class SalavatWidget : AppWidgetProvider() {
