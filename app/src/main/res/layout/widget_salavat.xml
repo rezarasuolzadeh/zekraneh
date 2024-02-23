@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/widgetLayout"
+    android:id="@+id/llSalavat"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/background_for_widget"
+    android:background="@drawable/background_widget"
     android:layoutDirection="rtl"
     android:orientation="vertical"
     android:padding="5dp">
@@ -13,69 +13,71 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layoutDirection="ltr"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        tools:ignore="UselessParent">
 
         <TextView
-            android:id="@+id/salavatCounterTextView"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:id="@+id/tvSalavatCounter"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/background_counter"
+            android:background="@drawable/ic_sun_2"
             android:clickable="true"
             android:focusable="true"
-            android:fontFamily="@font/vazir"
+            android:fontFamily="@font/dana_num"
             android:gravity="center"
-            android:text="0"
-            android:textColor="@color/widget_counter_color"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+            android:textColor="@color/blue"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded"
+            tools:text="0" />
 
         <LinearLayout
-            android:id="@+id/salavatLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="RtlHardcoded">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layoutDirection="rtl"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                tools:ignore="RtlHardcoded,UselessParent">
 
                 <TextView
-                    android:id="@+id/salavetTitle"
+                    android:id="@+id/tvSalavatTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:background="#000099CC"
-                    android:fontFamily="@font/vazir"
+                    android:layout_marginRight="5dp"
+                    android:fontFamily="@font/dana_num"
                     android:padding="1dp"
-                    android:text="صلوات های روز"
-                    android:textColor="#ffffff"
+                    android:text="@string/today_salavat"
+                    android:textColor="@color/white"
                     android:textSize="19sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/salavatDay"
+                    android:id="@+id/tvSalavatDay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="1dp"
-                    android:background="#000099CC"
-                    android:contentDescription="@string/defaultDay"
-                    android:drawableEnd="@drawable/ic_shortcut"
+                    android:drawableLeft="@drawable/ic_return"
                     android:drawablePadding="5dp"
-                    android:fontFamily="@font/vazir"
+                    android:fontFamily="@font/dana"
                     android:padding="3dp"
-                    android:text="@string/defaultDay"
-                    android:textColor="@color/lightRed"
+                    android:textColor="@color/lightGreen"
                     android:textSize="19sp"
                     android:textStyle="bold"
-                    tools:ignore="UseCompatTextViewDrawableXml" />
+                    tools:ignore="RtlHardcoded,UseCompatTextViewDrawableXml"
+                    tools:text="شنبه" />
 
             </LinearLayout>
 

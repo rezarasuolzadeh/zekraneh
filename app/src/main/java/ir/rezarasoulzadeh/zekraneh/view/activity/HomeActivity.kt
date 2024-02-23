@@ -1,106 +1,121 @@
 package ir.rezarasoulzadeh.zekraneh.view.activity
 
-import android.appwidget.AppWidgetManager
-import android.content.ComponentName
-import android.os.Bundle
 import android.view.Window
 import android.view.WindowManager
-import androidx.appcompat.app.AppCompatActivity
-import ir.rezarasoulzadeh.zekraneh.R
-import ir.rezarasoulzadeh.zekraneh.service.utils.AppStoresIntent
-import ir.rezarasoulzadeh.zekraneh.service.utils.SharedPrefs
-import kotlinx.android.synthetic.main.activity_home.*
+import ir.rezarasoulzadeh.zekraneh.base.BaseActivity
+import ir.rezarasoulzadeh.zekraneh.databinding.ActivityHomeBinding
+import ir.rezarasoulzadeh.zekraneh.utils.extensions.rotate
+import ir.rezarasoulzadeh.zekraneh.utils.extensions.vibratePhone
+import ir.rezarasoulzadeh.zekraneh.utils.HawkManager
+import ir.rezarasoulzadeh.zekraneh.utils.IntentManager
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity<ActivityHomeBinding>(
+    ActivityHomeBinding::inflate
+) {
 
-    private lateinit var sharePrefs: SharedPrefs
-    private lateinit var appStoresIntent: AppStoresIntent
-    private var widgetId = -1
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                     overrides                                              //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        whiteStatusBar(window)
-
-        sharePrefs = SharedPrefs(this)
-        appStoresIntent = AppStoresIntent(this)
-
-        val bundle = intent.extras
-
-        this.widgetId = bundle!!.getInt("appWidgetId", -1)
-
-        if (this.widgetId == -1) {
-            finish()
-        }
-
-        setContentView(R.layout.activity_home)
-
-        resetZekrButton.setOnClickListener {
-            sharePrefs.setCounter("0")
-            updateAllWidgets()
-            finish()
-        }
-
-        resetSalavatButton.setOnClickListener {
-            sharePrefs.setSalavat("0")
-            updateAllWidgets()
-            finish()
-        }
-
-        resetTasbihatButton.setOnClickListener {
-            sharePrefs.setAA("0")
-            sharePrefs.setHA("0")
-            sharePrefs.setSA("0")
-            updateAllWidgets()
-            finish()
-        }
-
-        starButton.setOnClickListener {
-            appStoresIntent.bazaarStar()
-        }
-
-        developerButton.setOnClickListener {
-            appStoresIntent.bazaarDeveloper()
-        }
-
-        exitButton.setOnClickListener {
-            updateAllWidgets()
-            finish()
-        }
-
-//        sharePrefs = SharedPrefs(this)
-
+    override fun onAfterCreate() {
+        enableFullScreenMode(window = window)
+        configClickListeners()
     }
 
-    fun updateAllWidgets() {
-        val appWidgetManager = AppWidgetManager.getInstance(this)
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                      configs                                               //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
 
-        val zekr = appWidgetManager.getAppWidgetIds(
-            ComponentName(
-                this,
-                ZekrActivity::class.java
+    /**
+     * handle the action of clickable views.
+     */
+    private fun configClickListeners() = with(binding) {
+        clDetails.setOnClickListener {
+            if(elDetails.isExpanded) {
+                elDetails.collapse()
+                imgDetailsArrow.rotate(destinationRotate = 0f)
+            } else {
+                elDetails.expand()
+                imgDetailsArrow.rotate(destinationRotate = 180f)
+            }
+        }
+        imgZekrRefresh.setOnClickListener {
+            vibratePhone()
+            imgZekrRefresh.rotate(
+                destinationRotate = if(imgZekrRefresh.rotation == 0f) 360f else 0f
             )
-        )
-        ZekrActivity().onUpdate(this, appWidgetManager, zekr)
-
-        val salavat = appWidgetManager.getAppWidgetIds(
-            ComponentName(
-                this,
-                SalavatActivity::class.java
+            HawkManager.saveZekr(zekr = 0)
+            IntentManager.resetZekrIntent(context = this@HomeActivity)
+        }
+        imgSalavatRefresh.setOnClickListener {
+            vibratePhone()
+            imgSalavatRefresh.rotate(
+                destinationRotate = if(imgSalavatRefresh.rotation == 0f) 360f else 0f
             )
-        )
-        SalavatActivity().onUpdate(this, appWidgetManager, salavat)
-
-        val tasbihat = appWidgetManager.getAppWidgetIds(
-            ComponentName(
-                this,
-                TasbihatActivity::class.java
+            HawkManager.saveSalavat(salavat = 0)
+            IntentManager.resetSalavatIntent(context = this@HomeActivity)
+        }
+        imgTasbihatRefresh.setOnClickListener {
+            vibratePhone()
+            imgTasbihatRefresh.rotate(
+                destinationRotate = if(imgTasbihatRefresh.rotation == 0f) 360f else 0f
             )
-        )
-        TasbihatActivity().onUpdate(this, appWidgetManager, tasbihat)
+            HawkManager.apply {
+                saveTasbihatAA(tasbihatAA = 0)
+                saveTasbihatSA(tasbihatSA = 0)
+                saveTasbihatHA(tasbihatHA = 0)
+            }
+            IntentManager.resetTasbihatIntent(context = this@HomeActivity)
+        }
+        clLanguage.setOnClickListener {
+            if(elLanguage.isExpanded) {
+                elLanguage.collapse()
+                imgLanguageArrow.rotate(destinationRotate = 0f, duration = 150)
+            } else {
+                elLanguage.expand()
+                imgLanguageArrow.rotate(destinationRotate = 180f, duration = 150)
+            }
+        }
+        clColor.setOnClickListener {
+            if(elColor.isExpanded) {
+                elColor.collapse()
+                imgColorArrow.rotate(destinationRotate = 0f, duration = 150)
+            } else {
+                elColor.expand()
+                imgColorArrow.rotate(destinationRotate = 180f, duration = 150)
+            }
+        }
+        rbWhite.setOnClickListener {
+            // nothing to do yet
+        }
+        rbBlack.setOnClickListener {
+            // nothing to do yet
+        }
+        rbGreen.setOnClickListener {
+            // nothing to do yet
+        }
+        rbRed.setOnClickListener {
+            // nothing to do yet
+        }
+        clStar.setOnClickListener {
+            IntentManager.rateIntent(context = this@HomeActivity)
+        }
+        clShare.setOnClickListener {
+            IntentManager.shareTextIntent(
+                context = this@HomeActivity,
+                title = "معرفی به دوستان",
+                description = "سلام"
+            )
+        }
+        clExit.setOnClickListener {
+            finish()
+        }
     }
 
-    private fun whiteStatusBar(window: Window) {
+    /**
+     * enable the full screen mode for activity.
+     */
+    private fun enableFullScreenMode(window: Window) {
         window.setFlags(
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
