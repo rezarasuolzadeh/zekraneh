@@ -7,20 +7,48 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Handler
+import android.os.Looper
 import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekraneh.R
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.CHECK_DAY
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.COLOR
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.RESET_SALAVAT
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.SALAVAT
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.UPDATE_DELAY
 import ir.rezarasoulzadeh.zekraneh.utils.managers.DateManager
 import ir.rezarasoulzadeh.zekraneh.utils.managers.HawkManager
+import ir.rezarasoulzadeh.zekraneh.utils.managers.IntentManager
 import ir.rezarasoulzadeh.zekraneh.view.activity.HomeActivity
 
 class SalavatWidget : AppWidgetProvider() {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                     variables                                              //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    private var context: Context? = null
+
+    private val updateWidgetHandler = Handler(Looper.getMainLooper())
+
+    private var updateWidgetRunnable: Runnable = Runnable {
+        run {
+            context?.let {
+                IntentManager.checkSalavatDayIntent(context = it)
+            }
+            updateWidgetHandler.postDelayed(updateWidgetRunnable, UPDATE_DELAY)
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                     overrides                                              //
     ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    override fun onEnabled(context: Context?) {
+        super.onEnabled(context)
+        this.context = context
+        updateWidgetHandler.postDelayed(updateWidgetRunnable, UPDATE_DELAY)
+    }
 
     override fun onUpdate(
         context: Context,
@@ -40,10 +68,26 @@ class SalavatWidget : AppWidgetProvider() {
         super.onReceive(context, intent)
         if (SALAVAT == intent.action) {
             val remoteViews = RemoteViews(context.packageName, R.layout.widget_salavat)
-            remoteViews.setTextViewText(
-                R.id.tvSalavatCounter,
-                HawkManager.increaseSalavat().toString()
-            )
+            val todayName = DateManager.getTodayName()
+            val savedDay = HawkManager.getSalavatDay()
+            if(todayName != savedDay) {
+                HawkManager.saveSalavat(salavat = 0)
+                HawkManager.saveSalavatDay(day = DateManager.getTodayName())
+                remoteViews.setTextViewText(
+                    R.id.tvSalavatCounter,
+                    HawkManager.getSalavat().toString()
+                )
+                remoteViews.setTextViewText(R.id.tvSalavatDay, DateManager.getTodayName())
+                AppWidgetManager.getInstance(context).updateAppWidget(
+                    ComponentName(context, SalavatWidget::class.java),
+                    remoteViews
+                )
+            } else {
+                remoteViews.setTextViewText(
+                    R.id.tvSalavatCounter,
+                    HawkManager.increaseSalavat().toString()
+                )
+            }
             AppWidgetManager.getInstance(context).updateAppWidget(
                 ComponentName(context, SalavatWidget::class.java),
                 remoteViews
@@ -71,6 +115,24 @@ class SalavatWidget : AppWidgetProvider() {
                 remoteViews
             )
         }
+        if (CHECK_DAY == intent.action) {
+            val todayName = DateManager.getTodayName()
+            val savedDay = HawkManager.getSalavatDay()
+            if(todayName != savedDay) {
+                val remoteViews = RemoteViews(context.packageName, R.layout.widget_salavat)
+                HawkManager.saveSalavat(salavat = 0)
+                HawkManager.saveSalavatDay(day = DateManager.getTodayName())
+                remoteViews.setTextViewText(
+                    R.id.tvSalavatCounter,
+                    HawkManager.getSalavat().toString()
+                )
+                remoteViews.setTextViewText(R.id.tvSalavatDay, DateManager.getTodayName())
+                AppWidgetManager.getInstance(context).updateAppWidget(
+                    ComponentName(context, SalavatWidget::class.java),
+                    remoteViews
+                )
+            }
+        }
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -86,6 +148,7 @@ class SalavatWidget : AppWidgetProvider() {
         appWidgetId: Int
     ) {
         val views = RemoteViews(context.packageName, R.layout.widget_salavat)
+        HawkManager.saveSalavatDay(day = DateManager.getTodayName())
         views.setTextViewText(R.id.tvSalavatDay, DateManager.getTodayName())
         views.setTextViewText(R.id.tvSalavatCounter, HawkManager.getSalavat().toString())
         views.setTextColor(
@@ -96,8 +159,7 @@ class SalavatWidget : AppWidgetProvider() {
             R.id.tvSalavatCounter,
             updateSalavatIntent(
                 context = context,
-                action = SALAVAT,
-                appWidgetId = appWidgetId
+                action = SALAVAT
             )
         )
         views.setOnClickPendingIntent(
@@ -134,12 +196,10 @@ class SalavatWidget : AppWidgetProvider() {
      */
     private fun updateSalavatIntent(
         context: Context?,
-        action: String?,
-        appWidgetId: Int
+        action: String?
     ): PendingIntent? {
         val intent = Intent(context, SalavatWidget::class.java)
         intent.action = action
-        intent.putExtra("id", appWidgetId)
         return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
     }
 

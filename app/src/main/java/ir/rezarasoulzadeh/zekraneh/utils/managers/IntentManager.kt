@@ -5,7 +5,11 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
 import ir.rezarasoulzadeh.zekraneh.R
-import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.CHECK_DAY
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.COLOR
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.RESET_SALAVAT
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.RESET_TASBIHAT
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.RESET_ZEKR
 import ir.rezarasoulzadeh.zekraneh.view.widget.SalavatWidget
 import ir.rezarasoulzadeh.zekraneh.view.widget.TasbihatWidget
 import ir.rezarasoulzadeh.zekraneh.view.widget.ZekrWidget
@@ -45,7 +49,7 @@ object IntentManager {
      */
     fun resetSalavatIntent(context: Context) {
         val intent = Intent(context, SalavatWidget::class.java)
-        intent.action = Constants.RESET_SALAVAT
+        intent.action = RESET_SALAVAT
         context.sendBroadcast(intent)
     }
 
@@ -54,7 +58,7 @@ object IntentManager {
      */
     fun resetZekrIntent(context: Context) {
         val intent = Intent(context, ZekrWidget::class.java)
-        intent.action = Constants.RESET_ZEKR
+        intent.action = RESET_ZEKR
         context.sendBroadcast(intent)
     }
 
@@ -63,7 +67,7 @@ object IntentManager {
      */
     fun resetTasbihatIntent(context: Context) {
         val intent = Intent(context, TasbihatWidget::class.java)
-        intent.action = Constants.RESET_TASBIHAT
+        intent.action = RESET_TASBIHAT
         context.sendBroadcast(intent)
     }
 
@@ -72,7 +76,7 @@ object IntentManager {
      */
     fun changeSalavatTextColorIntent(context: Context) {
         val intent = Intent(context, SalavatWidget::class.java)
-        intent.action = Constants.COLOR
+        intent.action = COLOR
         context.sendBroadcast(intent)
     }
 
@@ -81,7 +85,7 @@ object IntentManager {
      */
     fun changeZekrTextColorIntent(context: Context) {
         val intent = Intent(context, ZekrWidget::class.java)
-        intent.action = Constants.COLOR
+        intent.action = COLOR
         context.sendBroadcast(intent)
     }
 
@@ -90,7 +94,25 @@ object IntentManager {
      */
     fun changeTasbihatTextColorIntent(context: Context) {
         val intent = Intent(context, TasbihatWidget::class.java)
-        intent.action = Constants.COLOR
+        intent.action = COLOR
+        context.sendBroadcast(intent)
+    }
+
+    /**
+     * send a broadcast intent to salavat widget to check day.
+     */
+    fun checkSalavatDayIntent(context: Context) {
+        val intent = Intent(context, SalavatWidget::class.java)
+        intent.action = CHECK_DAY
+        context.sendBroadcast(intent)
+    }
+
+    /**
+     * send a broadcast intent to zekr widget to check day.
+     */
+    fun checkZekrDayIntent(context: Context) {
+        val intent = Intent(context, ZekrWidget::class.java)
+        intent.action = CHECK_DAY
         context.sendBroadcast(intent)
     }
 
