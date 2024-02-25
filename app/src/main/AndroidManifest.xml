@@ -7,9 +7,9 @@
     <application
         android:name=".HappyApp"
         android:allowBackup="true"
-        android:icon="@drawable/zekr"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/zekr"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 

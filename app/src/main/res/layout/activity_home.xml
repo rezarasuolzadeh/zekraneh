@@ -453,19 +453,4 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tvVersion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|bottom"
-        android:layout_marginHorizontal="13dp"
-        android:layout_marginBottom="15dp"
-        android:fontFamily="@font/dana_num"
-        android:text="نسخه 1.3.0"
-        android:textColor="#028686"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
