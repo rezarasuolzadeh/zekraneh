@@ -27,14 +27,28 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/ic_sun_2"
             android:clickable="true"
-            android:focusable="true"
             android:fontFamily="@font/dana_num"
             android:gravity="center"
+            android:singleLine="true"
+            android:paddingHorizontal="2dp"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit ="marquee_forever"
+            android:scrollHorizontally="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:duplicateParentState="true"
             android:textColor="@color/blue"
             android:textSize="20sp"
             android:textStyle="bold"
             tools:ignore="RtlHardcoded"
-            tools:text="0" />
+            tools:text="0" >
+
+            <requestFocus
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:duplicateParentState="true" />
+
+        </TextView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -85,24 +99,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:ellipsize="marquee"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
                 android:fontFamily="@font/dana"
-                android:marqueeRepeatLimit="marquee_forever"
                 android:padding="3dp"
-                android:scrollHorizontally="true"
-                android:singleLine="true"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                android:singleLine="true"
+                android:paddingHorizontal="2dp"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit ="marquee_forever"
+                android:scrollHorizontally="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:duplicateParentState="true"
                 tools:ignore="RtlHardcoded"
                 tools:text="لا اِلهَ الَّا اَللّهُ المَلِکُ الحَقُّ المُبین">
 
                 <requestFocus
-                    android:duplicateParentState="true"
                     android:focusable="true"
-                    android:focusableInTouchMode="true" />
+                    android:focusableInTouchMode="true"
+                    android:duplicateParentState="true" />
 
             </TextView>
 
