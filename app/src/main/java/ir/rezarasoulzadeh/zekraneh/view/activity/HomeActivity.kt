@@ -22,7 +22,9 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
 
     override fun onAfterCreate() {
         enableFullScreenMode(window = window)
-        configClickListeners()
+        configMenuClickListeners()
+        configDetailsClickListeners()
+        configColorClickListeners()
         chooseSelectedTextColor()
     }
 
@@ -31,9 +33,9 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
-     * handle the action of clickable views.
+     * handle the action of menu clickable views.
      */
-    private fun configClickListeners() = with(binding) {
+    private fun configMenuClickListeners() = with(binding) {
         clDetails.setOnClickListener {
             if(elDetails.isExpanded) {
                 elDetails.collapse()
@@ -43,6 +45,47 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
                 imgDetailsArrow.rotate(destinationRotate = 180f)
             }
         }
+        clLanguage.setOnClickListener {
+            if(elLanguage.isExpanded) {
+                elLanguage.collapse()
+                imgLanguageArrow.rotate(destinationRotate = 0f, duration = 150)
+            } else {
+                elLanguage.expand()
+                imgLanguageArrow.rotate(destinationRotate = 180f, duration = 150)
+            }
+        }
+        clColor.setOnClickListener {
+            if(elColor.isExpanded) {
+                elColor.collapse()
+                imgColorArrow.rotate(destinationRotate = 0f, duration = 150)
+            } else {
+                elColor.expand()
+                imgColorArrow.rotate(destinationRotate = 180f, duration = 150)
+            }
+        }
+        clStar.setOnClickListener {
+            IntentManager.rateIntent(
+                context = this@HomeActivity,
+                view = binding.root
+            )
+        }
+        clShare.setOnClickListener {
+            IntentManager.shareTextIntent(
+                context = this@HomeActivity,
+                view = binding.root,
+                title = "معرفی به دوستان",
+                description = "سلام"
+            )
+        }
+        clExit.setOnClickListener {
+            finish()
+        }
+    }
+
+    /**
+     * handle the action of details clickable views.
+     */
+    private fun configDetailsClickListeners() = with(binding) {
         imgZekrRefresh.setOnClickListener {
             vibratePhone()
             imgZekrRefresh.rotate(
@@ -86,24 +129,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
                 message = getString(R.string.tasbihat_has_been_reset)
             )
         }
-        clLanguage.setOnClickListener {
-            if(elLanguage.isExpanded) {
-                elLanguage.collapse()
-                imgLanguageArrow.rotate(destinationRotate = 0f, duration = 150)
-            } else {
-                elLanguage.expand()
-                imgLanguageArrow.rotate(destinationRotate = 180f, duration = 150)
-            }
-        }
-        clColor.setOnClickListener {
-            if(elColor.isExpanded) {
-                elColor.collapse()
-                imgColorArrow.rotate(destinationRotate = 0f, duration = 150)
-            } else {
-                elColor.expand()
-                imgColorArrow.rotate(destinationRotate = 180f, duration = 150)
-            }
-        }
+    }
+
+    /**
+     * handle the action of color clickable views.
+     */
+    private fun configColorClickListeners() = with(binding) {
         rbWhite.setOnClickListener {
             HawkManager.saveTextColor(color = ColorType.WHITE)
             IntentManager.apply {
@@ -135,23 +166,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
                 changeZekrTextColorIntent(context = this@HomeActivity)
                 changeTasbihatTextColorIntent(context = this@HomeActivity)
             }
-        }
-        clStar.setOnClickListener {
-            IntentManager.rateIntent(
-                context = this@HomeActivity,
-                view = binding.root
-            )
-        }
-        clShare.setOnClickListener {
-            IntentManager.shareTextIntent(
-                context = this@HomeActivity,
-                view = binding.root,
-                title = "معرفی به دوستان",
-                description = "سلام"
-            )
-        }
-        clExit.setOnClickListener {
-            finish()
         }
     }
 
