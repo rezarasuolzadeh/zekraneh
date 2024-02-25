@@ -7,48 +7,21 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.os.Handler
-import android.os.Looper
 import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekraneh.R
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.CHECK_DAY
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.COLOR
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.RESET_SALAVAT
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.SALAVAT
-import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.UPDATE_DELAY
 import ir.rezarasoulzadeh.zekraneh.utils.managers.DateManager
 import ir.rezarasoulzadeh.zekraneh.utils.managers.HawkManager
-import ir.rezarasoulzadeh.zekraneh.utils.managers.IntentManager
 import ir.rezarasoulzadeh.zekraneh.view.activity.HomeActivity
 
 class SalavatWidget : AppWidgetProvider() {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    //                                     variables                                              //
-    ////////////////////////////////////////////////////////////////////////////////////////////////
-
-    private var context: Context? = null
-
-    private val updateWidgetHandler = Handler(Looper.getMainLooper())
-
-    private var updateWidgetRunnable: Runnable = Runnable {
-        run {
-            context?.let {
-                IntentManager.checkSalavatDayIntent(context = it)
-            }
-            updateWidgetHandler.postDelayed(updateWidgetRunnable, UPDATE_DELAY)
-        }
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                     overrides                                              //
     ////////////////////////////////////////////////////////////////////////////////////////////////
-
-    override fun onEnabled(context: Context?) {
-        super.onEnabled(context)
-        this.context = context
-        updateWidgetHandler.postDelayed(updateWidgetRunnable, UPDATE_DELAY)
-    }
 
     override fun onUpdate(
         context: Context,
