@@ -137,11 +137,15 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
             }
         }
         clStar.setOnClickListener {
-            IntentManager.rateIntent(context = this@HomeActivity)
+            IntentManager.rateIntent(
+                context = this@HomeActivity,
+                view = binding.root
+            )
         }
         clShare.setOnClickListener {
             IntentManager.shareTextIntent(
                 context = this@HomeActivity,
+                view = binding.root,
                 title = "معرفی به دوستان",
                 description = "سلام"
             )

@@ -8,6 +8,7 @@ import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.TASBIHAT_AA
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.TASBIHAT_HA
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.TASBIHAT_SA
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.ZEKR
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.ZEKR_DAY
 import ir.rezarasoulzadeh.zekraneh.utils.enums.ColorType
 import ir.rezarasoulzadeh.zekraneh.utils.extensions.orZero
 
@@ -72,6 +73,20 @@ object HawkManager {
         saveZekr(zekr = currentZekr + 1)
         return currentZekr + 1
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                      zekr day                                              //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * save zekr day to hawk.
+     */
+    fun saveZekrDay(day: String) = Hawk.put(ZEKR_DAY, day)
+
+    /**
+     * get zekr day from hawk.
+     */
+    fun getZekrDay(): String = Hawk.get(ZEKR_DAY, "").orEmpty()
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                      tasbihat                                              //

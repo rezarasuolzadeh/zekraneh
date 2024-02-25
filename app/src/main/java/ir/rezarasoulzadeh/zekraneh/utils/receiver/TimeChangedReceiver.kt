@@ -13,7 +13,10 @@ class TimeChangedReceiver: BroadcastReceiver() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
         context?.let {
-            IntentManager.checkSalavatDayIntent(context = it)
+            IntentManager.apply {
+                checkSalavatDayIntent(context = it)
+                checkZekrDayIntent(context = it)
+            }
         }
     }
 

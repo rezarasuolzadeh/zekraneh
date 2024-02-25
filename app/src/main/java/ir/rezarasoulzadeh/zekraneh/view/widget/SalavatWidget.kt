@@ -51,10 +51,6 @@ class SalavatWidget : AppWidgetProvider() {
                     HawkManager.getSalavat().toString()
                 )
                 remoteViews.setTextViewText(R.id.tvSalavatDay, DateManager.getTodayName())
-                AppWidgetManager.getInstance(context).updateAppWidget(
-                    ComponentName(context, SalavatWidget::class.java),
-                    remoteViews
-                )
             } else {
                 remoteViews.setTextViewText(
                     R.id.tvSalavatCounter,
