@@ -17,7 +17,7 @@
         <receiver
             android:name=".view.widget.TasbihatWidget"
             android:exported="false"
-            android:label="@string/tasbihatLabel">
+            android:label="@string/tasbihat_label">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -31,7 +31,7 @@
         <receiver
             android:name=".view.widget.ZekrWidget"
             android:exported="false"
-            android:label="@string/zekrLabel">
+            android:label="@string/zekr_label">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="android.appwidget.action.WIDGET_BUTTON" />
@@ -52,7 +52,7 @@
         <receiver
             android:name=".view.widget.SalavatWidget"
             android:exported="true"
-            android:label="@string/slavatLabel">
+            android:label="@string/salavat_label">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="android.appwidget.action.WIDGET_BUTTON" />
@@ -73,8 +73,8 @@
         <activity
             android:name=".view.activity.HomeActivity"
             android:exported="true"
-            android:launchMode="singleTop"
-            android:fitsSystemWindows="true">
+            android:fitsSystemWindows="true"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
