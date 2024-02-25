@@ -1,25 +1,23 @@
 <resources>
 
+    <!-- Default -->
     <string name="app_name">ذکرانه</string>
+
+    <!-- Sentences -->
     <string name="today_salavat">صلوات های روز</string>
     <string name="today_zekr">ذکر روز</string>
     <string name="today_tasbihat">تسبیحات حضرت زهرا (س)</string>
-    <string name="salavat_has_been_reset">صلوات های روز بازنشانی شد</string>
-    <string name="zekr_has_been_reset">ذکر روز بازنشانی شد</string>
-    <string name="tasbihat_has_been_reset">تسبیحات حضرت زهرا (س) بازنشانی شد</string>
-
-
-    <string name="defaultTitle">ذکر روز</string>
-    <string name="defaultDay">پنجشنبه</string>
-    <string name="defaultPray">لا اِلهَ الَّا اَللّهُ المَلِکُ الحَقُّ المُبین</string>
-    <string name="configure">Configure</string>
-    <string name="add_widget">Add widget</string>
-    <string name="slavatLabel">صلوات</string>
-    <string name="zekrLabel">ذکر روز</string>
-    <string name="tasbihatLabel">تسبیحات</string>
     <string name="AALabel">اَللّهُ اَکبَر</string>
     <string name="HALabel">اَلحَمدُلِلّه</string>
     <string name="SALabel">سُبحانَ اَللّه</string>
+    <string name="salavat_has_been_reset">صلوات های روز بازنشانی شد</string>
+    <string name="zekr_has_been_reset">ذکر روز بازنشانی شد</string>
+    <string name="tasbihat_has_been_reset">تسبیحات حضرت زهرا (س) بازنشانی شد</string>
+    <string name="install_bazaar_notice">ابتدا برنامه بازار را نصب کنید</string>
+    <string name="share_process_failed">همرسانی مقدور نیست</string>
+    <string name="salavat_label">صلوات</string>
+    <string name="zekr_label">ذکر روز</string>
+    <string name="tasbihat_label">تسبیحات</string>
 
     <!-- Bazaar -->
     <string name="bazaarStarLink">bazaar://details?id=ir.rezarasoulzadeh.zekraneh</string>

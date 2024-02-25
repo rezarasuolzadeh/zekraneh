@@ -3,11 +3,14 @@ package ir.rezarasoulzadeh.zekraneh.utils.managers
 import com.orhanobut.hawk.Hawk
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.COLOR
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.SALAVAT
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.SALAVAT_DAY
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.TASBIHAT_AA
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.TASBIHAT_HA
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.TASBIHAT_SA
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.ZEKR
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.ZEKR_DAY
 import ir.rezarasoulzadeh.zekraneh.utils.enums.ColorType
+import ir.rezarasoulzadeh.zekraneh.utils.extensions.orZero
 
 object HawkManager {
 
@@ -23,7 +26,7 @@ object HawkManager {
     /**
      * get salavat from hawk.
      */
-    fun getSalavat(): Int = Hawk.get(SALAVAT, 0) ?: 0
+    fun getSalavat(): Int = Hawk.get(SALAVAT, 0).orZero()
 
     /**
      * save the increased salavat to hawk then return it.
@@ -33,6 +36,20 @@ object HawkManager {
         saveSalavat(salavat = currentSalavat + 1)
         return currentSalavat + 1
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                    salavat day                                             //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * save salavat day to hawk.
+     */
+    fun saveSalavatDay(day: String) = Hawk.put(SALAVAT_DAY, day)
+
+    /**
+     * get salavat day from hawk.
+     */
+    fun getSalavatDay(): String = Hawk.get(SALAVAT_DAY, "").orEmpty()
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                        zekr                                                //
@@ -46,7 +63,7 @@ object HawkManager {
     /**
      * get zekr from hawk.
      */
-    fun getZekr(): Int = Hawk.get(ZEKR, 0) ?: 0
+    fun getZekr(): Int = Hawk.get(ZEKR, 0).orZero()
 
     /**
      * save the increased zekr to hawk then return it.
@@ -56,6 +73,20 @@ object HawkManager {
         saveZekr(zekr = currentZekr + 1)
         return currentZekr + 1
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                      zekr day                                              //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * save zekr day to hawk.
+     */
+    fun saveZekrDay(day: String) = Hawk.put(ZEKR_DAY, day)
+
+    /**
+     * get zekr day from hawk.
+     */
+    fun getZekrDay(): String = Hawk.get(ZEKR_DAY, "").orEmpty()
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                      tasbihat                                              //
@@ -69,7 +100,7 @@ object HawkManager {
     /**
      * get tasbihatAA from hawk.
      */
-    fun getTasbihatAA(): Int = Hawk.get(TASBIHAT_AA, 0) ?: 0
+    fun getTasbihatAA(): Int = Hawk.get(TASBIHAT_AA, 0).orZero()
 
     /**
      * save the increased tasbihatAA to hawk then return it.
@@ -92,7 +123,7 @@ object HawkManager {
     /**
      * get tasbihatSA from hawk.
      */
-    fun getTasbihatSA(): Int = Hawk.get(TASBIHAT_SA, 0) ?: 0
+    fun getTasbihatSA(): Int = Hawk.get(TASBIHAT_SA, 0).orZero()
 
     /**
      * save the increased tasbihatSA to hawk then return it.
@@ -115,7 +146,7 @@ object HawkManager {
     /**
      * get tasbihatHA from hawk.
      */
-    fun getTasbihatHA(): Int = Hawk.get(TASBIHAT_HA, 0) ?: 0
+    fun getTasbihatHA(): Int = Hawk.get(TASBIHAT_HA, 0).orZero()
 
     /**
      * save the increased tasbihatHA to hawk then return it.

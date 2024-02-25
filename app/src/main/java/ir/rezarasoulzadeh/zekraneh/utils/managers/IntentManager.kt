@@ -3,9 +3,13 @@ package ir.rezarasoulzadeh.zekraneh.utils.managers
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.widget.Toast
+import android.view.View
 import ir.rezarasoulzadeh.zekraneh.R
-import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.CHECK_DAY
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.COLOR
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.RESET_SALAVAT
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.RESET_TASBIHAT
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.RESET_ZEKR
 import ir.rezarasoulzadeh.zekraneh.view.widget.SalavatWidget
 import ir.rezarasoulzadeh.zekraneh.view.widget.TasbihatWidget
 import ir.rezarasoulzadeh.zekraneh.view.widget.ZekrWidget
@@ -15,28 +19,36 @@ object IntentManager {
     /**
      * rate the app with CafeBazaar rate intent.
      */
-    fun rateIntent(context: Context) {
+    fun rateIntent(context: Context, view: View) {
         try {
             val intent = Intent(Intent.ACTION_EDIT)
             intent.data = Uri.parse(context.resources.getString(R.string.bazaarStarLink))
             intent.setPackage(context.resources.getString(R.string.bazaarPackage))
             context.startActivity(intent)
         } catch (e: java.lang.Exception) {
-            Toast.makeText(context, "ابتدا برنامه بازار را نصب کنید", Toast.LENGTH_SHORT).show()
+            SnackbarManager.showSnackbar(
+                context = context,
+                view = view,
+                message = context.getString(R.string.install_bazaar_notice)
+            )
         }
     }
 
     /**
      * share a simple text and that's title with every app can share.
      */
-    fun shareTextIntent(context: Context, title: String, description: String) {
+    fun shareTextIntent(context: Context, view: View, title: String, description: String) {
         try {
             val intent = Intent(Intent.ACTION_SEND)
             intent.type = "text/plain"
             intent.putExtra(Intent.EXTRA_TEXT, description)
             context.startActivity(Intent.createChooser(intent, title))
         } catch (e: Exception) {
-            Toast.makeText(context, "خطایی در همرسانی پیش آمده است", Toast.LENGTH_SHORT).show()
+            SnackbarManager.showSnackbar(
+                context = context,
+                view = view,
+                message = context.getString(R.string.share_process_failed)
+            )
         }
     }
 
@@ -45,7 +57,7 @@ object IntentManager {
      */
     fun resetSalavatIntent(context: Context) {
         val intent = Intent(context, SalavatWidget::class.java)
-        intent.action = Constants.RESET_SALAVAT
+        intent.action = RESET_SALAVAT
         context.sendBroadcast(intent)
     }
 
@@ -54,7 +66,7 @@ object IntentManager {
      */
     fun resetZekrIntent(context: Context) {
         val intent = Intent(context, ZekrWidget::class.java)
-        intent.action = Constants.RESET_ZEKR
+        intent.action = RESET_ZEKR
         context.sendBroadcast(intent)
     }
 
@@ -63,7 +75,7 @@ object IntentManager {
      */
     fun resetTasbihatIntent(context: Context) {
         val intent = Intent(context, TasbihatWidget::class.java)
-        intent.action = Constants.RESET_TASBIHAT
+        intent.action = RESET_TASBIHAT
         context.sendBroadcast(intent)
     }
 
@@ -72,7 +84,7 @@ object IntentManager {
      */
     fun changeSalavatTextColorIntent(context: Context) {
         val intent = Intent(context, SalavatWidget::class.java)
-        intent.action = Constants.COLOR
+        intent.action = COLOR
         context.sendBroadcast(intent)
     }
 
@@ -81,7 +93,7 @@ object IntentManager {
      */
     fun changeZekrTextColorIntent(context: Context) {
         val intent = Intent(context, ZekrWidget::class.java)
-        intent.action = Constants.COLOR
+        intent.action = COLOR
         context.sendBroadcast(intent)
     }
 
@@ -90,7 +102,25 @@ object IntentManager {
      */
     fun changeTasbihatTextColorIntent(context: Context) {
         val intent = Intent(context, TasbihatWidget::class.java)
-        intent.action = Constants.COLOR
+        intent.action = COLOR
+        context.sendBroadcast(intent)
+    }
+
+    /**
+     * send a broadcast intent to salavat widget to check day.
+     */
+    fun checkSalavatDayIntent(context: Context) {
+        val intent = Intent(context, SalavatWidget::class.java)
+        intent.action = CHECK_DAY
+        context.sendBroadcast(intent)
+    }
+
+    /**
+     * send a broadcast intent to zekr widget to check day.
+     */
+    fun checkZekrDayIntent(context: Context) {
+        val intent = Intent(context, ZekrWidget::class.java)
+        intent.action = CHECK_DAY
         context.sendBroadcast(intent)
     }
 

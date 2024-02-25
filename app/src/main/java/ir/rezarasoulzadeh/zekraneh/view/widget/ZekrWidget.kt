@@ -9,6 +9,7 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekraneh.R
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.COLOR
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.RESET_ZEKR
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.ZEKR
@@ -41,10 +42,23 @@ class ZekrWidget : AppWidgetProvider() {
         super.onReceive(context, intent)
         if (ZEKR == intent.action) {
             val remoteViews = RemoteViews(context.packageName, R.layout.widget_zekr)
-            remoteViews.setTextViewText(
-                R.id.tvZekrCounter,
-                HawkManager.increaseZekr().toString()
-            )
+            val todayName = DateManager.getTodayName()
+            val savedDay = HawkManager.getZekrDay()
+            if(todayName != savedDay) {
+                HawkManager.saveZekr(zekr = 0)
+                HawkManager.saveZekrDay(day = DateManager.getTodayName())
+                remoteViews.setTextViewText(
+                    R.id.tvZekrCounter,
+                    HawkManager.getSalavat().toString()
+                )
+                remoteViews.setTextViewText(R.id.tvZekrDay, DateManager.getTodayName())
+                remoteViews.setTextViewText(R.id.tvTodayZekr, ZekrManager.getTodayZekr())
+            } else {
+                remoteViews.setTextViewText(
+                    R.id.tvZekrCounter,
+                    HawkManager.increaseZekr().toString()
+                )
+            }
             AppWidgetManager.getInstance(context).updateAppWidget(
                 ComponentName(context, ZekrWidget::class.java),
                 remoteViews
@@ -76,6 +90,25 @@ class ZekrWidget : AppWidgetProvider() {
                 remoteViews
             )
         }
+        if (Constants.CHECK_DAY == intent.action) {
+            val todayName = DateManager.getTodayName()
+            val savedDay = HawkManager.getZekrDay()
+            if(todayName != savedDay) {
+                val remoteViews = RemoteViews(context.packageName, R.layout.widget_zekr)
+                HawkManager.saveZekr(zekr = 0)
+                HawkManager.saveZekrDay(day = DateManager.getTodayName())
+                remoteViews.setTextViewText(
+                    R.id.tvZekrCounter,
+                    HawkManager.getSalavat().toString()
+                )
+                remoteViews.setTextViewText(R.id.tvZekrDay, DateManager.getTodayName())
+                remoteViews.setTextViewText(R.id.tvTodayZekr, ZekrManager.getTodayZekr())
+                AppWidgetManager.getInstance(context).updateAppWidget(
+                    ComponentName(context, ZekrWidget::class.java),
+                    remoteViews
+                )
+            }
+        }
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -91,6 +124,7 @@ class ZekrWidget : AppWidgetProvider() {
         appWidgetId: Int
     ) {
         val views = RemoteViews(context.packageName, R.layout.widget_zekr)
+        HawkManager.saveZekrDay(day = DateManager.getTodayName())
         views.setTextViewText(R.id.tvZekrDay, DateManager.getTodayName())
         views.setTextViewText(R.id.tvZekrCounter, HawkManager.getZekr().toString())
         views.setTextViewText(R.id.tvTodayZekr, ZekrManager.getTodayZekr())

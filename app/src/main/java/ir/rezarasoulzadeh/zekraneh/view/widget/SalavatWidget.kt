@@ -9,6 +9,7 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekraneh.R
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.CHECK_DAY
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.COLOR
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.RESET_SALAVAT
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.SALAVAT
@@ -40,10 +41,22 @@ class SalavatWidget : AppWidgetProvider() {
         super.onReceive(context, intent)
         if (SALAVAT == intent.action) {
             val remoteViews = RemoteViews(context.packageName, R.layout.widget_salavat)
-            remoteViews.setTextViewText(
-                R.id.tvSalavatCounter,
-                HawkManager.increaseSalavat().toString()
-            )
+            val todayName = DateManager.getTodayName()
+            val savedDay = HawkManager.getSalavatDay()
+            if(todayName != savedDay) {
+                HawkManager.saveSalavat(salavat = 0)
+                HawkManager.saveSalavatDay(day = DateManager.getTodayName())
+                remoteViews.setTextViewText(
+                    R.id.tvSalavatCounter,
+                    HawkManager.getSalavat().toString()
+                )
+                remoteViews.setTextViewText(R.id.tvSalavatDay, DateManager.getTodayName())
+            } else {
+                remoteViews.setTextViewText(
+                    R.id.tvSalavatCounter,
+                    HawkManager.increaseSalavat().toString()
+                )
+            }
             AppWidgetManager.getInstance(context).updateAppWidget(
                 ComponentName(context, SalavatWidget::class.java),
                 remoteViews
@@ -71,6 +84,24 @@ class SalavatWidget : AppWidgetProvider() {
                 remoteViews
             )
         }
+        if (CHECK_DAY == intent.action) {
+            val todayName = DateManager.getTodayName()
+            val savedDay = HawkManager.getSalavatDay()
+            if(todayName != savedDay) {
+                val remoteViews = RemoteViews(context.packageName, R.layout.widget_salavat)
+                HawkManager.saveSalavat(salavat = 0)
+                HawkManager.saveSalavatDay(day = DateManager.getTodayName())
+                remoteViews.setTextViewText(
+                    R.id.tvSalavatCounter,
+                    HawkManager.getSalavat().toString()
+                )
+                remoteViews.setTextViewText(R.id.tvSalavatDay, DateManager.getTodayName())
+                AppWidgetManager.getInstance(context).updateAppWidget(
+                    ComponentName(context, SalavatWidget::class.java),
+                    remoteViews
+                )
+            }
+        }
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -86,6 +117,7 @@ class SalavatWidget : AppWidgetProvider() {
         appWidgetId: Int
     ) {
         val views = RemoteViews(context.packageName, R.layout.widget_salavat)
+        HawkManager.saveSalavatDay(day = DateManager.getTodayName())
         views.setTextViewText(R.id.tvSalavatDay, DateManager.getTodayName())
         views.setTextViewText(R.id.tvSalavatCounter, HawkManager.getSalavat().toString())
         views.setTextColor(
@@ -96,8 +128,7 @@ class SalavatWidget : AppWidgetProvider() {
             R.id.tvSalavatCounter,
             updateSalavatIntent(
                 context = context,
-                action = SALAVAT,
-                appWidgetId = appWidgetId
+                action = SALAVAT
             )
         )
         views.setOnClickPendingIntent(
@@ -134,12 +165,10 @@ class SalavatWidget : AppWidgetProvider() {
      */
     private fun updateSalavatIntent(
         context: Context?,
-        action: String?,
-        appWidgetId: Int
+        action: String?
     ): PendingIntent? {
         val intent = Intent(context, SalavatWidget::class.java)
         intent.action = action
-        intent.putExtra("id", appWidgetId)
         return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
     }
 

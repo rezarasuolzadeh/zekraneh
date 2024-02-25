@@ -7,7 +7,7 @@ import android.os.Vibrator
 import android.util.Log
 
 /**
- * vibrate the phone with
+ * vibrate the phone with given specific duration.
  */
 fun Context.vibratePhone(duration: Long = 25) {
     try {
