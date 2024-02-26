@@ -6,467 +6,476 @@
     android:layout_height="match_parent"
     android:background="@drawable/img_eslimi">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center|top"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingBottom="100dp"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="60dp"
-            android:src="@drawable/ic_logo"
-            tools:ignore="ContentDescription" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/clDetails"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/background_menu">
-
-            <ImageView
-                android:id="@+id/imgSun"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginHorizontal="15dp"
-                android:src="@drawable/ic_sun"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="13dp"
-                android:fontFamily="@font/dana"
-                android:text="جزئیات اذکار"
-                android:textColor="@color/white"
-                android:textSize="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/imgSun"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imgDetailsArrow"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginBottom="5dp"
-                android:src="@drawable/ic_arrow"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <ir.rezarasoulzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout
-            android:id="@+id/elDetails"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            app:el_duration="200"
-            app:el_expanded="false"
-            app:layout_constraintTop_toBottomOf="@id/clDetails">
+            android:gravity="center|top"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="60dp"
+                android:src="@drawable/ic_logo"
+                tools:ignore="ContentDescription" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clDetails"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/background_sub_menu"
-                android:paddingVertical="15dp">
-
-                <TextView
-                    android:id="@+id/tvZekrTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:fontFamily="@font/dana"
-                    android:text="@string/today_zekr"
-                    android:textColor="@color/blue"
-                    android:textSize="16dp"
-                    app:layout_constraintBottom_toTopOf="@id/vDividerFirst"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="RtlHardcoded" />
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/background_menu">
 
                 <ImageView
-                    android:id="@+id/imgZekrRefresh"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:id="@+id/imgSun"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_marginHorizontal="15dp"
-                    android:padding="5dp"
-                    android:src="@drawable/ic_refresh"
-                    app:layout_constraintBottom_toBottomOf="@id/tvZekrTitle"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/tvZekrTitle"
-                    tools:ignore="ContentDescription" />
-
-                <View
-                    android:id="@+id/vDividerFirst"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="18dp"
-                    android:background="@color/lightWhite"
-                    app:layout_constraintTop_toBottomOf="@id/tvZekrTitle" />
-
-                <TextView
-                    android:id="@+id/tvSalavatTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginRight="20dp"
-                    android:fontFamily="@font/dana"
-                    android:text="@string/today_salavat"
-                    android:textColor="@color/blue"
-                    android:textSize="16dp"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/vDividerFirst"
-                    tools:ignore="RtlHardcoded" />
-
-                <ImageView
-                    android:id="@+id/imgSalavatRefresh"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginHorizontal="15dp"
-                    android:padding="5dp"
-                    android:src="@drawable/ic_refresh"
-                    app:layout_constraintBottom_toBottomOf="@id/tvSalavatTitle"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/tvSalavatTitle"
-                    tools:ignore="ContentDescription" />
-
-                <View
-                    android:id="@+id/vDividerSecond"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="18dp"
-                    android:background="@color/lightWhite"
-                    app:layout_constraintTop_toBottomOf="@id/tvSalavatTitle" />
-
-                <TextView
-                    android:id="@+id/tvTasbihatTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginRight="20dp"
-                    android:fontFamily="@font/dana"
-                    android:text="@string/today_tasbihat"
-                    android:textColor="@color/blue"
-                    android:textSize="16dp"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/vDividerSecond"
-                    tools:ignore="RtlHardcoded" />
-
-                <ImageView
-                    android:id="@+id/imgTasbihatRefresh"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginHorizontal="15dp"
-                    android:padding="5dp"
-                    android:src="@drawable/ic_refresh"
-                    app:layout_constraintBottom_toBottomOf="@id/tvTasbihatTitle"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/tvTasbihatTitle"
-                    tools:ignore="ContentDescription" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </ir.rezarasoulzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/clLanguage"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/background_menu"
-            android:visibility="gone">
-
-            <ImageView
-                android:id="@+id/imgLanguage"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginHorizontal="15dp"
-                android:src="@drawable/ic_language"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="13dp"
-                android:fontFamily="@font/dana"
-                android:text="انتخاب زبان"
-                android:textColor="@color/white"
-                android:textSize="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/imgLanguage"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imgLanguageArrow"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginBottom="5dp"
-                android:src="@drawable/ic_arrow"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <ir.rezarasoulzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout
-            android:id="@+id/elLanguage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            app:el_duration="200"
-            app:el_expanded="false">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/background_sub_menu">
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </ir.rezarasoulzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/clColor"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/background_menu">
-
-            <ImageView
-                android:id="@+id/imgMarker"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginHorizontal="15dp"
-                android:src="@drawable/ic_marker"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="13dp"
-                android:fontFamily="@font/dana"
-                android:text="رنگ ویجت"
-                android:textColor="@color/white"
-                android:textSize="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/imgMarker"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imgColorArrow"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginBottom="5dp"
-                android:src="@drawable/ic_arrow"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <ir.rezarasoulzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout
-            android:id="@+id/elColor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            app:el_duration="200"
-            app:el_expanded="false">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/background_sub_menu"
-                android:paddingVertical="13dp">
-
-                <TextView
-                    android:id="@+id/tvWidgetText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:fontFamily="@font/dana"
-                    android:text="متن ویجت"
-                    android:textColor="@color/blue"
-                    android:textSize="16dp"
+                    android:src="@drawable/ic_sun"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="RtlHardcoded" />
+                    tools:ignore="ContentDescription" />
 
-                <RadioGroup
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layoutDirection="rtl"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="@id/tvWidgetText"
+                    android:layout_marginHorizontal="13dp"
+                    android:fontFamily="@font/dana"
+                    android:text="جزئیات اذکار"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/imgSun"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgDetailsArrow"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_arrow"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/tvWidgetText"
-                    tools:ignore="RtlHardcoded">
-
-                    <RadioButton
-                        android:id="@+id/rbTextWhite"
-                        android:layout_width="30dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginHorizontal="5dp"
-                        android:background="@android:color/transparent"
-                        android:buttonTint="@color/white"
-                        android:checked="true" />
-
-                    <RadioButton
-                        android:id="@+id/rbTextBlack"
-                        android:layout_width="30dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginHorizontal="5dp"
-                        android:background="@android:color/transparent"
-                        android:buttonTint="@color/black" />
-
-                    <RadioButton
-                        android:id="@+id/rbTextGreen"
-                        android:layout_width="30dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginHorizontal="5dp"
-                        android:background="@android:color/transparent"
-                        android:buttonTint="@color/lightGreen" />
-
-                    <RadioButton
-                        android:id="@+id/rbTextRed"
-                        android:layout_width="30dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginHorizontal="5dp"
-                        android:background="@android:color/transparent"
-                        android:buttonTint="@color/red" />
-
-                </RadioGroup>
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </ir.rezarasoulzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/clStar"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/background_menu">
-
-            <ImageView
-                android:id="@+id/imgStar"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginHorizontal="15dp"
-                android:src="@drawable/ic_star"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <ir.rezarasoulzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout
+                android:id="@+id/elDetails"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="13dp"
-                android:fontFamily="@font/dana"
-                android:text="امتیاز دهی"
-                android:textColor="@color/white"
-                android:textSize="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/imgStar"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginHorizontal="20dp"
+                app:el_duration="200"
+                app:el_expanded="false"
+                app:layout_constraintTop_toBottomOf="@id/clDetails">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/background_sub_menu"
+                    android:paddingVertical="15dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/clShare"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/background_menu">
+                    <TextView
+                        android:id="@+id/tvZekrTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/dana"
+                        android:text="@string/today_zekr"
+                        android:textColor="@color/blue"
+                        android:textSize="16dp"
+                        app:layout_constraintBottom_toTopOf="@id/vDividerFirst"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlHardcoded" />
 
-            <ImageView
-                android:id="@+id/imgShare"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginHorizontal="15dp"
-                android:src="@drawable/ic_share"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
+                    <ImageView
+                        android:id="@+id/imgZekrRefresh"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginHorizontal="15dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_refresh"
+                        app:layout_constraintBottom_toBottomOf="@id/tvZekrTitle"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvZekrTitle"
+                        tools:ignore="ContentDescription" />
 
-            <TextView
-                android:layout_width="wrap_content"
+                    <View
+                        android:id="@+id/vDividerFirst"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="18dp"
+                        android:background="@color/lightWhite"
+                        app:layout_constraintTop_toBottomOf="@id/tvZekrTitle" />
+
+                    <TextView
+                        android:id="@+id/tvSalavatTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/dana"
+                        android:text="@string/today_salavat"
+                        android:textColor="@color/blue"
+                        android:textSize="16dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/vDividerFirst"
+                        tools:ignore="RtlHardcoded" />
+
+                    <ImageView
+                        android:id="@+id/imgSalavatRefresh"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginHorizontal="15dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_refresh"
+                        app:layout_constraintBottom_toBottomOf="@id/tvSalavatTitle"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvSalavatTitle"
+                        tools:ignore="ContentDescription" />
+
+                    <View
+                        android:id="@+id/vDividerSecond"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="18dp"
+                        android:background="@color/lightWhite"
+                        app:layout_constraintTop_toBottomOf="@id/tvSalavatTitle" />
+
+                    <TextView
+                        android:id="@+id/tvTasbihatTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/dana"
+                        android:text="@string/today_tasbihat"
+                        android:textColor="@color/blue"
+                        android:textSize="16dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/vDividerSecond"
+                        tools:ignore="RtlHardcoded" />
+
+                    <ImageView
+                        android:id="@+id/imgTasbihatRefresh"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginHorizontal="15dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_refresh"
+                        app:layout_constraintBottom_toBottomOf="@id/tvTasbihatTitle"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvTasbihatTitle"
+                        tools:ignore="ContentDescription" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </ir.rezarasoulzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/background_menu"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/imgLanguage"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:src="@drawable/ic_language"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="13dp"
+                    android:fontFamily="@font/dana"
+                    android:text="انتخاب زبان"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/imgLanguage"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgLanguageArrow"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_arrow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ir.rezarasoulzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout
+                android:id="@+id/elLanguage"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="13dp"
-                android:fontFamily="@font/dana"
-                android:text="معرفی به دوستان"
-                android:textColor="@color/white"
-                android:textSize="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/imgShare"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginHorizontal="20dp"
+                app:el_duration="200"
+                app:el_expanded="false">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/background_sub_menu">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/clExit"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/background_menu">
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <ImageView
-                android:id="@+id/imgExit"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginHorizontal="15dp"
-                android:src="@drawable/ic_exit"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
+            </ir.rezarasoulzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clColor"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/background_menu">
+
+                <ImageView
+                    android:id="@+id/imgMarker"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:src="@drawable/ic_marker"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="13dp"
+                    android:fontFamily="@font/dana"
+                    android:text="رنگ ویجت"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/imgMarker"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgColorArrow"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_arrow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ir.rezarasoulzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout
+                android:id="@+id/elColor"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="13dp"
-                android:fontFamily="@font/dana"
-                android:text="خروج"
-                android:textColor="@color/white"
-                android:textSize="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/imgExit"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginHorizontal="20dp"
+                app:el_duration="200"
+                app:el_expanded="false">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/background_sub_menu"
+                    android:paddingVertical="13dp">
 
-    </LinearLayout>
+                    <TextView
+                        android:id="@+id/tvWidgetText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/dana"
+                        android:text="متن ویجت"
+                        android:textColor="@color/blue"
+                        android:textSize="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlHardcoded" />
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layoutDirection="rtl"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="@id/tvWidgetText"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvWidgetText"
+                        tools:ignore="RtlHardcoded">
+
+                        <RadioButton
+                            android:id="@+id/rbTextWhite"
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@android:color/transparent"
+                            android:buttonTint="@color/white"
+                            android:checked="true" />
+
+                        <RadioButton
+                            android:id="@+id/rbTextBlack"
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@android:color/transparent"
+                            android:buttonTint="@color/black" />
+
+                        <RadioButton
+                            android:id="@+id/rbTextGreen"
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@android:color/transparent"
+                            android:buttonTint="@color/lightGreen" />
+
+                        <RadioButton
+                            android:id="@+id/rbTextRed"
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@android:color/transparent"
+                            android:buttonTint="@color/red" />
+
+                    </RadioGroup>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </ir.rezarasoulzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clStar"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/background_menu">
+
+                <ImageView
+                    android:id="@+id/imgStar"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:src="@drawable/ic_star"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="13dp"
+                    android:fontFamily="@font/dana"
+                    android:text="امتیاز دهی"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/imgStar"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clShare"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/background_menu">
+
+                <ImageView
+                    android:id="@+id/imgShare"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:src="@drawable/ic_share"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="13dp"
+                    android:fontFamily="@font/dana"
+                    android:text="معرفی به دوستان"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/imgShare"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clExit"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/background_menu">
+
+                <ImageView
+                    android:id="@+id/imgExit"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:src="@drawable/ic_exit"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="13dp"
+                    android:fontFamily="@font/dana"
+                    android:text="خروج"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/imgExit"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
