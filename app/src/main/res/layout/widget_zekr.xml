@@ -16,7 +16,7 @@
         android:gravity="center_vertical"
         android:layoutDirection="ltr"
         android:orientation="horizontal"
-        tools:ignore="UselessParent">
+        tools:ignore="Uselesdparent">
 
         <TextView
             android:id="@+id/tvZekrCounter"
@@ -38,7 +38,7 @@
             android:focusableInTouchMode="true"
             android:duplicateParentState="true"
             android:textColor="@color/blue"
-            android:textSize="20sp"
+            android:textSize="20dp"
             android:textStyle="bold"
             tools:ignore="RtlHardcoded"
             tools:text="0" >
@@ -75,7 +75,7 @@
                     android:padding="3dp"
                     android:text="@string/today_zekr"
                     android:textColor="@color/white"
-                    android:textSize="15sp"
+                    android:textSize="15dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -87,7 +87,7 @@
                     android:fontFamily="@font/dana"
                     android:padding="3dp"
                     android:textColor="@color/lightGreen"
-                    android:textSize="15sp"
+                    android:textSize="15dp"
                     android:textStyle="bold"
                     tools:ignore="UseCompatTextViewDrawableXml"
                     tools:text="شنبه" />
@@ -102,7 +102,7 @@
                 android:fontFamily="@font/dana"
                 android:padding="3dp"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="20dp"
                 android:textStyle="bold"
                 android:singleLine="true"
                 android:paddingHorizontal="2dp"

@@ -5,11 +5,11 @@ import android.view.WindowManager
 import ir.rezarasoulzadeh.zekraneh.R
 import ir.rezarasoulzadeh.zekraneh.base.BaseActivity
 import ir.rezarasoulzadeh.zekraneh.databinding.ActivityHomeBinding
+import ir.rezarasoulzadeh.zekraneh.utils.enums.ColorType
 import ir.rezarasoulzadeh.zekraneh.utils.extensions.rotate
 import ir.rezarasoulzadeh.zekraneh.utils.extensions.vibratePhone
 import ir.rezarasoulzadeh.zekraneh.utils.managers.HawkManager
 import ir.rezarasoulzadeh.zekraneh.utils.managers.IntentManager
-import ir.rezarasoulzadeh.zekraneh.utils.enums.ColorType
 import ir.rezarasoulzadeh.zekraneh.utils.managers.SnackbarManager
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>(
