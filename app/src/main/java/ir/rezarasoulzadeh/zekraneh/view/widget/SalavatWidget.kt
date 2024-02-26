@@ -39,67 +39,66 @@ class SalavatWidget : AppWidgetProvider() {
 
     override fun onReceive(context: Context, intent: Intent) {
         super.onReceive(context, intent)
-        if (SALAVAT == intent.action) {
-            val remoteViews = RemoteViews(context.packageName, R.layout.widget_salavat)
-            val todayName = DateManager.getTodayName()
-            val savedDay = HawkManager.getSalavatDay()
-            if(todayName != savedDay) {
-                HawkManager.saveSalavat(salavat = 0)
-                HawkManager.saveSalavatDay(day = DateManager.getTodayName())
-                remoteViews.setTextViewText(
-                    R.id.tvSalavatCounter,
-                    HawkManager.getSalavat().toString()
-                )
-                remoteViews.setTextViewText(R.id.tvSalavatDay, DateManager.getTodayName())
-            } else {
-                remoteViews.setTextViewText(
-                    R.id.tvSalavatCounter,
-                    HawkManager.increaseSalavat().toString()
-                )
-            }
-            AppWidgetManager.getInstance(context).updateAppWidget(
-                ComponentName(context, SalavatWidget::class.java),
-                remoteViews
-            )
-        }
-        if (RESET_SALAVAT == intent.action) {
-            val remoteViews = RemoteViews(context.packageName, R.layout.widget_salavat)
-            remoteViews.setTextViewText(
-                R.id.tvSalavatCounter,
-                HawkManager.getSalavat().toString()
-            )
-            AppWidgetManager.getInstance(context).updateAppWidget(
-                ComponentName(context, SalavatWidget::class.java),
-                remoteViews
-            )
-        }
-        if (COLOR == intent.action) {
-            val remoteViews = RemoteViews(context.packageName, R.layout.widget_salavat)
-            remoteViews.setTextColor(
-                R.id.tvSalavatTitle,
-                context.resources.getColor(HawkManager.getTextColor().color)
-            )
-            AppWidgetManager.getInstance(context).updateAppWidget(
-                ComponentName(context, SalavatWidget::class.java),
-                remoteViews
-            )
-        }
-        if (CHECK_DAY == intent.action) {
-            val todayName = DateManager.getTodayName()
-            val savedDay = HawkManager.getSalavatDay()
-            if(todayName != savedDay) {
-                val remoteViews = RemoteViews(context.packageName, R.layout.widget_salavat)
-                HawkManager.saveSalavat(salavat = 0)
-                HawkManager.saveSalavatDay(day = DateManager.getTodayName())
-                remoteViews.setTextViewText(
-                    R.id.tvSalavatCounter,
-                    HawkManager.getSalavat().toString()
-                )
-                remoteViews.setTextViewText(R.id.tvSalavatDay, DateManager.getTodayName())
+        val remoteViews = RemoteViews(context.packageName, R.layout.widget_salavat)
+        when (intent.action) {
+            SALAVAT -> {
+                val todayName = DateManager.getTodayName()
+                val savedDay = HawkManager.getSalavatDay()
+                if (todayName != savedDay) {
+                    HawkManager.saveSalavat(salavat = 0)
+                    HawkManager.saveSalavatDay(day = DateManager.getTodayName())
+                    remoteViews.setTextViewText(
+                        R.id.tvSalavatCounter,
+                        HawkManager.getSalavat().toString()
+                    )
+                    remoteViews.setTextViewText(R.id.tvSalavatDay, DateManager.getTodayName())
+                } else {
+                    remoteViews.setTextViewText(
+                        R.id.tvSalavatCounter,
+                        HawkManager.increaseSalavat().toString()
+                    )
+                }
                 AppWidgetManager.getInstance(context).updateAppWidget(
                     ComponentName(context, SalavatWidget::class.java),
                     remoteViews
                 )
+            }
+            RESET_SALAVAT -> {
+                remoteViews.setTextViewText(
+                    R.id.tvSalavatCounter,
+                    HawkManager.getSalavat().toString()
+                )
+                AppWidgetManager.getInstance(context).updateAppWidget(
+                    ComponentName(context, SalavatWidget::class.java),
+                    remoteViews
+                )
+            }
+            COLOR -> {
+                remoteViews.setTextColor(
+                    R.id.tvSalavatTitle,
+                    context.resources.getColor(HawkManager.getTextColor().color)
+                )
+                AppWidgetManager.getInstance(context).updateAppWidget(
+                    ComponentName(context, SalavatWidget::class.java),
+                    remoteViews
+                )
+            }
+            CHECK_DAY -> {
+                val todayName = DateManager.getTodayName()
+                val savedDay = HawkManager.getSalavatDay()
+                if (todayName != savedDay) {
+                    HawkManager.saveSalavat(salavat = 0)
+                    HawkManager.saveSalavatDay(day = DateManager.getTodayName())
+                    remoteViews.setTextViewText(
+                        R.id.tvSalavatCounter,
+                        HawkManager.getSalavat().toString()
+                    )
+                    remoteViews.setTextViewText(R.id.tvSalavatDay, DateManager.getTodayName())
+                    AppWidgetManager.getInstance(context).updateAppWidget(
+                        ComponentName(context, SalavatWidget::class.java),
+                        remoteViews
+                    )
+                }
             }
         }
     }

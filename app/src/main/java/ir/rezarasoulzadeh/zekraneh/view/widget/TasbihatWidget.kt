@@ -39,76 +39,74 @@ class TasbihatWidget : AppWidgetProvider() {
 
     override fun onReceive(context: Context, intent: Intent) {
         super.onReceive(context, intent)
-        if (TASBIHAT_AA == intent.action) {
-            val remoteViews = RemoteViews(context.packageName, R.layout.widget_tasbihat)
-            remoteViews.setTextViewText(
-                R.id.tvTasbihatAACounter,
-                HawkManager.increaseTasbihatAA().toString()
-            )
-            AppWidgetManager.getInstance(context).updateAppWidget(
-                ComponentName(context, TasbihatWidget::class.java),
-                remoteViews
-            )
-        }
-        if (TASBIHAT_SA == intent.action) {
-            val remoteViews = RemoteViews(context.packageName, R.layout.widget_tasbihat)
-            remoteViews.setTextViewText(
-                R.id.tvTasbihatSACounter,
-                HawkManager.increaseTasbihatSA().toString()
-            )
-            AppWidgetManager.getInstance(context).updateAppWidget(
-                ComponentName(context, TasbihatWidget::class.java),
-                remoteViews
-            )
-        }
-        if (TASBIHAT_HA == intent.action) {
-            val remoteViews = RemoteViews(context.packageName, R.layout.widget_tasbihat)
-            remoteViews.setTextViewText(
-                R.id.tvTasbihatHACounter,
-                HawkManager.increaseTasbihatHA().toString()
-            )
-            AppWidgetManager.getInstance(context).updateAppWidget(
-                ComponentName(context, TasbihatWidget::class.java),
-                remoteViews
-            )
-        }
-        if (RESET_TASBIHAT == intent.action) {
-            val remoteViews = RemoteViews(context.packageName, R.layout.widget_tasbihat)
-            remoteViews.setTextViewText(
-                R.id.tvTasbihatAACounter,
-                HawkManager.getTasbihatAA().toString()
-            )
-            remoteViews.setTextViewText(
-                R.id.tvTasbihatSACounter,
-                HawkManager.getTasbihatSA().toString()
-            )
-            remoteViews.setTextViewText(
-                R.id.tvTasbihatHACounter,
-                HawkManager.getTasbihatHA().toString()
-            )
-            AppWidgetManager.getInstance(context).updateAppWidget(
-                ComponentName(context, TasbihatWidget::class.java),
-                remoteViews
-            )
-        }
-        if (COLOR == intent.action) {
-            val remoteViews = RemoteViews(context.packageName, R.layout.widget_tasbihat)
-            remoteViews.setTextColor(
-                R.id.tvTasbihatAATitle,
-                context.resources.getColor(HawkManager.getTextColor().color)
-            )
-            remoteViews.setTextColor(
-                R.id.tvTasbihatSATitle,
-                context.resources.getColor(HawkManager.getTextColor().color)
-            )
-            remoteViews.setTextColor(
-                R.id.tvTasbihatHATitle,
-                context.resources.getColor(HawkManager.getTextColor().color)
-            )
-            AppWidgetManager.getInstance(context).updateAppWidget(
-                ComponentName(context, TasbihatWidget::class.java),
-                remoteViews
-            )
+        val remoteViews = RemoteViews(context.packageName, R.layout.widget_tasbihat)
+        when (intent.action) {
+            TASBIHAT_AA -> {
+                remoteViews.setTextViewText(
+                    R.id.tvTasbihatAACounter,
+                    HawkManager.increaseTasbihatAA().toString()
+                )
+                AppWidgetManager.getInstance(context).updateAppWidget(
+                    ComponentName(context, TasbihatWidget::class.java),
+                    remoteViews
+                )
+            }
+            TASBIHAT_SA -> {
+                remoteViews.setTextViewText(
+                    R.id.tvTasbihatSACounter,
+                    HawkManager.increaseTasbihatSA().toString()
+                )
+                AppWidgetManager.getInstance(context).updateAppWidget(
+                    ComponentName(context, TasbihatWidget::class.java),
+                    remoteViews
+                )
+            }
+            TASBIHAT_HA -> {
+                remoteViews.setTextViewText(
+                    R.id.tvTasbihatHACounter,
+                    HawkManager.increaseTasbihatHA().toString()
+                )
+                AppWidgetManager.getInstance(context).updateAppWidget(
+                    ComponentName(context, TasbihatWidget::class.java),
+                    remoteViews
+                )
+            }
+            RESET_TASBIHAT -> {
+                remoteViews.setTextViewText(
+                    R.id.tvTasbihatAACounter,
+                    HawkManager.getTasbihatAA().toString()
+                )
+                remoteViews.setTextViewText(
+                    R.id.tvTasbihatSACounter,
+                    HawkManager.getTasbihatSA().toString()
+                )
+                remoteViews.setTextViewText(
+                    R.id.tvTasbihatHACounter,
+                    HawkManager.getTasbihatHA().toString()
+                )
+                AppWidgetManager.getInstance(context).updateAppWidget(
+                    ComponentName(context, TasbihatWidget::class.java),
+                    remoteViews
+                )
+            }
+            COLOR -> {
+                remoteViews.setTextColor(
+                    R.id.tvTasbihatAATitle,
+                    context.resources.getColor(HawkManager.getTextColor().color)
+                )
+                remoteViews.setTextColor(
+                    R.id.tvTasbihatSATitle,
+                    context.resources.getColor(HawkManager.getTextColor().color)
+                )
+                remoteViews.setTextColor(
+                    R.id.tvTasbihatHATitle,
+                    context.resources.getColor(HawkManager.getTextColor().color)
+                )
+                AppWidgetManager.getInstance(context).updateAppWidget(
+                    ComponentName(context, TasbihatWidget::class.java),
+                    remoteViews
+                )
+            }
         }
     }
 
