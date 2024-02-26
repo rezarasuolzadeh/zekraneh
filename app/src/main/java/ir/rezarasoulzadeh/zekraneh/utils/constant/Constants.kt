@@ -21,6 +21,8 @@ object Constants {
     const val TASBIHAT_HA = "tasbihat alhamd lellah"
     const val RESET_TASBIHAT = "reset tasbihat"
     const val COLOR = "color"
+    const val TEXT_COLOR = "text color"
+    const val OPTION_COLOR = "option color"
     const val SALAVAT_DAY = "salavat day"
     const val ZEKR_DAY = "zekr day"
     const val CHECK_DAY = "check day"

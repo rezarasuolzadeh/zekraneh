@@ -305,6 +305,7 @@
                 android:paddingVertical="13dp">
 
                 <TextView
+                    android:id="@+id/tvWidgetText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="20dp"
@@ -320,16 +321,16 @@
                 <RadioGroup
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layoutDirection="rtl"
                     android:layout_marginLeft="10dp"
+                    android:layoutDirection="rtl"
                     android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="@id/tvWidgetText"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tvWidgetText"
                     tools:ignore="RtlHardcoded">
 
                     <RadioButton
-                        android:id="@+id/rbWhite"
+                        android:id="@+id/rbTextWhite"
                         android:layout_width="30dp"
                         android:layout_height="match_parent"
                         android:layout_marginHorizontal="5dp"
@@ -338,7 +339,7 @@
                         android:checked="true" />
 
                     <RadioButton
-                        android:id="@+id/rbBlack"
+                        android:id="@+id/rbTextBlack"
                         android:layout_width="30dp"
                         android:layout_height="match_parent"
                         android:layout_marginHorizontal="5dp"
@@ -346,7 +347,7 @@
                         android:buttonTint="@color/black" />
 
                     <RadioButton
-                        android:id="@+id/rbGreen"
+                        android:id="@+id/rbTextGreen"
                         android:layout_width="30dp"
                         android:layout_height="match_parent"
                         android:layout_marginHorizontal="5dp"
@@ -354,7 +355,7 @@
                         android:buttonTint="@color/lightGreen" />
 
                     <RadioButton
-                        android:id="@+id/rbRed"
+                        android:id="@+id/rbTextRed"
                         android:layout_width="30dp"
                         android:layout_height="match_parent"
                         android:layout_marginHorizontal="5dp"
