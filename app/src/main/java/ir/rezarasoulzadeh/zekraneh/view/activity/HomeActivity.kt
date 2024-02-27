@@ -73,8 +73,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
             IntentManager.shareTextIntent(
                 context = this@HomeActivity,
                 view = binding.root,
-                title = "معرفی به دوستان",
-                description = "سلام"
+                title = getString(R.string.introduce_to_friends),
+                description = getString(R.string.share_app_with_friends)
             )
         }
         clExit.setOnClickListener {
