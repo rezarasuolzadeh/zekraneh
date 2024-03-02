@@ -3,12 +3,6 @@ package ir.rezarasoulzadeh.zekraneh.utils.constant
 object Constants {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    //                                       longs                                                //
-    ////////////////////////////////////////////////////////////////////////////////////////////////
-
-    const val UPDATE_DELAY = 5000L
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                      strings                                               //
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -22,7 +16,6 @@ object Constants {
     const val RESET_TASBIHAT = "reset tasbihat"
     const val COLOR = "color"
     const val TEXT_COLOR = "text color"
-    const val OPTION_COLOR = "option color"
     const val SALAVAT_DAY = "salavat day"
     const val ZEKR_DAY = "zekr day"
     const val CHECK_DAY = "check day"

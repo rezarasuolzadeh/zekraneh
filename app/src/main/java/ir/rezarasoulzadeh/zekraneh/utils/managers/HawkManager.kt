@@ -1,7 +1,6 @@
 package ir.rezarasoulzadeh.zekraneh.utils.managers
 
 import com.orhanobut.hawk.Hawk
-import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.OPTION_COLOR
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.SALAVAT
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.SALAVAT_DAY
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.TASBIHAT_AA
