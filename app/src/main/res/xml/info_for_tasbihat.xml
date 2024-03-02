@@ -5,7 +5,7 @@
     android:initialLayout="@layout/widget_tasbihat"
     android:minWidth="250dp"
     android:minHeight="110dp"
-    android:previewImage="@drawable/preview_for_tasbihat"
+    android:previewImage="@drawable/img_tasbihat_preview"
     android:resizeMode="horizontal"
     android:updatePeriodMillis="86400000"
     android:widgetCategory="home_screen" />
