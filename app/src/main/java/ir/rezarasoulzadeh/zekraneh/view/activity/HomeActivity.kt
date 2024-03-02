@@ -185,10 +185,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
      * enable the full screen mode for activity.
      */
     private fun enableFullScreenMode(window: Window) {
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-        )
+        window.apply {
+            setFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+            )
+        }
     }
 
 }
