@@ -1,23 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="widget_background_color">#6CA5FAF5</color>
-    <color name="home_background_color">#6CA5FAF5</color>
-    <color name="widget_counter_color">#5A5A5A</color>
-    <color name="status_bar_background_color">#6CA5FAF5</color>
-    <color name="navigation_bar_background_color">#6CA5FAF5</color>
     <color name="colorPrimary">#03DAC5</color>
     <color name="colorPrimaryDark">#ffffff</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="white">#ffffff</color>
     <color name="black">#000</color>
-    <color name="rippleColour">#AD000000</color>
-    <color name="blueLight">#6CA5FAF5</color>
-    <color name="blueMedium">#03dac5</color>
-    <color name="blueDark">#5a8bd5</color>
-    <color name="grayMedium">#5A5A5A</color>
-    <color name="lightRed">#EF7979</color>
     <color name="red">#C10000</color>
-    <color name="green">#00A573</color>
     <color name="blue">#028686</color>
     <color name="lightWhite">#66FFFFFF</color>
     <color name="lightGreen">#00FFB2</color>
