@@ -2,14 +2,13 @@ package ir.rezarasoulzadeh.zekraneh.view.widget
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
-import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekraneh.R
-import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants
+import ir.rezarasoulzadeh.zekraneh.base.BaseWidget
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.CHECK_DAY
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.COLOR
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.RESET_ZEKR
@@ -19,13 +18,13 @@ import ir.rezarasoulzadeh.zekraneh.utils.managers.HawkManager
 import ir.rezarasoulzadeh.zekraneh.utils.managers.ZekrManager
 import ir.rezarasoulzadeh.zekraneh.view.activity.HomeActivity
 
-class ZekrWidget : AppWidgetProvider() {
+class ZekrWidget : BaseWidget() {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                     overrides                                              //
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
-    override fun onUpdate(
+    override fun onAfterUpdate(
         context: Context,
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
@@ -39,8 +38,7 @@ class ZekrWidget : AppWidgetProvider() {
         }
     }
 
-    override fun onReceive(context: Context, intent: Intent) {
-        super.onReceive(context, intent)
+    override fun onAfterReceive(context: Context, intent: Intent) {
         val remoteViews = RemoteViews(context.packageName, R.layout.widget_zekr)
         when (intent.action) {
             ZEKR -> {
@@ -66,6 +64,7 @@ class ZekrWidget : AppWidgetProvider() {
                     remoteViews
                 )
             }
+
             RESET_ZEKR -> {
                 remoteViews.setTextViewText(
                     R.id.tvZekrCounter,
@@ -76,6 +75,7 @@ class ZekrWidget : AppWidgetProvider() {
                     remoteViews
                 )
             }
+
             COLOR -> {
                 remoteViews.setTextColor(
                     R.id.tvTodayZekrTitle,
@@ -90,6 +90,7 @@ class ZekrWidget : AppWidgetProvider() {
                     remoteViews
                 )
             }
+
             CHECK_DAY -> {
                 val todayName = DateManager.getTodayName()
                 val savedDay = HawkManager.getZekrDay()

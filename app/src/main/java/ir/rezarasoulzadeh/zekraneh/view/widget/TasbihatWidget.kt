@@ -2,13 +2,13 @@ package ir.rezarasoulzadeh.zekraneh.view.widget
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
-import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekraneh.R
+import ir.rezarasoulzadeh.zekraneh.base.BaseWidget
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.COLOR
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.RESET_TASBIHAT
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.TASBIHAT_AA
@@ -17,13 +17,13 @@ import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.TASBIHAT_SA
 import ir.rezarasoulzadeh.zekraneh.utils.managers.HawkManager
 import ir.rezarasoulzadeh.zekraneh.view.activity.HomeActivity
 
-class TasbihatWidget : AppWidgetProvider() {
+class TasbihatWidget : BaseWidget() {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                     overrides                                              //
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
-    override fun onUpdate(
+    override fun onAfterUpdate(
         context: Context,
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
@@ -37,8 +37,7 @@ class TasbihatWidget : AppWidgetProvider() {
         }
     }
 
-    override fun onReceive(context: Context, intent: Intent) {
-        super.onReceive(context, intent)
+    override fun onAfterReceive(context: Context, intent: Intent) {
         val remoteViews = RemoteViews(context.packageName, R.layout.widget_tasbihat)
         when (intent.action) {
             TASBIHAT_AA -> {
@@ -51,6 +50,7 @@ class TasbihatWidget : AppWidgetProvider() {
                     remoteViews
                 )
             }
+
             TASBIHAT_SA -> {
                 remoteViews.setTextViewText(
                     R.id.tvTasbihatSACounter,
@@ -61,6 +61,7 @@ class TasbihatWidget : AppWidgetProvider() {
                     remoteViews
                 )
             }
+
             TASBIHAT_HA -> {
                 remoteViews.setTextViewText(
                     R.id.tvTasbihatHACounter,
@@ -71,6 +72,7 @@ class TasbihatWidget : AppWidgetProvider() {
                     remoteViews
                 )
             }
+
             RESET_TASBIHAT -> {
                 remoteViews.setTextViewText(
                     R.id.tvTasbihatAACounter,
@@ -89,6 +91,7 @@ class TasbihatWidget : AppWidgetProvider() {
                     remoteViews
                 )
             }
+
             COLOR -> {
                 remoteViews.setTextColor(
                     R.id.tvTasbihatAATitle,
@@ -183,7 +186,12 @@ class TasbihatWidget : AppWidgetProvider() {
         intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         intent.data = Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME))
-        return PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        return PendingIntent.getActivity(
+            context,
+            0,
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
     }
 
     /**

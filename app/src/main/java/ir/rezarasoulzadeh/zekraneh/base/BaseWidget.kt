@@ -1,0 +1,60 @@
+package ir.rezarasoulzadeh.zekraneh.base
+
+import android.appwidget.AppWidgetManager
+import android.appwidget.AppWidgetProvider
+import android.content.Context
+import android.content.Intent
+
+abstract class BaseWidget : AppWidgetProvider() {
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                     overrides                                              //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    override fun onUpdate(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetIds: IntArray
+    ) {
+        onAfterUpdate(
+            context = context,
+            appWidgetManager = appWidgetManager,
+            appWidgetIds = appWidgetIds
+        )
+    }
+
+    override fun onReceive(
+        context: Context,
+        intent: Intent
+    ) {
+        super.onReceive(context, intent)
+        onAfterReceive(
+            context = context,
+            intent = intent
+        )
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                     helpers                                                //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * after widget update, this function will be run.
+     */
+    protected open fun onAfterUpdate(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetIds: IntArray
+    ) {
+    }
+
+    /**
+     * after every time we receive an intent in widget, this function will be run.
+     */
+    protected open fun onAfterReceive(
+        context: Context,
+        intent: Intent
+    ) {
+    }
+
+}
