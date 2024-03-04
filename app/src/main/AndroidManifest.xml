@@ -16,7 +16,7 @@
         <!-- Tasbihat widget -->
         <receiver
             android:name=".view.widget.TasbihatWidget"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/tasbihat_label">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -30,7 +30,7 @@
         <!-- Zekr widget -->
         <receiver
             android:name=".view.widget.ZekrWidget"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/zekr_label">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
