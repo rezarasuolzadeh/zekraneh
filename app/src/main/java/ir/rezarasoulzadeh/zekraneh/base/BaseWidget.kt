@@ -4,6 +4,8 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
+import android.util.Log
 
 abstract class BaseWidget : AppWidgetProvider() {
 
@@ -21,6 +23,24 @@ abstract class BaseWidget : AppWidgetProvider() {
             appWidgetManager = appWidgetManager,
             appWidgetIds = appWidgetIds
         )
+    }
+
+    override fun onAppWidgetOptionsChanged(
+        context: Context?,
+        appWidgetManager: AppWidgetManager?,
+        appWidgetId: Int,
+        newOptions: Bundle?
+    ) {
+        super.onAppWidgetOptionsChanged(context, appWidgetManager, appWidgetId, newOptions)
+        context?.let {
+            appWidgetManager?.let {
+                onAfterOptionChanged(
+                    context = context,
+                    appWidgetManager = appWidgetManager,
+                    appWidgetId = appWidgetId
+                )
+            }
+        }
     }
 
     override fun onReceive(
@@ -54,6 +74,16 @@ abstract class BaseWidget : AppWidgetProvider() {
     protected open fun onAfterReceive(
         context: Context,
         intent: Intent
+    ) {
+    }
+
+    /**
+     * after widget option has been changed, this function will be run.
+     */
+    protected open fun onAfterOptionChanged(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetId: Int
     ) {
     }
 

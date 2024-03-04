@@ -37,6 +37,18 @@ class TasbihatWidget : BaseWidget() {
         }
     }
 
+    override fun onAfterOptionChanged(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetId: Int
+    ) {
+        updateAppWidget(
+            context = context,
+            appWidgetManager = appWidgetManager,
+            appWidgetId = appWidgetId
+        )
+    }
+
     override fun onAfterReceive(context: Context, intent: Intent) {
         val remoteViews = RemoteViews(context.packageName, R.layout.widget_tasbihat)
         when (intent.action) {
