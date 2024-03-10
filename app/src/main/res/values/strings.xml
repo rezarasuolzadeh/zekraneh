@@ -28,11 +28,11 @@
                         \n\n
                         لینک نصب:
                         \n
-                        http://cafebazaar.ir/app/?id=ir.rezarasoulzadeh.zekraneh
+                        http://cafebazaar.ir/app/?id=ir.rezarasuolzadeh.zekraneh
     </string>
 
     <!-- Bazaar -->
-    <string name="bazaarStarLink">bazaar://details?id=ir.rezarasoulzadeh.zekraneh</string>
+    <string name="bazaarStarLink">bazaar://details?id=ir.rezarasuolzadeh.zekraneh</string>
     <string name="bazaarPackage">com.farsitel.bazaar</string>
 
 </resources>
