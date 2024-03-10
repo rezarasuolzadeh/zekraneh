@@ -2,14 +2,14 @@ package ir.rezarasoulzadeh.zekraneh.view.widget
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
-import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
 import ir.rezarasoulzadeh.zekraneh.R
-import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants
+import ir.rezarasoulzadeh.zekraneh.base.BaseWidget
+import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.CHECK_DAY
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.COLOR
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.RESET_ZEKR
 import ir.rezarasoulzadeh.zekraneh.utils.constant.Constants.ZEKR
@@ -18,13 +18,13 @@ import ir.rezarasoulzadeh.zekraneh.utils.managers.HawkManager
 import ir.rezarasoulzadeh.zekraneh.utils.managers.ZekrManager
 import ir.rezarasoulzadeh.zekraneh.view.activity.HomeActivity
 
-class ZekrWidget : AppWidgetProvider() {
+class ZekrWidget : BaseWidget() {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                     overrides                                              //
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
-    override fun onUpdate(
+    override fun onAfterUpdate(
         context: Context,
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
@@ -38,75 +38,88 @@ class ZekrWidget : AppWidgetProvider() {
         }
     }
 
-    override fun onReceive(context: Context, intent: Intent) {
-        super.onReceive(context, intent)
-        if (ZEKR == intent.action) {
-            val remoteViews = RemoteViews(context.packageName, R.layout.widget_zekr)
-            val todayName = DateManager.getTodayName()
-            val savedDay = HawkManager.getZekrDay()
-            if(todayName != savedDay) {
-                HawkManager.saveZekr(zekr = 0)
-                HawkManager.saveZekrDay(day = DateManager.getTodayName())
-                remoteViews.setTextViewText(
-                    R.id.tvZekrCounter,
-                    HawkManager.getSalavat().toString()
-                )
-                remoteViews.setTextViewText(R.id.tvZekrDay, DateManager.getTodayName())
-                remoteViews.setTextViewText(R.id.tvTodayZekr, ZekrManager.getTodayZekr())
-            } else {
-                remoteViews.setTextViewText(
-                    R.id.tvZekrCounter,
-                    HawkManager.increaseZekr().toString()
-                )
-            }
-            AppWidgetManager.getInstance(context).updateAppWidget(
-                ComponentName(context, ZekrWidget::class.java),
-                remoteViews
-            )
-        }
-        if (RESET_ZEKR == intent.action) {
-            val remoteViews = RemoteViews(context.packageName, R.layout.widget_zekr)
-            remoteViews.setTextViewText(
-                R.id.tvZekrCounter,
-                HawkManager.getZekr().toString()
-            )
-            AppWidgetManager.getInstance(context).updateAppWidget(
-                ComponentName(context, ZekrWidget::class.java),
-                remoteViews
-            )
-        }
-        if (COLOR == intent.action) {
-            val remoteViews = RemoteViews(context.packageName, R.layout.widget_zekr)
-            remoteViews.setTextColor(
-                R.id.tvTodayZekrTitle,
-                context.resources.getColor(HawkManager.getTextColor().color)
-            )
-            remoteViews.setTextColor(
-                R.id.tvTodayZekr,
-                context.resources.getColor(HawkManager.getTextColor().color)
-            )
-            AppWidgetManager.getInstance(context).updateAppWidget(
-                ComponentName(context, ZekrWidget::class.java),
-                remoteViews
-            )
-        }
-        if (Constants.CHECK_DAY == intent.action) {
-            val todayName = DateManager.getTodayName()
-            val savedDay = HawkManager.getZekrDay()
-            if(todayName != savedDay) {
-                val remoteViews = RemoteViews(context.packageName, R.layout.widget_zekr)
-                HawkManager.saveZekr(zekr = 0)
-                HawkManager.saveZekrDay(day = DateManager.getTodayName())
-                remoteViews.setTextViewText(
-                    R.id.tvZekrCounter,
-                    HawkManager.getSalavat().toString()
-                )
-                remoteViews.setTextViewText(R.id.tvZekrDay, DateManager.getTodayName())
-                remoteViews.setTextViewText(R.id.tvTodayZekr, ZekrManager.getTodayZekr())
+    override fun onAfterOptionChanged(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetId: Int
+    ) {
+        updateAppWidget(
+            context = context,
+            appWidgetManager = appWidgetManager,
+            appWidgetId = appWidgetId
+        )
+    }
+
+    override fun onAfterReceive(context: Context, intent: Intent) {
+        val remoteViews = RemoteViews(context.packageName, R.layout.widget_zekr)
+        when (intent.action) {
+            ZEKR -> {
+                val todayName = DateManager.getTodayName()
+                val savedDay = HawkManager.getZekrDay()
+                if (todayName != savedDay) {
+                    HawkManager.saveZekr(zekr = 0)
+                    HawkManager.saveZekrDay(day = DateManager.getTodayName())
+                    remoteViews.setTextViewText(
+                        R.id.tvZekrCounter,
+                        HawkManager.getSalavat().toString()
+                    )
+                    remoteViews.setTextViewText(R.id.tvZekrDay, DateManager.getTodayName())
+                    remoteViews.setTextViewText(R.id.tvTodayZekr, ZekrManager.getTodayZekr())
+                } else {
+                    remoteViews.setTextViewText(
+                        R.id.tvZekrCounter,
+                        HawkManager.increaseZekr().toString()
+                    )
+                }
                 AppWidgetManager.getInstance(context).updateAppWidget(
                     ComponentName(context, ZekrWidget::class.java),
                     remoteViews
                 )
+            }
+
+            RESET_ZEKR -> {
+                remoteViews.setTextViewText(
+                    R.id.tvZekrCounter,
+                    HawkManager.getZekr().toString()
+                )
+                AppWidgetManager.getInstance(context).updateAppWidget(
+                    ComponentName(context, ZekrWidget::class.java),
+                    remoteViews
+                )
+            }
+
+            COLOR -> {
+                remoteViews.setTextColor(
+                    R.id.tvTodayZekrTitle,
+                    context.resources.getColor(HawkManager.getTextColor().color)
+                )
+                remoteViews.setTextColor(
+                    R.id.tvTodayZekr,
+                    context.resources.getColor(HawkManager.getTextColor().color)
+                )
+                AppWidgetManager.getInstance(context).updateAppWidget(
+                    ComponentName(context, ZekrWidget::class.java),
+                    remoteViews
+                )
+            }
+
+            CHECK_DAY -> {
+                val todayName = DateManager.getTodayName()
+                val savedDay = HawkManager.getZekrDay()
+                if (todayName != savedDay) {
+                    HawkManager.saveZekr(zekr = 0)
+                    HawkManager.saveZekrDay(day = DateManager.getTodayName())
+                    remoteViews.setTextViewText(
+                        R.id.tvZekrCounter,
+                        HawkManager.getSalavat().toString()
+                    )
+                    remoteViews.setTextViewText(R.id.tvZekrDay, DateManager.getTodayName())
+                    remoteViews.setTextViewText(R.id.tvTodayZekr, ZekrManager.getTodayZekr())
+                    AppWidgetManager.getInstance(context).updateAppWidget(
+                        ComponentName(context, ZekrWidget::class.java),
+                        remoteViews
+                    )
+                }
             }
         }
     }

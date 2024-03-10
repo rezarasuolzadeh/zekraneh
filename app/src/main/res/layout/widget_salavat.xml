@@ -25,14 +25,28 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/ic_sun_2"
             android:clickable="true"
+            android:singleLine="true"
+            android:paddingHorizontal="2dp"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit ="marquee_forever"
+            android:scrollHorizontally="true"
             android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:duplicateParentState="true"
             android:fontFamily="@font/dana_num"
             android:gravity="center"
             android:textColor="@color/blue"
-            android:textSize="20sp"
+            android:textSize="20dp"
             android:textStyle="bold"
             tools:ignore="RtlHardcoded"
-            tools:text="0" />
+            tools:text="0" >
+
+            <requestFocus
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:duplicateParentState="true" />
+
+        </TextView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -61,7 +75,7 @@
                     android:padding="1dp"
                     android:text="@string/today_salavat"
                     android:textColor="@color/white"
-                    android:textSize="19sp"
+                    android:textSize="19dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -74,7 +88,7 @@
                     android:fontFamily="@font/dana"
                     android:padding="3dp"
                     android:textColor="@color/lightGreen"
-                    android:textSize="19sp"
+                    android:textSize="19dp"
                     android:textStyle="bold"
                     tools:ignore="RtlHardcoded,UseCompatTextViewDrawableXml"
                     tools:text="شنبه" />

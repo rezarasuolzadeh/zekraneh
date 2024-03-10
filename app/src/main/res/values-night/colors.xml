@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="widget_background_color">#6C505151</color>
-    <color name="home_background_color">#6C505151</color>
-    <color name="widget_counter_color">#FFFFFF</color>
-    <color name="status_bar_background_color">#6C505151</color>
-    <color name="navigation_bar_background_color">#6C505151</color>
-</resources>

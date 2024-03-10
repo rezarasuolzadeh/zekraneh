@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "ir.rezarasoulzadeh.zekraneh"
-        minSdk = 21
+        minSdk = 23
         targetSdk = 34
         versionCode = 4
         versionName = "1.3.0"

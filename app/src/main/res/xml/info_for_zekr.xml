@@ -5,7 +5,7 @@
     android:initialLayout="@layout/widget_zekr"
     android:minWidth="250dp"
     android:minHeight="40dp"
-    android:previewImage="@drawable/preview_for_zekr"
+    android:previewImage="@drawable/img_zekr_preview"
     android:resizeMode="horizontal"
     android:updatePeriodMillis="86400000"
     android:widgetCategory="home_screen|keyguard" />

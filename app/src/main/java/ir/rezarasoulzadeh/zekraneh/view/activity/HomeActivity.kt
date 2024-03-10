@@ -5,11 +5,11 @@ import android.view.WindowManager
 import ir.rezarasoulzadeh.zekraneh.R
 import ir.rezarasoulzadeh.zekraneh.base.BaseActivity
 import ir.rezarasoulzadeh.zekraneh.databinding.ActivityHomeBinding
+import ir.rezarasoulzadeh.zekraneh.utils.enums.ColorType
 import ir.rezarasoulzadeh.zekraneh.utils.extensions.rotate
 import ir.rezarasoulzadeh.zekraneh.utils.extensions.vibratePhone
 import ir.rezarasoulzadeh.zekraneh.utils.managers.HawkManager
 import ir.rezarasoulzadeh.zekraneh.utils.managers.IntentManager
-import ir.rezarasoulzadeh.zekraneh.utils.enums.ColorType
 import ir.rezarasoulzadeh.zekraneh.utils.managers.SnackbarManager
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>(
@@ -73,8 +73,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
             IntentManager.shareTextIntent(
                 context = this@HomeActivity,
                 view = binding.root,
-                title = "معرفی به دوستان",
-                description = "سلام"
+                title = getString(R.string.introduce_to_friends),
+                description = getString(R.string.share_app_with_friends)
             )
         }
         clExit.setOnClickListener {
@@ -135,36 +135,36 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
      * handle the action of color clickable views.
      */
     private fun configColorClickListeners() = with(binding) {
-        rbWhite.setOnClickListener {
+        rbTextWhite.setOnClickListener {
             HawkManager.saveTextColor(color = ColorType.WHITE)
             IntentManager.apply {
-                changeSalavatTextColorIntent(context = this@HomeActivity)
-                changeZekrTextColorIntent(context = this@HomeActivity)
-                changeTasbihatTextColorIntent(context = this@HomeActivity)
+                changeSalavatColorIntent(context = this@HomeActivity)
+                changeZekrColorIntent(context = this@HomeActivity)
+                changeTasbihatColorIntent(context = this@HomeActivity)
             }
         }
-        rbBlack.setOnClickListener {
+        rbTextBlack.setOnClickListener {
             HawkManager.saveTextColor(color = ColorType.BLACK)
             IntentManager.apply {
-                changeSalavatTextColorIntent(context = this@HomeActivity)
-                changeZekrTextColorIntent(context = this@HomeActivity)
-                changeTasbihatTextColorIntent(context = this@HomeActivity)
+                changeSalavatColorIntent(context = this@HomeActivity)
+                changeZekrColorIntent(context = this@HomeActivity)
+                changeTasbihatColorIntent(context = this@HomeActivity)
             }
         }
-        rbGreen.setOnClickListener {
+        rbTextGreen.setOnClickListener {
             HawkManager.saveTextColor(color = ColorType.GREEN)
             IntentManager.apply {
-                changeSalavatTextColorIntent(context = this@HomeActivity)
-                changeZekrTextColorIntent(context = this@HomeActivity)
-                changeTasbihatTextColorIntent(context = this@HomeActivity)
+                changeSalavatColorIntent(context = this@HomeActivity)
+                changeZekrColorIntent(context = this@HomeActivity)
+                changeTasbihatColorIntent(context = this@HomeActivity)
             }
         }
-        rbRed.setOnClickListener {
+        rbTextRed.setOnClickListener {
             HawkManager.saveTextColor(color = ColorType.RED)
             IntentManager.apply {
-                changeSalavatTextColorIntent(context = this@HomeActivity)
-                changeZekrTextColorIntent(context = this@HomeActivity)
-                changeTasbihatTextColorIntent(context = this@HomeActivity)
+                changeSalavatColorIntent(context = this@HomeActivity)
+                changeZekrColorIntent(context = this@HomeActivity)
+                changeTasbihatColorIntent(context = this@HomeActivity)
             }
         }
     }
@@ -174,10 +174,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
      */
     private fun chooseSelectedTextColor() = with(binding) {
         HawkManager.getTextColor().let {
-            rbWhite.isChecked = it == ColorType.WHITE
-            rbBlack.isChecked = it == ColorType.BLACK
-            rbGreen.isChecked = it == ColorType.GREEN
-            rbRed.isChecked = it == ColorType.RED
+            rbTextWhite.isChecked = it == ColorType.WHITE
+            rbTextBlack.isChecked = it == ColorType.BLACK
+            rbTextGreen.isChecked = it == ColorType.GREEN
+            rbTextRed.isChecked = it == ColorType.RED
         }
     }
 
@@ -185,10 +185,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
      * enable the full screen mode for activity.
      */
     private fun enableFullScreenMode(window: Window) {
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-        )
+        window.apply {
+            setFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+            )
+        }
     }
 
 }

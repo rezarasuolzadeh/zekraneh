@@ -6,7 +6,7 @@ import android.content.IntentFilter
 import com.orhanobut.hawk.Hawk
 import ir.rezarasoulzadeh.zekraneh.utils.receiver.TimeChangedReceiver
 
-class HappyApp : Application() {
+class App : Application() {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                     overrides                                              //

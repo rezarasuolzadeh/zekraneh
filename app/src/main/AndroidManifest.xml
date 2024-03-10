@@ -5,18 +5,18 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
-        android:name=".HappyApp"
+        android:name=".App"
         android:allowBackup="true"
-        android:icon="@drawable/zekr"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/zekr"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
         <!-- Tasbihat widget -->
         <receiver
             android:name=".view.widget.TasbihatWidget"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/tasbihat_label">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -30,7 +30,7 @@
         <!-- Zekr widget -->
         <receiver
             android:name=".view.widget.ZekrWidget"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/zekr_label">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -74,12 +74,7 @@
             android:name=".view.activity.HomeActivity"
             android:exported="true"
             android:fitsSystemWindows="true"
-            android:launchMode="singleTop">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:launchMode="singleTop"/>
 
     </application>
 
