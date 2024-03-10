@@ -1,6 +1,9 @@
 ## Zekraneh
 This stylish and beautiful widget will help you to easily access the daily Islamic's prayers and enjoy using it
 
+### download
+Zekraneh is accessable in cafebazaar for you to enjoy from it
+
 <a href="https://cafebazaar.ir/app/ir.rezarasoulzadeh.zekraneh"> 
     <img alt="Zekraneh" src="/shots/bazaar.png"  width=180" height="55"> 
 </a>
