@@ -4,7 +4,7 @@ This stylish and beautiful widget will help you to easily access the daily Islam
 ### download
 Zekraneh is accessable in cafebazaar for you to enjoy from it
 
-<a href="https://cafebazaar.ir/app/ir.rezarasoulzadeh.zekraneh"> 
+<a href="https://cafebazaar.ir/app/ir.rezarasuolzadeh.zekraneh"> 
     <img alt="Zekraneh" src="/shots/bazaar.png"  width=180" height="55"> 
 </a>
 
