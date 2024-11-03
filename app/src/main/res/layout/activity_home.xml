@@ -72,7 +72,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <ir.rezarasoulzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout
+            <ir.rezarasuolzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout
                 android:id="@+id/elDetails"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -186,7 +186,7 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </ir.rezarasoulzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout>
+            </ir.rezarasuolzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/clLanguage"
@@ -234,7 +234,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <ir.rezarasoulzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout
+            <ir.rezarasuolzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout
                 android:id="@+id/elLanguage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -250,7 +250,7 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </ir.rezarasoulzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout>
+            </ir.rezarasuolzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/clColor"
@@ -297,7 +297,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <ir.rezarasoulzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout
+            <ir.rezarasuolzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout
                 android:id="@+id/elColor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -374,7 +374,7 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </ir.rezarasoulzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout>
+            </ir.rezarasuolzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/clStar"
