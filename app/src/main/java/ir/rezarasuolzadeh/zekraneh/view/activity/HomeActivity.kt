@@ -45,13 +45,13 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
                 imgDetailsArrow.rotate(destinationRotate = 180f)
             }
         }
-        clLanguage.setOnClickListener {
-            if(elLanguage.isExpanded) {
-                elLanguage.collapse()
-                imgLanguageArrow.rotate(destinationRotate = 0f, duration = 150)
+        clCustomZekr.setOnClickListener {
+            if(elCustomZekr.isExpanded) {
+                elCustomZekr.collapse()
+                imgCustomZekrArrow.rotate(destinationRotate = 0f, duration = 150)
             } else {
-                elLanguage.expand()
-                imgLanguageArrow.rotate(destinationRotate = 180f, duration = 150)
+                elCustomZekr.expand()
+                imgCustomZekrArrow.rotate(destinationRotate = 180f, duration = 150)
             }
         }
         clColor.setOnClickListener {

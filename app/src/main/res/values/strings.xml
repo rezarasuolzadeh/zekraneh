@@ -6,6 +6,7 @@
     <!-- Sentences -->
     <string name="today_salavat">صلوات های روز</string>
     <string name="today_zekr">ذکر روز</string>
+    <string name="custom_zekr">ذکر دلخواه</string>
     <string name="today_tasbihat">تسبیحات حضرت زهرا (س)</string>
     <string name="AALabel">اَللّهُ اَکبَر</string>
     <string name="HALabel">اَلحَمدُلِلّه</string>
@@ -19,6 +20,7 @@
     <string name="zekr_label">ذکر روز</string>
     <string name="tasbihat_label">تسبیحات</string>
     <string name="introduce_to_friends">معرفی به دوستان</string>
+    <string name="enter_your_custom_zekr_here">ذکر دلخواه خود را وارد کنید</string>
 
     <!-- Multiline -->
     <string name="share_app_with_friends" formatted="false">
