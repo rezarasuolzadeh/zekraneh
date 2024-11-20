@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!-- Tasbihat widget -->
+        <!-- Tasbihat Widget -->
         <receiver
             android:name=".view.widget.TasbihatWidget"
             android:exported="true"
@@ -27,7 +27,7 @@
                 android:resource="@xml/info_for_tasbihat" />
         </receiver>
 
-        <!-- Zekr widget -->
+        <!-- Zekr Widget -->
         <receiver
             android:name=".view.widget.ZekrWidget"
             android:exported="true"
@@ -48,7 +48,28 @@
                 android:resource="@xml/info_for_zekr" />
         </receiver>
 
-        <!-- Salavat widget -->
+        <!-- Custom Zekr Widget -->
+        <receiver
+            android:name=".view.widget.CustomZekrWidget"
+            android:exported="true"
+            android:label="@string/custom_zekr">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.WIDGET_BUTTON" />
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+                <action android:name="android.appwidget.action.APPWIDGET_DELETED" />
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
+                <action android:name="android.appwidget.action.ACTION_AUTO_UPDATE_WIDGET" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+                <action android:name="android.intent.action.TIME_SET" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/info_for_custom_zekr" />
+        </receiver>
+
+        <!-- Salavat Widget -->
         <receiver
             android:name=".view.widget.SalavatWidget"
             android:exported="true"
@@ -69,7 +90,7 @@
                 android:resource="@xml/info_for_salavat" />
         </receiver>
 
-        <!-- Home activity -->
+        <!-- Home Activity -->
         <activity
             android:name=".view.activity.HomeActivity"
             android:exported="true"

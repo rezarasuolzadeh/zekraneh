@@ -105,6 +105,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
                 imgCustomZekrConfirm.hideKeyboard()
                 delay(timeMillis = 200)
                 HawkManager.saveCustomZekrTitle(customZekrTitle = etCustomZekr.text.toString())
+                IntentManager.changeCustomZekrTitleIntent(context = this@HomeActivity)
                 SnackbarManager.showSnackbar(
                     context = this@HomeActivity,
                     view = binding.root,

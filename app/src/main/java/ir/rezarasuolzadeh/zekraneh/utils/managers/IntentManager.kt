@@ -7,10 +7,12 @@ import android.view.View
 import ir.rezarasuolzadeh.zekraneh.R
 import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.CHECK_DAY
 import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.COLOR
+import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.CUSTOM_ZEKR_TITLE
 import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.RESET_CUSTOM_ZEKR
 import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.RESET_SALAVAT
 import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.RESET_TASBIHAT
 import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.RESET_ZEKR
+import ir.rezarasuolzadeh.zekraneh.view.widget.CustomZekrWidget
 import ir.rezarasuolzadeh.zekraneh.view.widget.SalavatWidget
 import ir.rezarasuolzadeh.zekraneh.view.widget.TasbihatWidget
 import ir.rezarasuolzadeh.zekraneh.view.widget.ZekrWidget
@@ -131,6 +133,15 @@ object IntentManager {
     fun checkZekrDayIntent(context: Context) {
         val intent = Intent(context, ZekrWidget::class.java)
         intent.action = CHECK_DAY
+        context.sendBroadcast(intent)
+    }
+
+    /**
+     * send a broadcast intent to custom zekr widget to update custom title.
+     */
+    fun changeCustomZekrTitleIntent(context: Context) {
+        val intent = Intent(context, CustomZekrWidget::class.java)
+        intent.action = CUSTOM_ZEKR_TITLE
         context.sendBroadcast(intent)
     }
 
