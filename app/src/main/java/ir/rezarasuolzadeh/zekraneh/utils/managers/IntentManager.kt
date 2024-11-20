@@ -119,6 +119,15 @@ object IntentManager {
     }
 
     /**
+     * send a broadcast intent to custom zekr widget to change the custom zekr color.
+     */
+    fun changeCustomZekrColorIntent(context: Context) {
+        val intent = Intent(context, CustomZekrWidget::class.java)
+        intent.action = COLOR
+        context.sendBroadcast(intent)
+    }
+
+    /**
      * send a broadcast intent to salavat widget to check day.
      */
     fun checkSalavatDayIntent(context: Context) {

@@ -189,6 +189,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
                 changeSalavatColorIntent(context = this@HomeActivity)
                 changeZekrColorIntent(context = this@HomeActivity)
                 changeTasbihatColorIntent(context = this@HomeActivity)
+                changeCustomZekrColorIntent(context = this@HomeActivity)
             }
         }
         rbTextBlack.setOnClickListener {
@@ -197,6 +198,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
                 changeSalavatColorIntent(context = this@HomeActivity)
                 changeZekrColorIntent(context = this@HomeActivity)
                 changeTasbihatColorIntent(context = this@HomeActivity)
+                changeCustomZekrColorIntent(context = this@HomeActivity)
             }
         }
         rbTextGreen.setOnClickListener {
@@ -205,6 +207,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
                 changeSalavatColorIntent(context = this@HomeActivity)
                 changeZekrColorIntent(context = this@HomeActivity)
                 changeTasbihatColorIntent(context = this@HomeActivity)
+                changeCustomZekrColorIntent(context = this@HomeActivity)
             }
         }
         rbTextRed.setOnClickListener {
@@ -213,6 +216,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
                 changeSalavatColorIntent(context = this@HomeActivity)
                 changeZekrColorIntent(context = this@HomeActivity)
                 changeTasbihatColorIntent(context = this@HomeActivity)
+                changeCustomZekrColorIntent(context = this@HomeActivity)
             }
         }
     }
