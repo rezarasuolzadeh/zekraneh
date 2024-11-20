@@ -7,6 +7,7 @@ import android.view.View
 import ir.rezarasuolzadeh.zekraneh.R
 import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.CHECK_DAY
 import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.COLOR
+import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.RESET_CUSTOM_ZEKR
 import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.RESET_SALAVAT
 import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.RESET_TASBIHAT
 import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.RESET_ZEKR
@@ -76,6 +77,15 @@ object IntentManager {
     fun resetTasbihatIntent(context: Context) {
         val intent = Intent(context, TasbihatWidget::class.java)
         intent.action = RESET_TASBIHAT
+        context.sendBroadcast(intent)
+    }
+
+    /**
+     * send a broadcast intent to custom zekr widget to reset the custom zekr counters.
+     */
+    fun resetCustomZekrIntent(context: Context) {
+        val intent = Intent(context, TasbihatWidget::class.java)
+        intent.action = RESET_CUSTOM_ZEKR
         context.sendBroadcast(intent)
     }
 

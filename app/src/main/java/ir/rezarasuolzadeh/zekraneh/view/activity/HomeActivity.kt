@@ -163,6 +163,19 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
                 message = getString(R.string.tasbihat_has_been_reset)
             )
         }
+        imgCustomZekrRefresh.setOnClickListener {
+            vibratePhone()
+            imgCustomZekrRefresh.rotate(
+                destinationRotate = if(imgCustomZekrRefresh.rotation == 0f) 360f else 0f
+            )
+            HawkManager.saveCustomZekr(customZekr = 0)
+            IntentManager.resetCustomZekrIntent(context = this@HomeActivity)
+            SnackbarManager.showSnackbar(
+                context = this@HomeActivity,
+                view = binding.root,
+                message = getString(R.string.custom_zekr_has_been_reset)
+            )
+        }
     }
 
     /**

@@ -16,6 +16,7 @@ object Constants {
     const val CUSTOM_ZEKR = "custom zekr"
     const val CUSTOM_ZEKR_TITLE = "custom zekr title"
     const val RESET_TASBIHAT = "reset tasbihat"
+    const val RESET_CUSTOM_ZEKR = "reset custom zekr"
     const val COLOR = "color"
     const val TEXT_COLOR = "text color"
     const val SALAVAT_DAY = "salavat day"

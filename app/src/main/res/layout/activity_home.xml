@@ -184,6 +184,41 @@
                         app:layout_constraintTop_toTopOf="@id/tvTasbihatTitle"
                         tools:ignore="ContentDescription" />
 
+                    <View
+                        android:id="@+id/vDividerThird"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="18dp"
+                        android:background="@color/lightWhite"
+                        app:layout_constraintTop_toBottomOf="@id/tvTasbihatTitle" />
+
+                    <TextView
+                        android:id="@+id/tvCustomZekrTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/dana"
+                        android:text="@string/custom_zekr"
+                        android:textColor="@color/blue"
+                        android:textSize="16dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/vDividerThird"
+                        tools:ignore="RtlHardcoded" />
+
+                    <ImageView
+                        android:id="@+id/imgCustomZekrRefresh"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginHorizontal="15dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_refresh"
+                        app:layout_constraintBottom_toBottomOf="@id/tvCustomZekrTitle"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvCustomZekrTitle"
+                        tools:ignore="ContentDescription" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </ir.rezarasuolzadeh.zekraneh.view.custom.expandableLayout.ExpandableLayout>

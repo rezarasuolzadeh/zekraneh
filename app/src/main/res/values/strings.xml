@@ -14,6 +14,7 @@
     <string name="salavat_has_been_reset">صلوات های روز بازنشانی شد</string>
     <string name="zekr_has_been_reset">ذکر روز بازنشانی شد</string>
     <string name="tasbihat_has_been_reset">تسبیحات حضرت زهرا (س) بازنشانی شد</string>
+    <string name="custom_zekr_has_been_reset">ذکر دلخواه بازنشانی شد</string>
     <string name="install_bazaar_notice">ابتدا برنامه بازار را نصب کنید</string>
     <string name="share_process_failed">همرسانی مقدور نیست</string>
     <string name="custom_zekr_has_been_saved">ذکر دلخواه شما ذخیره شد</string>
