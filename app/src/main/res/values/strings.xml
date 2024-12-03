@@ -6,6 +6,7 @@
     <!-- Sentences -->
     <string name="today_salavat">صلوات های روز</string>
     <string name="today_zekr">ذکر روز</string>
+    <string name="custom_zekr">ذکر دلخواه</string>
     <string name="today_tasbihat">تسبیحات حضرت زهرا (س)</string>
     <string name="AALabel">اَللّهُ اَکبَر</string>
     <string name="HALabel">اَلحَمدُلِلّه</string>
@@ -13,12 +14,15 @@
     <string name="salavat_has_been_reset">صلوات های روز بازنشانی شد</string>
     <string name="zekr_has_been_reset">ذکر روز بازنشانی شد</string>
     <string name="tasbihat_has_been_reset">تسبیحات حضرت زهرا (س) بازنشانی شد</string>
+    <string name="custom_zekr_has_been_reset">ذکر دلخواه بازنشانی شد</string>
     <string name="install_bazaar_notice">ابتدا برنامه بازار را نصب کنید</string>
     <string name="share_process_failed">همرسانی مقدور نیست</string>
+    <string name="custom_zekr_has_been_saved">ذکر دلخواه شما ذخیره شد</string>
     <string name="salavat_label">صلوات</string>
     <string name="zekr_label">ذکر روز</string>
     <string name="tasbihat_label">تسبیحات</string>
     <string name="introduce_to_friends">معرفی به دوستان</string>
+    <string name="enter_your_custom_zekr_here">ذکر دلخواه خود را وارد کنید</string>
 
     <!-- Multiline -->
     <string name="share_app_with_friends" formatted="false">

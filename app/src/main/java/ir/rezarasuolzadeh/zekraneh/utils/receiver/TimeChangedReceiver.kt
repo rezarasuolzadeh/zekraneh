@@ -16,6 +16,7 @@ class TimeChangedReceiver: BroadcastReceiver() {
             IntentManager.apply {
                 checkSalavatDayIntent(context = it)
                 checkZekrDayIntent(context = it)
+                checkCustomZekrDayIntent(context = it)
             }
         }
     }

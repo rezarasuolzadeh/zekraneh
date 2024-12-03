@@ -6,11 +6,16 @@ import ir.rezarasuolzadeh.zekraneh.R
 import ir.rezarasuolzadeh.zekraneh.base.BaseActivity
 import ir.rezarasuolzadeh.zekraneh.databinding.ActivityHomeBinding
 import ir.rezarasuolzadeh.zekraneh.utils.enums.ColorType
+import ir.rezarasuolzadeh.zekraneh.utils.extensions.hideKeyboard
 import ir.rezarasuolzadeh.zekraneh.utils.extensions.rotate
 import ir.rezarasuolzadeh.zekraneh.utils.extensions.vibratePhone
 import ir.rezarasuolzadeh.zekraneh.utils.managers.HawkManager
 import ir.rezarasuolzadeh.zekraneh.utils.managers.IntentManager
 import ir.rezarasuolzadeh.zekraneh.utils.managers.SnackbarManager
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>(
     ActivityHomeBinding::inflate
@@ -22,8 +27,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
 
     override fun onAfterCreate() {
         enableFullScreenMode(window = window)
+        initializeInfo()
         configMenuClickListeners()
         configDetailsClickListeners()
+        configCustomZekrClickListeners()
         configColorClickListeners()
         chooseSelectedTextColor()
     }
@@ -31,6 +38,13 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                      configs                                               //
     ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * initialize the UI info according to database info.
+     */
+    private fun initializeInfo() = with(binding) {
+        etCustomZekr.setText(HawkManager.getCustomZekrTitle().orEmpty())
+    }
 
     /**
      * handle the action of menu clickable views.
@@ -45,13 +59,13 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
                 imgDetailsArrow.rotate(destinationRotate = 180f)
             }
         }
-        clLanguage.setOnClickListener {
-            if(elLanguage.isExpanded) {
-                elLanguage.collapse()
-                imgLanguageArrow.rotate(destinationRotate = 0f, duration = 150)
+        clCustomZekr.setOnClickListener {
+            if(elCustomZekr.isExpanded) {
+                elCustomZekr.collapse()
+                imgCustomZekrArrow.rotate(destinationRotate = 0f, duration = 150)
             } else {
-                elLanguage.expand()
-                imgLanguageArrow.rotate(destinationRotate = 180f, duration = 150)
+                elCustomZekr.expand()
+                imgCustomZekrArrow.rotate(destinationRotate = 180f, duration = 150)
             }
         }
         clColor.setOnClickListener {
@@ -79,6 +93,27 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
         }
         clExit.setOnClickListener {
             finish()
+        }
+    }
+
+    /**
+     * handle the action of custom zekr clickable views.
+     */
+    private fun configCustomZekrClickListeners() = with(binding) {
+        imgCustomZekrConfirm.setOnClickListener {
+            CoroutineScope(context = Dispatchers.Main).launch {
+                imgCustomZekrConfirm.hideKeyboard()
+                delay(timeMillis = 200)
+                HawkManager.saveCustomZekrTitle(customZekrTitle = etCustomZekr.text.toString())
+                IntentManager.changeCustomZekrTitleIntent(context = this@HomeActivity)
+                SnackbarManager.showSnackbar(
+                    context = this@HomeActivity,
+                    view = binding.root,
+                    message = getString(R.string.custom_zekr_has_been_saved)
+                )
+                elCustomZekr.collapse()
+                imgCustomZekrArrow.rotate(destinationRotate = 0f, duration = 150)
+            }
         }
     }
 
@@ -129,6 +164,19 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
                 message = getString(R.string.tasbihat_has_been_reset)
             )
         }
+        imgCustomZekrRefresh.setOnClickListener {
+            vibratePhone()
+            imgCustomZekrRefresh.rotate(
+                destinationRotate = if(imgCustomZekrRefresh.rotation == 0f) 360f else 0f
+            )
+            HawkManager.saveCustomZekr(customZekr = 0)
+            IntentManager.resetCustomZekrIntent(context = this@HomeActivity)
+            SnackbarManager.showSnackbar(
+                context = this@HomeActivity,
+                view = binding.root,
+                message = getString(R.string.custom_zekr_has_been_reset)
+            )
+        }
     }
 
     /**
@@ -141,6 +189,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
                 changeSalavatColorIntent(context = this@HomeActivity)
                 changeZekrColorIntent(context = this@HomeActivity)
                 changeTasbihatColorIntent(context = this@HomeActivity)
+                changeCustomZekrColorIntent(context = this@HomeActivity)
             }
         }
         rbTextBlack.setOnClickListener {
@@ -149,6 +198,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
                 changeSalavatColorIntent(context = this@HomeActivity)
                 changeZekrColorIntent(context = this@HomeActivity)
                 changeTasbihatColorIntent(context = this@HomeActivity)
+                changeCustomZekrColorIntent(context = this@HomeActivity)
             }
         }
         rbTextGreen.setOnClickListener {
@@ -157,6 +207,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
                 changeSalavatColorIntent(context = this@HomeActivity)
                 changeZekrColorIntent(context = this@HomeActivity)
                 changeTasbihatColorIntent(context = this@HomeActivity)
+                changeCustomZekrColorIntent(context = this@HomeActivity)
             }
         }
         rbTextRed.setOnClickListener {
@@ -165,6 +216,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(
                 changeSalavatColorIntent(context = this@HomeActivity)
                 changeZekrColorIntent(context = this@HomeActivity)
                 changeTasbihatColorIntent(context = this@HomeActivity)
+                changeCustomZekrColorIntent(context = this@HomeActivity)
             }
         }
     }

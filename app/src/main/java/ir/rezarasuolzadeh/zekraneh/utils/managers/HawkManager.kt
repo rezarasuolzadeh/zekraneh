@@ -1,6 +1,9 @@
 package ir.rezarasuolzadeh.zekraneh.utils.managers
 
 import com.orhanobut.hawk.Hawk
+import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.CUSTOM_ZEKR
+import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.CUSTOM_ZEKR_DAY
+import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.CUSTOM_ZEKR_TITLE
 import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.SALAVAT
 import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.SALAVAT_DAY
 import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.TASBIHAT_AA
@@ -89,6 +92,20 @@ object HawkManager {
     fun getZekrDay(): String = Hawk.get(ZEKR_DAY, "").orEmpty()
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                    custom zekr day                                         //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * save custom zekr day to hawk.
+     */
+    fun saveCustomZekrDay(day: String) = Hawk.put(CUSTOM_ZEKR_DAY, day)
+
+    /**
+     * get custom zekr day from hawk.
+     */
+    fun getCustomZekrDay(): String = Hawk.get(CUSTOM_ZEKR_DAY, "").orEmpty()
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                      tasbihat                                              //
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -160,6 +177,39 @@ object HawkManager {
             currentTasbihatHA
         }
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                     custom zekr                                            //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * save custom zekr to hawk.
+     */
+    fun saveCustomZekr(customZekr: Int) = Hawk.put(CUSTOM_ZEKR, customZekr)
+
+    /**
+     * get custom zekr from hawk.
+     */
+    fun getCustomZekr(): Int = Hawk.get(CUSTOM_ZEKR, 0).orZero()
+
+    /**
+     * save the increased custom zekr to hawk then return it.
+     */
+    fun increaseCustomZekr(): Int {
+        val currentCustomZekr = getCustomZekr()
+        saveCustomZekr(customZekr = currentCustomZekr + 1)
+        return currentCustomZekr + 1
+    }
+
+    /**
+     * save custom zekr title to hawk.
+     */
+    fun saveCustomZekrTitle(customZekrTitle: String) = Hawk.put(CUSTOM_ZEKR_TITLE, customZekrTitle)
+
+    /**
+     * get custom zekr title from hawk.
+     */
+    fun getCustomZekrTitle(): String? = Hawk.get(CUSTOM_ZEKR_TITLE, null)
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                       color                                                //
