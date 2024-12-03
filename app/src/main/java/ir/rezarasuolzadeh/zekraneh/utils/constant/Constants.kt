@@ -21,6 +21,7 @@ object Constants {
     const val TEXT_COLOR = "text color"
     const val SALAVAT_DAY = "salavat day"
     const val ZEKR_DAY = "zekr day"
+    const val CUSTOM_ZEKR_DAY = "custom zekr day"
     const val CHECK_DAY = "check day"
 
 }

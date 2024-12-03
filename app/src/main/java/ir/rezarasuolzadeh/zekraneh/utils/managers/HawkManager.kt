@@ -2,6 +2,7 @@ package ir.rezarasuolzadeh.zekraneh.utils.managers
 
 import com.orhanobut.hawk.Hawk
 import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.CUSTOM_ZEKR
+import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.CUSTOM_ZEKR_DAY
 import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.CUSTOM_ZEKR_TITLE
 import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.SALAVAT
 import ir.rezarasuolzadeh.zekraneh.utils.constant.Constants.SALAVAT_DAY
@@ -89,6 +90,20 @@ object HawkManager {
      * get zekr day from hawk.
      */
     fun getZekrDay(): String = Hawk.get(ZEKR_DAY, "").orEmpty()
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                    custom zekr day                                         //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * save custom zekr day to hawk.
+     */
+    fun saveCustomZekrDay(day: String) = Hawk.put(CUSTOM_ZEKR_DAY, day)
+
+    /**
+     * get custom zekr day from hawk.
+     */
+    fun getCustomZekrDay(): String = Hawk.get(CUSTOM_ZEKR_DAY, "").orEmpty()
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                      tasbihat                                              //

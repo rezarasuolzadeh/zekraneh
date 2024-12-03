@@ -55,10 +55,10 @@ class CustomZekrWidget : BaseWidget() {
         when (intent.action) {
             CUSTOM_ZEKR -> {
                 val todayName = DateManager.getTodayName()
-                val savedDay = HawkManager.getZekrDay()
+                val savedDay = HawkManager.getCustomZekrDay()
                 if (todayName != savedDay) {
                     HawkManager.saveCustomZekr(customZekr = 0)
-                    HawkManager.saveZekrDay(day = DateManager.getTodayName())
+                    HawkManager.saveCustomZekrDay(day = DateManager.getTodayName())
                     remoteViews.setTextViewText(
                         R.id.tvCustomZekrCounter,
                         HawkManager.getCustomZekr().toString()
@@ -110,10 +110,10 @@ class CustomZekrWidget : BaseWidget() {
 
             CHECK_DAY -> {
                 val todayName = DateManager.getTodayName()
-                val savedDay = HawkManager.getZekrDay()
+                val savedDay = HawkManager.getCustomZekrDay()
                 if (todayName != savedDay) {
                     HawkManager.saveCustomZekr(customZekr = 0)
-                    HawkManager.saveZekrDay(day = DateManager.getTodayName())
+                    HawkManager.saveCustomZekrDay(day = DateManager.getTodayName())
                     remoteViews.setTextViewText(
                         R.id.tvCustomZekrCounter,
                         HawkManager.getCustomZekr().toString()
@@ -140,7 +140,7 @@ class CustomZekrWidget : BaseWidget() {
         appWidgetId: Int
     ) {
         val views = RemoteViews(context.packageName, R.layout.widget_custom_zekr)
-        HawkManager.saveZekrDay(day = DateManager.getTodayName())
+        HawkManager.saveCustomZekrDay(day = DateManager.getTodayName())
         views.setTextViewText(R.id.tvCustomZekr, HawkManager.getCustomZekrTitle())
         views.setTextViewText(R.id.tvCustomZekrCounter, HawkManager.getCustomZekr().toString())
         views.setOnClickPendingIntent(

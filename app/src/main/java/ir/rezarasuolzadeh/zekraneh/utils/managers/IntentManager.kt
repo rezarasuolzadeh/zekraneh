@@ -146,6 +146,15 @@ object IntentManager {
     }
 
     /**
+     * send a broadcast intent to custom zekr widget to check day.
+     */
+    fun checkCustomZekrDayIntent(context: Context) {
+        val intent = Intent(context, CustomZekrWidget::class.java)
+        intent.action = CHECK_DAY
+        context.sendBroadcast(intent)
+    }
+
+    /**
      * send a broadcast intent to custom zekr widget to update custom title.
      */
     fun changeCustomZekrTitleIntent(context: Context) {
