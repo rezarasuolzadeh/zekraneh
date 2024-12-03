@@ -102,7 +102,7 @@
                 android:textSize="20dp"
                 android:textStyle="bold"
                 tools:ignore="RtlHardcoded"
-                tools:text="یا فَتّاح و یا رِضا">
+                tools:text="یا فَتّاح و یا رَزّاق">
 
                 <requestFocus
                     android:duplicateParentState="true"
