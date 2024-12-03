@@ -12,8 +12,8 @@ android {
         applicationId = "ir.rezarasuolzadeh.zekraneh"
         minSdk = 23
         targetSdk = 34
-        versionCode = 6
-        versionName = "1.4.8"
+        versionCode = 7
+        versionName = "1.5.9"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
