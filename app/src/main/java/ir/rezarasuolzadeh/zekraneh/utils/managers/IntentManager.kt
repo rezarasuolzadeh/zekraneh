@@ -86,7 +86,7 @@ object IntentManager {
      * send a broadcast intent to custom zekr widget to reset the custom zekr counters.
      */
     fun resetCustomZekrIntent(context: Context) {
-        val intent = Intent(context, TasbihatWidget::class.java)
+        val intent = Intent(context, CustomZekrWidget::class.java)
         intent.action = RESET_CUSTOM_ZEKR
         context.sendBroadcast(intent)
     }
