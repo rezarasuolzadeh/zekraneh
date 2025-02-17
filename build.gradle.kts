@@ -5,7 +5,7 @@ buildscript {
     }
 
     dependencies {
-        val gradle = "8.1.4"
+        val gradle = "8.8.1"
         classpath("com.android.tools.build:gradle:$gradle")
 
         val kotlin = "1.9.22"
