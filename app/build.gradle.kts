@@ -6,14 +6,13 @@ plugins {
 
 android {
     namespace = "ir.rezarasuolzadeh.zekraneh"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "ir.rezarasuolzadeh.zekraneh"
         minSdk = 23
-        targetSdk = 34
-        versionCode = 8
-        versionName = "1.5.10"
+        versionCode = 9
+        versionName = "1.5.11"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
