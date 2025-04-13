@@ -10,6 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "ir.rezarasuolzadeh.zekraneh"
+        targetSdk = 35
         minSdk = 23
         versionCode = 9
         versionName = "1.5.11"
@@ -32,6 +33,13 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+    }
+
+    signingConfigs{
+        create("release") {
+            enableV1Signing = true
+            enableV2Signing = true
         }
     }
 
