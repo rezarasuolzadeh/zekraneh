@@ -5,8 +5,12 @@
 ذکرانه رو هم میتونید از بازار دانلود کنید و هم به صورت مستقیم از همینجا:
 <br>&nbsp;<br>
 <p align="center">
-    <img alt="Bazaar" src="/shots/bazaar.png"  width="180" height="55"> 
-    <img alt="Github" src="/shots/github.png"  width="180" height="55"> 
+    <a href="https://cafebazaar.ir/app/ir.rezarasuolzadeh.zekraneh">
+        <img alt="Bazaar" src="/shots/bazaar.png" width="180" height="55">
+    </a>
+    <a href="https://your-github-link.com">
+        <img alt="Github" src="/shots/github.png" width="180" height="55">
+    </a>
 </p>
 
 ### ویجت ها
