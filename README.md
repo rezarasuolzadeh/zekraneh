@@ -5,8 +5,8 @@
 ذکرانه رو هم میتونید از بازار دانلود کنید و هم به صورت مستقیم از همینجا:
 <br>&nbsp;<br>
 <p align="center">
-    <img alt="Date Dialog" src="/shots/bazaar.png"  width="180" height="55"> 
-    <img alt="Date Dialog" src="/shots/github.png"  width="180" height="55"> 
+    <img alt="Bazaar" src="/shots/bazaar.png"  width="180" height="55"> 
+    <img alt="Github" src="/shots/github.png"  width="180" height="55"> 
 </p>
 
 ### ویجت ها
