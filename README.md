@@ -1,7 +1,6 @@
-## Zekraneh
-This stylish and beautiful widget will help you to easily access the daily Islamic's prayers and enjoy using it. This widget is designed by Afzal Moghaddam, who is a professional and skilled Product Designer.
+### ذکرانه
+ذکرانه یه ویجت ساده و شیک برای اذکار روزانس که با اندروید توسعه داده شده و میتونید ازش استفاده کنید. یه موقعی قرار بود پروژه یکی از درسای دانشگاهم باشه (😅) ولی دیگه جوری شد که گفتم به عنوان یه ویجتی که شاید کاربرد داشته برای بقیه، منتشرش کنم. بعدش تصمیم گرفتم متن باز باشه پروژه تا اگه کسی خواست ویجت پیاده کنه، حتی خیلی کم بتونه کمکش کنه. 
 
-[![Linkedin](https://img.shields.io/badge/-AfzalMoghaddam-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/afzal-moghaddam/)](https://www.linkedin.com/in/afzal-moghaddam) 
 
 ### download
 Zekraneh is accessable on Bazaar for you to enjoy from it.
