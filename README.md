@@ -8,7 +8,7 @@
     <a href="https://cafebazaar.ir/app/ir.rezarasuolzadeh.zekraneh">
         <img alt="Bazaar" src="/shots/bazaar.png" width="180" height="55">
     </a>
-    <a href="https://your-github-link.com">
+    <a href="https://github.com/rezarasuolzadeh/zekraneh/releases/download/1.5.10/zekraneh.1.5.10.apk">
         <img alt="Github" src="/shots/github.png" width="180" height="55">
     </a>
 </p>
