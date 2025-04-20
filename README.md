@@ -3,18 +3,42 @@
 
 ### دریافت برنامه
 ذکرانه رو هم میتونید از بازار دانلود کنید و هم به صورت مستقیم از همینجا:
+<br>&nbsp;<br>
+<p align="center">
+    <img alt="Date Dialog" src="/shots/bazaar.png"  width="180" height="55"> 
+    <img alt="Date Dialog" src="/shots/github.png"  width="180" height="55"> 
+</p>
 
-
-### download
-Zekraneh is accessable on Bazaar for you to enjoy from it.
-
-<a href="https://cafebazaar.ir/app/ir.rezarasuolzadeh.zekraneh"> 
-    <img alt="Zekraneh" src="/shots/bazaar.png"  width=180" height="55"> 
-</a>
-
-### shots
-<p float="left">
-    <img alt="Passengers" src="/shots/shot_1.png"  width="180" height="380"> 
+### ویجت ها
+<div style="text-align: right;">
+    &nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ویجت ذکر روز
+</div>
+<div style="text-align: right;">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;این ویجت ذکر هر روز هفته رو نمایش میده و ذکر شمار اون در سمت چپ ویجت قرار داده شده.
+</div>
+<br>&nbsp;<br>
+<p align="center">
+    <img alt="Passengers" src="/shots/shot_3.png"  width="180" height="380">
+</p>
+<br>&nbsp;<br>
+<div style="text-align: right;">
+    &nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ویجت صلوات روز
+</div>
+<div style="text-align: right;">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;این ویجت صلوات های روز رو نمایش میده و ذکر شمار اون در سمت چپ ویجت قرار داده شده.
+</div>
+<br>&nbsp;<br>
+<p align="center">
+    <img alt="Passengers" src="/shots/shot_1.png"  width="180" height="380">
+</p>
+<br>&nbsp;<br>
+<div style="text-align: right;">
+    &nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ویجت تسبیحات حضرت زهرا (س)
+</div>
+<div style="text-align: right;">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;این ویجت تسبیحات حضرت رهزا رو به تفکیک نمایش میده و ذکر شمار های اون در زیر هر ذکر قرار داده شده.
+</div>
+<br>&nbsp;<br>
+<p align="center">
     <img alt="Passengers" src="/shots/shot_2.png"  width="180" height="380">
-    <img alt="Passengers" src="/shots/shot_3.png"  width="180" height="380"> 
 </p>
