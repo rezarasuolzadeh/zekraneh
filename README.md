@@ -23,7 +23,7 @@
 </div>
 <br>&nbsp;<br>
 <p align="center">
-    <img alt="Passengers" src="/shots/shot_3.png"  width="180" height="380">
+    <img alt="Passengers" src="/shots/zekraneh_4.png"  width="180" height="380">
 </p>
 <br>&nbsp;<br>
 <div style="text-align: right;">
@@ -34,7 +34,7 @@
 </div>
 <br>&nbsp;<br>
 <p align="center">
-    <img alt="Passengers" src="/shots/shot_1.png"  width="180" height="380">
+    <img alt="Passengers" src="/shots/zekraneh_1.png"  width="180" height="380">
 </p>
 <br>&nbsp;<br>
 <div style="text-align: right;">
@@ -45,5 +45,16 @@
 </div>
 <br>&nbsp;<br>
 <p align="center">
-    <img alt="Passengers" src="/shots/shot_2.png"  width="180" height="380">
+    <img alt="Passengers" src="/shots/zekraneh_3.png"  width="180" height="380">
+</p>
+<br>&nbsp;<br>
+<div style="text-align: right;">
+    &nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ویجت ذکر دلخواه
+</div>
+<div style="text-align: right;">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;این ویجت ذکر دلخواه ثبت شده توسط شما رو نمایش میده و ذکر شمار اون در سمت چپ ویجت قرار داده شده.
+</div>
+<br>&nbsp;<br>
+<p align="center">
+    <img alt="Passengers" src="/shots/zekraneh_2.png"  width="180" height="380">
 </p>
